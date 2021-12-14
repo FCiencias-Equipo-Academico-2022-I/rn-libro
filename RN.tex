@@ -1,0 +1,164 @@
+\documentclass[12pt,openany]{book}
+%\usepackage{classnotestikz}
+%\usepackage{tikzelements}
+\usepackage{libro-fciencias}
+\usepackage{booktabs}
+\usepackage{colortbl}
+\def\thickline{\specialrule{.15em}{.05em}{.05em}}
+\def\violetrule{\color{Violeta}{\rule{100px}{0.05em}}}
+\def\bluerule{\color{DarkBlue}{\rule{100px}{0.05em}}}
+\usepackage{multirow}
+
+
+\usepackage{diagramas-fciencias}
+\pgfplotsset{compat=1.15}
+
+\graphicspath{ {Figuras/} }
+
+%\setcounter{tocdepth}{4}
+
+\addbibresource{rnnotesref.bib}
+
+
+%----------------------------------------------------------------------------------------
+%	Autores y Título
+%----------------------------------------------------------------------------------------
+
+\title{Redes Neuronales}
+\subtitle{Notas de clase}
+\author{Karla Fernanda Jiménez Gutiérrez\newline
+        Verónica Esther Arriola Ríos}
+\publisher{Facultad de Ciencias, UNAM}
+\background{Neurona.png}
+
+
+\begin{document}
+\maketitle
+
+%----------------------------------------------------------------------------------------
+% Contenido
+%----------------------------------------------------------------------------------------
+\frontmatter % Numeración romana
+\tableofcontents
+\clearemptydoublepage % Whitespace to the end of the page
+
+
+%----------------------------------------------------------------------------------------
+%	                                Inicio
+%----------------------------------------------------------------------------------------
+\mainmatter  % Numeración arabiga
+
+
+%%
+\chapter*{Convenciones}
+
+A lo largo del texto se utilizará la siguiente notación para diversos elementos:
+\begin{longtable}{lc}
+ Conjuntos   &   $\set{C}$ \\
+ Vectores    &   $\vec{X}$ \\
+ Matrices    &   $\mat{M}$ \\
+ Unidades    &   $\unit{cm}$
+\end{longtable}
+
+
+
+%%
+\part{Introducción}
+\chapter{Historia de IA}
+\section{Problemas representativos}
+\subsection{Problema del marco}
+
+\section{Agentes}
+
+
+%%
+\part{Resolución de problemas mediante búsqueda}
+\chapter{Espacio de estados}
+%\input{secciones/EspacioDeEstados}
+\section{Espacio de estados continuo en física}
+\section{Espacio de estados discreto}
+\section{Mundo de juguete}
+
+\chapter{Búsqueda}
+\section{Búsqueda ciega}
+
+\input{secciones/ProblemasDeSatisfaccion}
+
+\section{Búsqueda informada: uso de heurísticas}
+\subsection{Alpinismo de colinas}
+\subsection{Recocido simulado}
+\subsection{A*}
+
+\section{Búsqueda con adversarios}
+\subsection{Min-max}
+\subsection{Poda \texorpdfstring{$\alpha-\beta$}{alfa-beta}}
+
+\section{Sistemas de planeación}
+\subsection{STRIPS, PDDL y CLIPS}
+\subsubsection{Hipótesis del mundo cerrado}
+\subsection{Planeación con órdenes parciales (PoP)}
+\subsection{Redes de planeación jerárquica}
+\subsection{Estados de creencia}
+\subsection{Razonamiento no monótono (conocimiento incompleto)}
+
+\chapter{Representación del conocimiento}
+\input{secciones/Marcos}Otros
+
+
+%%
+\part{Aprendizaje de máquina}
+\chapter{Aprendizaje automático}
+\input{secciones/TiposDeAprendizaje}
+\section{Sesgo inductivo}
+\section{Conjuntos de entrenamiento, prueba y validación}
+
+\section{Regresión polinomial}
+\subsection{Mínimos cuadrados}
+\subsection{Forma normal}
+\subsection{Descenso por el gradiente}
+\subsection{Regularización}
+
+\section{Clasificación}
+\subsection{Regresión logística}
+\subsection{Regularización}
+
+\section{Redes neuronales}
+\subsection{Perceptrón}
+\subsection{Compuertas lógicas}
+\subsection{Evaluación: Propagación hacia adelante}
+\subsection{Entrenamiento: Propagación hacia atrás}
+
+\section{Árboles de decisión}
+\section{Aprendizaje por refuerzo}
+\section{K-medias}
+
+
+%%
+\part{Razonamiento Bayesiano}
+
+\input{secciones/AntecedentesDeProbabilidad}
+\input{secciones/Factores}
+\input{secciones/Probabilidades}
+
+
+%\section{Definición de probabilidad}
+
+\section{Inferencia en redes de Markov}
+
+\subsection{Aprendizaje en redes Bayesianas}
+\subsubsection{Máxima verosimilitud}
+\subsubsection{Estimación Bayesiana}
+
+
+%%
+\part{Robótica Inteligente}
+\chapter{Cierre: Inteligencia artificial y el cerebro}
+
+%----------------------------------------------------------------------------------------
+% Bibliografia
+%----------------------------------------------------------------------------------------
+\backmatter
+
+\printbibliography[heading=bibintoc]
+
+\end{document}
