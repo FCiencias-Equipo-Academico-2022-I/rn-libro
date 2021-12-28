@@ -1,0 +1,39 @@
+\documentclass[12pt,openany]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{mathtools}
+
+\title{Indice}
+\author{Karla Fernanda Jímenez Gutiérrez }
+\date{27 / December / 2021}
+
+\begin{document}
+
+\maketitle
+
+\section{¿Qué es una neurona?}
+\section{¿Cómo “aprende” los modelos ?}
+\section{Aprendizaje Supervisado (ej.)}
+\section{Aprendizaje No supervisado (ej.)}
+\section{Arquitectura de una RN}
+\section{... Perceptron ...}
+\section{Funciones de Activación}
+\section{Función Sigmoide}
+\section{Ejemplos de evaluación (comportamiento de los datos)}
+\section{—- Breves descripciones de tipos de Redes Neuronales}
+\section{¿Cómo entrenar una RN?}
+\section{Hiperparámetros}
+\section{Redes de Hopfield --- Hiperparametros}
+\section{Probabilidad}
+\section{Modelo Causal}
+\section{Redes con estados ocultos}
+\section{Máquinas de Boltzmann}
+\section{Algoritmo de recocido simulado}
+\section{Equilibrio termico}
+\section{Redes con estados ocultos}
+\section{Algoritmo de integración de Euler}
+\section{Modelos Matematicos}
+\section{Localización del sonido}
+
+\section{Breve descripción Sistema nervioso (Neurociencias Computacionales apuntes)}
+\section{Funciones del cerebro}
+\end{document}
