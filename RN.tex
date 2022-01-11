@@ -64,95 +64,104 @@ A lo largo del texto se utilizará la siguiente notación para diversos elemento
 
 %%
 \part{Introducción}
-\chapter{Historia de IA}
-\section{Problemas representativos}
-\subsection{Problema del marco}
-
-\section{Agentes}
-
-
-%%
-\part{Resolución de problemas mediante búsqueda}
-\chapter{Espacio de estados}
-%\input{secciones/EspacioDeEstados}
-\section{Espacio de estados continuo en física}
-\section{Espacio de estados discreto}
-\section{Mundo de juguete}
-
-\chapter{Búsqueda}
-\section{Búsqueda ciega}
-
-\input{secciones/ProblemasDeSatisfaccion}
-
-\section{Búsqueda informada: uso de heurísticas}
-\subsection{Alpinismo de colinas}
-\subsection{Recocido simulado}
-\subsection{A*}
-
-\section{Búsqueda con adversarios}
-\subsection{Min-max}
-\subsection{Poda \texorpdfstring{$\alpha-\beta$}{alfa-beta}}
-
-\section{Sistemas de planeación}
-\subsection{STRIPS, PDDL y CLIPS}
-\subsubsection{Hipótesis del mundo cerrado}
-\subsection{Planeación con órdenes parciales (PoP)}
-\subsection{Redes de planeación jerárquica}
-\subsection{Estados de creencia}
-\subsection{Razonamiento no monótono (conocimiento incompleto)}
-
-\chapter{Representación del conocimiento}
-\input{secciones/Marcos}Otros
+\chapter{Neurona biológica}
+\section{Sistema nervioso}
+\section{Neurona biológica}
+\section{Modelo de Hodgkin-Huxley: membrana y canal}
+\section{Ecuaciones diferenciales}
 
 
 %%
-\part{Aprendizaje de máquina}
-\chapter{Aprendizaje automático}
-\input{secciones/TiposDeAprendizaje}
-\section{Sesgo inductivo}
-\section{Conjuntos de entrenamiento, prueba y validación}
-
-\section{Regresión polinomial}
-\subsection{Mínimos cuadrados}
-\subsection{Forma normal}
-\subsection{Descenso por el gradiente}
-\subsection{Regularización}
-
-\section{Clasificación}
-\subsection{Regresión logística}
-\subsection{Regularización}
-
-\section{Redes neuronales}
-\subsection{Perceptrón}
-\subsection{Compuertas lógicas}
-\subsection{Evaluación: Propagación hacia adelante}
-\subsection{Entrenamiento: Propagación hacia atrás}
-
-\section{Puff}
-\section{Aprendizaje por refuerzo}
-\section{K-medias}
+\part{Aún no tiene nombre}
+\chapter{Hodgkin-Huxley}
+\section{Modelo de Hodgkin-Huxley}
+\section{Dinámica del voltaje durante un disparo}
+\section{Simulación usando el método de Euler}
 
 
-%%
-\part{Razonamiento Bayesiano}
 
-\input{secciones/AntecedentesDeProbabilidad}
-\input{secciones/Factores}
-\input{secciones/Probabilidades}
+\chapter{Aprendizaje de máquina}
+\section{Espacio de hipótesis}
+\section{Conjuntos de entrenaiento, validación y prueba}
+\section{Perceptrón}
+\section{Compuertas lógicas con neuronas}
+\section{Funciones de activación}
+\section{Funciones de error: diferencias al cuadrado y entropía cruzada}
+\section{Medidas de rendimiento:}
+\subsection{Matriz de confusión}
+\subsection{Precisión}
+\subsection{Recall}
+\subsection{f score}
 
 
-%\section{Definición de probabilidad}
-
-\section{Inferencia en redes de Markov}
-
-\subsection{Aprendizaje en redes Bayesianas}
-\subsubsection{Máxima verosimilitud}
-\subsubsection{Estimación Bayesiana}
+\chapter{Perceptrón multicapa}
+\section{XOR}
+\section{Propagación hacia adelante manual}
+\section{Propagación hacia adelante vectorizada (con matrices)}
+\section{Interpretación matemática del mapeo no lineal}
+\section{Propagación hacia adelante para el perceptrón multicapa}
 
 
 %%
-\part{Robótica Inteligente}
-\chapter{Cierre: Inteligencia artificial y el cerebro}
+%\part{Aprendizaje de máquina}
+\chapter{Entrenamiento}
+\section{Retropropagación. Gradiente de la función de error}
+\section{Descenso por el gradiente}
+\section{Otras funciones de optimización}
+
+\chapter{Optimización del entrenamiento} 
+\section{Redes Profundas}
+\section{Gradiente desvaneciente (o que explota) }
+\section{Entrenamiento en línea vs en lotes}
+\section{Normalización y normalización por lotes}
+\section{Regularización}
+
+\chapter{Casos de Análisis e interpretación}
+
+\section{Red Hinton árbol familiar con numpy (entrenamiento)}
+
+\section{Red Hinton árbol familiar con pytorch}
+
+\chapter{Entrenamiento con genéticos}
+%\section{MNIST versión básica con numpy}
+\section{Algoritmos genéticos}
+\section{Neuroevolución}
+\subsection{Aprendizaje por refuerzo en videojuegos}
+\subsection{Arquitectura profunda}
+
+\chapter{Mapeos autoorganizados}
+\section{Mapeos autoo-organizados, Kohonen}
+
+\chapter{Redes Neuronales Convolucionales}
+\section{Convolución y Redes Convolucionales}
+\section{MNIST}
+\section{Softmax}
+
+\chapter{Redes Neuronales Recurrentes}
+\section{Derivadas ordenadas}
+\section{Retropropagación en el tiempo}
+\section{Sistemas dinámicos y despliegue del grafo}
+\section{Arquitectura recurrente universal}
+\section{Función de error}
+\section{Forzamiento del profesor}
+
+\chapter{Atención}% === CAPITULO 12  ===
+%\section{Casos de análisis de serie}
+\section{LSTM}
+\section{GRU}
+\section{Aplicaciones: ejemplos de RNR con git de cvicom: etiquetado de palabras y conjugación de verbos}
+
+\chapter{Redes de Hopfield}
+\section{Redes de hopfield}
+\section{Máquinas de Boltzman}
+
+%\chapter{AÚN NO TIENE NOMBRE}
+%\section{Entrenamiento}
+%\section{Partículas y partículas de fantasía}
+%\section{Máquinas de Boltzman Restringidas}
+
+\chapter{Redes adversarias}
+\section{GANs}
 
 %----------------------------------------------------------------------------------------
 % Bibliografia
