@@ -1,61 +1,104 @@
-\section{Sistema nervioso}
+\section{Sistema Nervioso}
 
-\subsection{Neurociencias computacionales}
+%\textbf{¿Qué es una neurona?} 
+%Las neuronas son cuerpos con dendritas que tienen %unos núcleos que transfieren electricidad, que %tienen un axón y la electricidad viaja del cuerpo %de la neurona a través del axón y estas se conectan %entre sí.
 
-Las redes neuronales surgieron completamente inspiradas en los sistemas biológicos. 
-Lo que estamos haciendo los computólogos es tomar una idea a la naturaleza, una idea que ha probado ser sumamente efectiva para procesar información y que logra resolver problemas que nosotros aún no sabemos hacer con modelos diseñados explícitamente.
-Los más notorios: 
-\begin{itemize}
-\item Problemas de visión por computadora 
-\item Procesamiento del lenguaje natural 
-\end{itemize}
+\textbf{¿Qué es un nervio?}
+Un nervio es una gran colección de axones que están viajando todos juntos como en una especie de cable (poner el corte), pasan vasos sanguíneos por en medio de los nervios, esto es de lo que está formando el sistema nervioso, que cubre desde el cerebro, la médula espinal y todos aquellos elementos que salen de ahí.
 
-A lo largo del texto tendremos una somera idea de que hace el sistema nervioso de un ser humano, tomaremos también ejemplos de animales como, el calamar gigante, cangrejos. Ejemplos que han permitido estudiar biológicamente, cómo funcionan las neuronas y cómo funciona su sistema nervioso. 
-
-Entonces por un momento veamos el sistema como un todo, lo que realmente está haciendo en el cómputo no es de una sola neurona sino de la colección de todos ellas, lo que sucede con los sistemas biológicos es que son muchísimo más complicados que lo que vamos a ver nosotros como modelos computacionales sin embargo muchísimas empresas están utilizando estas técnicas. 
-El sistema nervioso como un todo es bastante más complejo pero conforme han ido evolucionando las redes neuronales computacionales ya con sus arquitecturas y organizaciones, se están volviendo también más complejas.Varias de las estructuras más exitosas tienen un análogo muy fuerte con un sistema nervioso natural. 
-
-Veamos un campo conocido como neurociencias computacionales el cual se dedica explícitamente al estudio/modelo de los sistemas biológicos pero ya conjuntando varios campos. Se van a interesar notablemente en:  descripciones y modelos funcionales biológicamente realistas de neuronas y sistemas neuronales. Lo que veremos en redes neuronales computacionales no necesariamente tienen que ser realistas, lo que nos interesa es que resuelvan los problemas, si se desvían un poco de cómo funcionan los sistemas naturales en un principio no es problema. 
-
-Ahora, ¿Qué les interesa modelar? Se fijan en la fisiología y en la dinámica de estos sistemas, combinan varias ciencias tales como: 
-\begin{itemize}
- \item  \textbf{Biofísica} 
- \item  \textbf{Neurociencias tradicionales} con modelos matemáticos. 
- \item  \textbf{Ciencias de la computación} tanto en la parte del modelado como en la parte de la implementación de estos modelos y la generación de simulaciones computacionales.
- \item  \textbf{Ingeniería eléctrica} se está diseñando hardware especializado para ejecutar modelos de manera eficiente, algunos de los modelos matemáticos están basados en circuitos eléctricos. 
- \item  \textbf{Ciencias cognitivas} tratan de ver que se está codificando dentro de un sistema nervioso y cómo podemos interpretar esa información que está ahí guardada.
-
-\end{itemize}
-
-De entre todo esto vamos a ver cómo está influyendo todo esto, en lo que va a hacer las ciencias de la computación pero con su propio modelo de redes neuronales (Existe una conexión muy fuerte entre estos dos campos).
-
-
-Las neurociencias computacionales como se mencionó anteriormente estudia modelos del sistema nervioso y clasifica estos modelos en tres tipos: 
-\begin{itemize}
- \item \textbf{Modelos descriptivos}, nos limitamos a decir que está haciendo un sistema y en particular aquí son muy famosos los experimentos con ratones se está tratando de ver qué puede hacer, que no puede hacer, que puede aprender, que no pero no no se puede explicar “como”, simplemente se dice que es lo que está sucediendo. 
- \item \textbf{Modelos mexicanistas}, donde ahora sí nos interesa saber cómo es que están haciendo las cosas aquí vamos a ver los modelos matemáticos que precisamente nos están tratando de describir cómo puede ser que se están conectando estas neuronas, cómo pueden estar funcionando las redes de neuronas, cómo podría estarse almacenando la información y transfiriendo de un lado a otro. 
- \item \textbf{Modelos interpretativos}, nos dan una idea del por qué o para qué lo hacen. Se tiene que buscar intencionalidad, razonamiento de más alto nivel.
-\end{itemize}
-
-Cuando trabajemos con en redes de computadoras vamos a notar que sí necesitamos trabajar un poco con los niveles 2 y 3. Para romper ese mito que nuestras redes neuronales, sabemos que aprendieron y no estamos ni siquiera seguros de que aprendieron o porque lo aprendieron así, vamos a tener que utilizar herramientas matemáticas para tratar de descubrir qué es lo que realmente está haciendo la red entrenada. 
-
-
-Ahora los \textbf{objetivos del modelado}:
-
-\textcolor{gray}{(Empezando desde lo más granular que es cada una de las neuronas)}
+Los nervios son estructuras conductoras de impulsos nerviosos situados fuera del sistema nervioso central, es decir, estamos hablando de todos estos axones que salen desde del cráneo, la médula espinal y están descubriendo el resto del cuerpo.
+Están formados por un conjunto de axones agrupados cada uno de los cuales procede de una neurona. Pueden ser clasificados como:
 
 \begin{itemize}
- \item Las \textbf{corrientes}, que están pasando a través de las membranas de las neuronas, la influencia que tiene en el paso de la información. 
- \item Las \textbf{proteínas buenas} van a jugar un papel importante en la conducción de elementos iónicos no transmisores (acoplamientos químicos).
+\item \textbf{Motores} salidas, ejecución/acción  
+\item \textbf{Sensitivos} entradas 
+\item \textbf{Mixtos} son mayoría, tienen tanto fibras sensitivas como motoras
 \end{itemize}
 
-\textcolor{gray}{(El siguiente nivel ya no solamente de una neurona)}
+Se originan en la médula espinal (nervios raquídeos) o parten directamente del encéfalo (nervios craneales).
+
+(Insertar esquema) 
+
+Tenemos dos grandes partes del sistema nervioso, el \textbf{sistema nervioso periférico} y el \textbf{sistema nervioso central}. 
+
+En del sistema nervioso periférico tenemos al:
 
 \begin{itemize}
- \item Las \textbf{oscilaciones de las redes} completas, que pasa con estas señales, pulsos eléctricos, que se están transfiriendo de unas regiones a otras y que empiezan a producir oscilaciones con ciertos períodos,  regiones de actividad, que se apagan.
- \item \textbf{Arquitectura topográfica y de columnas} cómo están organizadas estas neuronas, quienes están conectadas con quiénes, cómo reaccionan dentro de ciertas regiones identificadas, cómo interactúan con otras regiones. Se puede identificar una arquitectura desde el punto de vista fisiológico como de vista funcional. Un caso particular de estas estructuras es la formación de columnas de neuronas que están altamente conectadas y trabajan como una unidad.
- \item El \textbf{aprendizaje} es decir estamos procesando información, estamos guardando información, recuperando y eso permite que los seres que cuentan con un sistema nervioso tengan características especiales cuyo comportamiento se puede modificar conforme aprenden. 
- \item La \textbf{memoria} que significa que necesitamos almacenar información, recuperarla procesarla. 
+ \item \textbf{Sistema somático} se controla de forma voluntaria, se conforma de nervios conectados a músculos voluntarios esqueléticos y receptores sensoriales, de los cuales unos son:
+ \begin{itemize}
+  \item de entrada, \textbf{aferentes}
+  \item de salida, \textbf{eferentes}
+ \end{itemize}
+\item \textbf{Sistema autónomo} funciona de forma involuntaria, se conforma de nervios que se conectan con el corazón, los vasos sanguíneos, los pulmones, el estómago, los intestinos, glándulas
 \end{itemize}
+
+Ahora respecto al sistema nervioso central lo integra:
+
+\begin{itemize}
+ \item La médula espinal
+    \begin{itemize}
+     \item Dentro de esta hay una organización, la presencia de \textbf{ciclos de retroalimentación local}, es decir, nuestro sistema va a estar en diferentes etapas son nervios que no necesitan pasar por todo el procesamiento cerebral, las señales simplemente entran llegan a una fase local e inmediatamente reaccionan (ej. reflejo, cuando un martillo golpea la rodilla). Ocurren en un ciclo local y esto también puede convertirse en algo muy importante a la hora de hacer cómputos, no siempre es necesario pasar todo por todas las capas de procesamiento. 
+     \item \textbf{Señales de control motor descendientes} del cerebro hacia las neuronas motoras, estas son señales que provienen de un campo en una capa mucho más alta de procesamiento y provocan movimientos.
+
+     \item \textbf{Axones sensoriales ascendentes} donde el cuerpo de la neurona está afuera y la información va a viajar hacia arriba/desde los músculos, piel y  estas señales viajan hasta el cerebro. 
+    \end{itemize}
+
+ \item El encéfalo
+\end{itemize}
+
+ Cada colección de nervios que sale de la base del cerebro se asocian con funciones muy específicas (en su mayoría). 
+ 
+ Notas:
+ 
+ \begin{itemize}
+  \item Este sistema está hecho en diferentes niveles locales, entradas y salidas  
+  \item El procesamiento que esté ocurriendo en el encéfalo puede tener diferentes capas y eso se verá reflejado cuando nosotros definamos arquitecturas para las redes neuronales. 
+  \item Las redes neuronales actuales, que han tenido más éxito, se componen de diferentes subunidades o diferentes redes que hacen cosas locales. Es decir esta estructura global que estamos viendo,  se está empezando a reproducir/imitar ya con las neuronas computacionales.
+
+ \end{itemize}
+
+
+\subsection{Cerebro}
+
+En esta parte vamos a preocuparnos sobre todo por la parte funcional. Haciendo una breve analogía, vamos a hacer una visión general del “hardware”, para ver qué efectos va a tener en el “software”. 
+En general la arquitectura de cada cerebro es completamente diferente al cerebro de otras personas. Se ha intentado averiguar qué está haciendo cada región con diferentes estudios por ejemplo,  ver cuánta sangre se está bombeando en diferentes regiones del cerebro dependiendo de los estímulos que se le presentan a una persona, o si alguna persona tiene un padecimiento se tratan de tomar escaneos para ver qué regiones del cerebro están funcionando y cuáles presentan lesiones. A partir de las lesiones, lo que hacen es que una vez que está identificada la actividad que ya no se puede realizar de forma normal, averiguan qué región era responsable de esa actividad, que ahora está dañada.
+
+Gracias a esos estudios, se ha logrado identificar más o menos en forma general, a qué se dedica cada una de las regiones del cerebro. En ocasiones no se puede decir exactamente qué tan vinculadas están (las regiones) o por qué se están activando otras regiones.
+
+Hay partes funcionales que se comparten entre las diferentes regiones y no están ubicadas en un solo lugar. Otras parte importante a mencionar es, el cerebelo que se considera prácticamente vital, cumple con funciones tales como el equilibrio, la coordinación, el control fino de los músculos, de hecho tiene más neuronas que el cerebro y aún así hay niños que nacen y viven sin cerebelo. 
+
+(imagen diagrama genérico)
+
+A continuación se mencionan algunas de las diferentes funciones de las regiones, que se han identificado: 
+
+\begin{itemize}
+ \item \textbf{Lóbulo frontal} se le puede asociar con la parte del raciocinio,  la parte de inteligencia, la conducta, la memoria, la personalidad, la capacidad para realizar planes complejos a largo plazo y también es responsable de algunas actividades de movimiento. Dentro de este destaca el área de broca, su principal función es el movimiento del habla, mover los labios, la boca.
+ \item \textbf{Lóbulo temporal} aquí está otra parte del habla, que tiene que ver más con el uso de símbolos para el lenguaje, la conducta, memoria, aquí también se procesa el oído, un poco de visión y emociones. Dentro de este está (compartida entre el lóbulo parietal) el área de Wernicke, trabaja con la parte lingüística, y de cognición. También dentro de este está el \textbf{hipocampo} trabaja con recuerdos, aprendizaje y navegación espacial, cómo sabemos cómo llegar de un lado hacia otro.
+ \item \textbf{Lóbulo parietal} trabaja con la inteligencia, razonamiento, distinguir entre izquierda y derecha, lenguaje, sensación, lectura y sabor. 
+ \item \textbf{Lóbulo occipital} se dedica prácticamente solamente a visión, es una región un tanto amplia. En particular en el área de robótica cuando están programando un robot o móvil, los robots tienen dos laptops y una de ellas se dedica prácticamente solo a procesar la visión.
+ \item \textbf{Cerebelo} se encarga del equilibrio, la coordinación fina de los músculos.
+ \item \textbf{Tronco encefálico} se va a encargar de la respiración, presión arterial, latidos cardíacos, de ilusión, conciencia. 
+
+\end{itemize}
+
+\subsection{Zonas funcionales}
+Para visualizar mejor la parte de la arquitectura, que tiene el cerebro para realizar todo lo que se le conoce como,  la ruta desde la sensación hasta la cognición, veremos un diagrama de la parte funcional del cerebro.  
+
+(Diagrama de la parte funcional)
+
+Explicando el diagrama (img.Diagrama), en la primera parte (del diagrama) vamos a pensar en la entrada sensorial, que se enfoca muchísimo en la parte de visión y audio (en general todos los sentidos), lo que notamos es qué de las neuronas que están en la parte sensorial, la primera conexión es hacia una capa que se le llama unimodal superior, lo que pasa aquí es que se procesa la información de cada sentido de manera individual, es decir las neuronas o solamente están procesando visión o audio, todavía no se mezclan, por ejemplo de visión, se separan colores e intensidad lumínica, se empieza a detectar algunas esquinas, alguna inclinación, la dirección de las luces y las sombras, notemos que desde aquí hay una rápida conexión a la sección premotora y luego hacia la parte motora, recordando la mención de los circuitos locales y de reflejos, aquí prácticamente lo podemos ver (en este pequeño camino).
+
+Pasando de este primer procesamiento básico entramos al siguiente que es el unimodal inferior (aún se está trabajando con procesamiento de una sola modalidad) aquí visión sigue
+siendo visión, audio sigue siendo audio, pero ya son procesamientos un poco más
+complejos, por ejemplo, reconocimiento de rostros, de objetos. En esta parte tenemos un rápido ciclo de regreso a la parte premotora, por ejemplo la acción de ver a mi mamá y saludarla (aquí aún no se tiene que razonar demasiado). 
+
+En la siguiente fase, se conecta hacia tres áreas, la \textbf{heromodal}, ya se integran diferentes modalidades (audio y visión) ejemplo, oigo que me hablan y volteo a ver, aquí se está juntando ambas cosas, el \textbf{límbico} y el \textbf{paralímbico} que trabajan con la parte más de las emociones, de los conceptos abstractos.
+
+Finalmente llegamos hasta el \textbf{hipotálamo} que es donde están todas las emociones, las conexiones entre estas regiones, estarían los procesamientos de alto nivel.
+
+Ahora estas diferentes regiones se replican de cierta manera cuando estamos haciendo los diseños de las arquitecturas modernas para redes neuronales.
+En algunas ocasiones se comienza con algunas capas de neuronas, haciendo procesamientos con una sola modalidad, extrayendo datos básicos, después se van
+componiendo en figuras más complejas y después hasta podemos combinar bloques de neuronas, para poder resolver problemas que tomen en cuenta diferentes modelos.
+
 
 
