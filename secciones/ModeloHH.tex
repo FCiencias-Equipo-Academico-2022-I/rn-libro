@@ -18,7 +18,7 @@ Notemos primeramente un impulso nervioso, recordemos que esté es una onda que a
 
 Retomando la sinapsis eléctrica, donde participan los canales iónicos y las entradas de la neuronas (dendritas) están siendo alteradas poco a poco, hasta que ocurre la suficiente carga (diferencia de potencial) en sus dendritas y en el cuerpo de la neurona, para que desde el cono axónico se de un disparo o potencial de acción (spike), transmitiendo la información gracias a la apertura y cierre de ciertos canales de iones cargados. Este cambio brusco de la diferencia de potencial, se nota en forma de un pulso eléctrico (ver \ref{fig:graficaP}),  para saber más a detalle qué está ocurriendo en está rápida elevación en la diferencia de potencial, se contará de dónde salió este modelo y por qué toma la forma que tiene. 
 
-Los primeros científicos que estudiaron el potencial de acción y dieron un modelo (de la unión sináptica eléctrica) fueron Alan Lloyd Hodgkin y Andrew Fielding Huxley alrededor de 1952, obteniendo un modelo matemático, que intenta explicar qué es lo que estaba pasando en las neuronas. Ellos trabajaron con un calamar gigante (que puede medir hasta 4 metros de largo) que dado su gran tamaño, tiene un axón también bastante gigantesco, que recorre casi la mitad del cuerpo del calamar y su grosor es de medio milímetro, considerando el tamaño estándar de una axón de una neurona (1-20 um). El axón del calamar gigante es tan grande que les permitió introducir dispositivos para medir el voltaje, es decir, la diferencia de potencial entre, el interior de la neurona y la parte de afuera (el ambiente externo de la neurona). Con estás mediciones experimentales que lograron obtener (1939), se pudo determinar qué pasaba con las cargas eléctricas tanto en el interior como en el exterior y así estudiar cómo se lograba la transferencia de electricidad cuando disparaba este pulso. 
+Los primeros científicos que estudiaron el potencial de acción y dieron un modelo (de la unión sináptica eléctrica) fueron Alan Lloyd Hodgkin y Andrew Fielding Huxley alrededor de 1952, obteniendo un modelo matemático, que intenta explicar qué es lo que estaba pasando en las neuronas. Ellos trabajaron con un calamar gigante (que puede medir hasta 4 metros de largo) que dado su gran tamaño, tiene un axón también bastante gigantesco, que recorre casi la mitad del cuerpo del calamar y su grosor es de medio milímetro, considerando el tamaño estándar de una axón de una neurona (1-20 µm). El axón del calamar gigante es tan grande que les permitió introducir dispositivos para medir el voltaje, es decir, la diferencia de potencial entre, el interior de la neurona y la parte de afuera (el ambiente externo de la neurona). Con estás mediciones experimentales que lograron obtener (1939), se pudo determinar qué pasaba con las cargas eléctricas tanto en el interior como en el exterior y así estudiar cómo se lograba la transferencia de electricidad cuando disparaba este pulso. 
  Se dan cuenta que podían modelar este comportamiento como un circuito eléctrico donde están corriendo estas corrientes, si bien aún no sabían todavía cuál era exactamente el mecanismo biológico por detrás, si observaron que había dos elementos protagónicos que serían el sodio y el potasio.
  Notaron que estos existen en diferentes concentraciones, en la parte de afuera y en la parte de adentro de las neuronas. Con esto nosotros podemos aprender también el por qué es importante consumir algo de sal y nunca estar bajos de potasio, pues estos dos elementos son indispensables para que las neuronas puedan transmitir sus señales. 
 
@@ -67,14 +67,24 @@ que estaba pasando con las concentraciones de cargas afuera y adentro en el caso
 La  capacidad eléctrica o capacitancia es la que estamos utilizando para modelar la membrana conformada por lípidos, que es una  capa de grasa y esa es la cantidad de energía eléctrica almacenada en un capacitor para una diferencia de potencial eléctrico dada y éste tiene un comportamiento bastante interesante porque las cargas quedan almacenadas un momento pero se van liberando poco a poco y se va descargando ese capacitor. 
 
 \section{Potenciales de Nerst o de reposo}
-bueno aquí vemos precisamente porque estamos utilizando la ub y la en la ub generalmente la vamos a utilizar para referirnos a la diferencia de potencial entre la parte de afuera de la célula y la parte de adentro -las es las vamos a utilizar para representar a aquellos voltajes donde cada una de las compuertas encontraría su equilibrio . y como les acababa de mencionar esos voltajes son distintos para cada una de las compuertas esto va a provocar precisamente la dinámica de la de la neurona por ejemplo 
 
-1. aquí vemos que el sodio va a andar cerca de los 50 mil volts ahí estaría su equilibrio es un valor positivo 
-2. el calcio que es el que va a jugar un rol ahí aunque se activen los mejores transmisores y se transmita el disparo etcétera etcétera va a estar por ahí de los 150 mil volts o sea que observamos que el voltaje tendría que ser bastante positivo 
-3. el potasio que es el que usualmente está trabajando intercambiándose casi todo el tiempo en la neurona va andar por ahí de los menos 80 milvolts de hecho veremos que el punto de equilibrio usual de la neurona anda por el de los menos 76 y 
-4. el del cloro está en menos 60 mil volts pues ahí nos podemos pensar que cada uno de estos canales pues está tratando de jalar la dinámica hacia su potencial de equilibrio y bueno no hay precisamente acuerdo entre ellos y eso es precisamente lo que hace que las neuronas cobren vida
+Son los potenciales a los cuales el flujo neto de iones a través de los canales abiertos es cero.
+Aquí vemos precisamente porque estamos utilizando la \emph{E} generalmente la vamos a utilizar para referirnos a la diferencia de potencial entre la parte de afuera de la célula y la parte de adentro  las vamos a utilizar para representar a aquellos voltajes donde cada una de las compuertas encontrarían su equilibrio . Esos voltajes son distintos para cada una de las compuertas, esto va a provocar precisamente la dinámica de la de la neurona, por ejemplo: 
+
+\begin{itemize}
+\item E \textsubscript{Na}  \emph{50mV}
+\item E \textsubscript{Ca}  \emph{150mV}
+\item E \textsubscript{K}   \emph{− 80mV}
+\item E \textsubscript{Cl}  \emph{− 60mV}
+\end{itemize}
+
+Aquí vemos que el sodio estaría su equilibrio en un valor positivo, 
+el calcio que es el que va a jugar un rol de que se activen los neurotransmisores y se transmita el disparo, observamos que el voltaje tendría que ser bastante positivo. El potasio que es el que usualmente está trabajando intercambiándose casi todo el tiempo en la neurona, veremos que el punto de equilibrio usual de la neurona anda por los -76mV y el del cloro, cada uno de estos canales pues está tratando de jalar la dinámica hacia su potencial de equilibrio y no hay precisamente un acuerdo entre ellos y eso es precisamente lo que hace que las neuronas cobren "vida".
 
 \section{Modelo de la membrana como bicapa de lípidos}
+La membrana de una neurona es modelada como un elemento de un circuito con capacitancia \emph{C\textsubscript{m}} y potencial \emph{V} , los cuales están regidos por las ecuaciones siguientes:
+
+
 \section{Modelo de las compuertas iónicas controladas por voltaje}
 \section{Dinámica del voltaje durante un disparo} 
 \section{Simulación usando el método de Euler}
