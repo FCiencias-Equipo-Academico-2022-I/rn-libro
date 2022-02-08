@@ -16,7 +16,7 @@ La neurona es un tipo de célula perteneciente al sistema nervioso central, que 
 
 \begin{figure}[h]
  \centering
- \includegraphics[scale=0.5]{../Figuras/neuronaPartes.png}
+ \includegraphics[scale=0.6]{../Figuras/neuronaPartes.png}
  \caption{Neurona, Acracia, 14 January 2007, Wikimedia Commons, \url{https://commons.wikimedia.org/wiki/File:Neurona.svg}, Creative Commons Attribution-ShareAlike 2.5 Generic}
  \label{fig:neuronaP}
 \end{figure}
@@ -30,7 +30,8 @@ La neurona es un tipo de célula perteneciente al sistema nervioso central, que 
  
 En el interior de la neurona hay una cierta carga eléctrica, en el exterior (el líquido de afuera) hay otra carga eléctrica, es decir, hay una \textbf{diferencia de potencial} entre el interior y el exterior de la neurona, por eso se dice que la membrana axónica en sí misma tiene una carga eléctrica. Dado que es porosa, esta membrana  va a estar intercambiando partículas con el exterior, esto va a hacer que la polarización de esta membrana vaya cambiando, si en algún momento la diferencia de potencial neta rebasa un cierto umbral.
 
-Transmisón de señales y alacenamiento de información:
+
+\emph{Transmisón de señales y alacenamiento de información:}
 
 \begin{enumerate}
  \item La neurona desde sus dendritas recibe señales de otras neuronas vecinas.
@@ -43,6 +44,13 @@ Transmisón de señales y alacenamiento de información:
 \end{enumerate}
 
 La neurona tipica tiene unas células de mielina, que forman nodos que van cubriendo al axón para evitar que se pierda la señal, estos nodos recargan otra vez la señal y permite que avance, al siguiente nodo, donde se recarga  nuevamente y avance, hasta que logre llegar al final de axón.
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[scale=0.1]{../Figuras/Saltos.png}
+ \caption{Corriente iónica por el axón (efecto de corto plazo), Helixitta, 1 October 2015, Wikimedia Commons, \url{https://commons.wikimedia.org/wiki/File:Propagation_of_action_potential_along_myelinated_nerve_fiber_en.svg}, Creative Commons Attribution-ShareAlike 4.0 International}
+ \label{fig:conduccionSaltos}
+\end{figure}
 
 Este trayecto puede ser de una neurona a unas pocas neuronas vecinas, hasta unos cuantos metros (ej. esta podría estar en la médula espinal y el axón llegar hasta el dedo), Cuando la señal llega a la colita de la axón, hay varias terminales que van a reaccionar ante el cambio de electricidad, mediante la liberación de unas vesículas, que contienen \textbf{neurotransmisores}.
 
@@ -59,7 +67,16 @@ Elementos durante la transmisión de señales:
 \item \textbf{Plasticidad:} modificación a largo plazo de las conexiones entre neuronas. En el cerebro las neuronas pueden cambiar de manera permanente, perder canales (que permiten el intercambio de nuevos transmisores sin impulsos eléctricos), formar más canales o incluso pueden crear protuberancias. Por ejemplo, cuando un cerebro aprende está transformando su arquitectura, es decir, los aprendizajes de largo plazo, modifican el cerebro y en consecuencia va a pensar y reaccionar distinto, que antes del aprendizaje.
 \end{itemize}
 
-Tipos:
+\emph{Clasificación de tipos de neuronas:}
+
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[scale=0.15]{../Figuras/tiposDeNeuronas.png}
+ \caption{Representación de la clasificación de neuronas, BruceBlaus, 26 June 2017, Wikimedia Commons, \url{https://commons.wikimedia.org/wiki/File:Neuron_Classification.png}, Creative Commons Attribution-ShareAlike 4.0 International}
+ \label{fig:tiposNeuro}
+\end{figure}
+
 
 \begin{itemize}
 \item \textbf{Neuronas sin axones}, nunca dispara pero si tiene intercambios de neurotransmisores en las dendritas   
@@ -72,7 +89,8 @@ Cuando modelamos redes neuronales lo típico es modelar, una neurona con dendrit
 
 
 \subsection{Sinapsis}
-Aquí veremos más a detalle cómo una neurona recibe o transmite información a otras neuronas, donde para un solo disparo están participando un montón de elementos.
+
+Aquí veremos más a detalle cómo una neurona recibe o transmite información a otras neuronas, donde para un solo disparo están participando un montón de elementos que veremos más adelante.
 
  El momento en que dos neuronas transmiten información se llama \textbf{sinapsis} y es mediante conexiones que se dan en las terminales del axón (vesiculas sinápticas) de la neurona presináptica hacia la postsináptica. Es importante notar que estas neuronas no tienen contacto anátomico, sino que están separadas por un espacio muy pequeño, \textbf{la brecha sináptica}. Lo que sucede en estas conexiones es un intercambio electroquímico que produce cambios de polaridad a lo largo la membrana. 
 
@@ -100,8 +118,15 @@ Distingamos entre dos tipos de sinapsis:
   	 \item Sincronización en la actividad neuronal, lo cual hace posible una acción coordinada.
  	 \item Los potenciales de acción pasan a través del canal proteico directamente sin necesidad de la liberación de los neurotransmisores, por tanto es más rápida.
 	\end{enumerate}
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[scale=0.4]{../Figuras/sinapsisElectrica.png}
+ \caption{Synaptical transmission (electrical). Neurona A transmisora, Neurona B receptora, 1. mitocondria, 2. uniones gap formadas por conexinas, 3. señal eléctrica , Nrets~commonswiki, 23 September 2005, Wikimedia Commons, \url{https://commons.wikimedia.org/wiki/File:Synapse_diag2.png}, Inkscape 0.42, CC-BY-SA 3.0}
+ \label{fig:sinapsisN}
+\end{figure}
  
- \textbf{Sinapsis química:} la neurona libera moléculas neurotransmisoras a otra neurona adyacente en un pequeño espacio (la brecha sináptica). Se puede dividir etapas:
+ \textbf{Sinapsis química:} la neurona libera moléculas neurotransmisoras a otra neurona adyacente en un pequeño espacio (la brecha sináptica) ver \ref{fig:sinapsisQ}. Se puede resumir en cuatro etapas principales:
 
 \begin{enumerate}
  \item Un potencial de acción llega al boton terminal proviniente desde cono axónico.
@@ -110,11 +135,18 @@ Distingamos entre dos tipos de sinapsis:
  \item El exceso de neurotransmisores que queda en el espacio sináptico es degradado o recaptado.
 \end{enumerate}
 
+\begin{figure}[h]
+ \centering
+ \includegraphics[scale=0.4]{../Figuras/SinapsisQuimica1.png}
+ \caption{Synaptical transmission (chemical). Neurona A transmisora, Neurona B receptora, 1. mitocondria, 2. vesícula sináptica llena de neurotransmisor, 3. autorreceptor, 4. brecha sináptica, 5. receptor de neurotransmisores, 6. canal de calcio, 7. neurotransmisor liberador de vesículas fusionadas, 8. bomba de recaptación de neurotransmisores, Utilisateur:Dake, 23 September 2005, Wikimedia Commons, \url{https://commons.wikimedia.org/wiki/File:Synapse_diag1.png}, Inkscape 0.42, CC-BY-SA 3.0}
+ \label{fig:sinapsisQ}
+\end{figure}
 
-La neurona postsináptica está recibiendo un montón de señales por la liberación de neurotransmisores tanto de sus vecinos, como lo que ella misma va intercambiando, una vez que están generando el efecto completo de cambiar la polarización de la membrana, van a provocar que la neurona haga un disparo eléctrico. En el cuerpo están llegando estos intercambios de iones que se suman en el cono axónico, empiezan a viajar a través del axón, en las vainas de mielina (donde se refuerza la señal). 
-Aquí hacemos mención por primera vez de los iones positivos: sodio y potasio, estos iones lo que hacen es, que \emph{la membrana tenga una cierta carga la mayor parte del tiempo}. Cuando salen tres sodios entran dos potasios, entonces siempre hay más positivos afuera que en el interior de la neurona, es decir, por lo general  \emph{tiene una carga más negativa que su entorno}. Cuando ocurre un disparo de la neurona y se da el cambio de polarización en la membrana, se abren sus poros/ canales. El hecho que los canales abran o cierren depende de varios cambios que puedan estar ocurriendo alrededor de la neurona, en particular los que transmiten el disparo eléctrico, reaccionan ante el cambio de potencial que ocurrió en la membrana de la neurona. 
 
-La señal va pasando por los nodos de Rainvier, se refuerza y pasa por los canales ionicos ya abiertos, hasta finalmente llegar a la sinapsis a esto le llaman la \textbf{conducción a saltos}. Ahora lo que ocurre al final del recorrido es que, el cambio de electricidad otra vez provoca que unas vesículas, que están en el interior de la neurona, que contienen neurotransmisores, se peguen a la membrana axónica y se liberen esos neurotransmisores nuevamente a otra neurona. 
+Detallando el procesos de la sinapsis química, la neurona postsináptica está recibiendo un montón de señales por la liberación de neurotransmisores tanto de sus vecinos, como lo que ella misma va intercambiando, una vez que están generando el efecto completo de cambiar la polarización de la membrana, van a provocar que la neurona haga un disparo eléctrico. En el cuerpo están llegando estos intercambios de iones que se suman en el cono axónico, empiezan a viajar a través del axón, en las vainas de mielina (donde se refuerza la señal). 
+Aquí hacemos mención por primera vez de los iones positivos: sodio y potasio, estos iones lo que hacen es, que \emph{la membrana tenga una cierta carga la mayor parte del tiempo}. Cuando salen tres sodios entran dos potasios, entonces siempre hay más positivos afuera que en el interior de la neurona, es decir, por lo general  \emph{tiene una carga más negativa que su entorno} (ver \ref{fig:MembranaP}). Cuando ocurre un disparo de la neurona y se da el cambio de polarización en la membrana, se abren sus poros/ canales. El hecho que los canales abran o cierren depende de varios cambios que puedan estar ocurriendo alrededor de la neurona, en particular los que transmiten el disparo eléctrico, reaccionan ante el cambio de potencial que ocurrió en la membrana de la neurona. 
+
+La señal va pasando por los nodos de Rainvier, se refuerza y pasa por los canales iónicos ya abiertos, hasta finalmente llegar a la sinapsis a esto le llaman la \textbf{conducción a saltos} (ver \ref{fig:conduccionSaltos}). Ahora lo que ocurre al final del recorrido es que, el cambio de electricidad otra vez provoca que unas vesículas, que están en el interior de la neurona, que contienen neurotransmisores, se peguen a la membrana axónica y se liberen esos neurotransmisores nuevamente a otra neurona. 
 
 Entonces la información le va a llegar a la neurona vecina, en la forma de neurotransmisores que fueron liberados (en lo que sea que lo haya recibido, típicamente son dendritas, pero podría ser su cuerpo o su axón), eso es lo que va a percibir la otra neurona y otra vez esta otra neurona va a empezar a sumar los efectos de estos neurotransmisores, para que en algún momento decida a lo mejor disparar y otra vez provocar que se liberen neurotransmisores a su final e influir con otras neuronas.
 
@@ -153,12 +185,12 @@ También podemos encontrarlos más hacia adentro del nivel de procesamiento, no 
  \label{fig:camposR}
 \end{figure}
 
-Comprende a los receptores sensoriales que alimentan a las neuronas sensoriales, pueden ser:
+Comprenden a los receptores sensoriales que alimentan a las neuronas sensoriales, pueden ser:
 
 \begin{itemize}
-\item receptores específicos en una neurona como protuberancias especializadas. 
-\item conjuntos de receptores capaces de activar una neurona mediante conexiones sinápticas. 
-\item describen la ubicación donde debe estar presente un estímulo sensorial para licitar una respuesta desde una célula sensorial. 
+\item Receptores específicos en una neurona como protuberancias especializadas. 
+\item Conjuntos de receptores capaces de activar una neurona mediante conexiones sinápticas. 
+\item Describen la ubicación donde debe estar presente un estímulo sensorial para licitar una respuesta desde una célula sensorial. 
 \end{itemize}
 
 Ejemplos:
@@ -198,9 +230,25 @@ de la piel, las células de merkel.
 
 Existen realmente una buena cantidad de iones presentes en el cerebro pero los más protagónicos son precisamente el \textbf{potasio}, el \textbf{sodio}, el \textbf{cloro} y son los que vamos a utilizar para un modelo matemático de las neuronas. 
 
-Por utilimo veamos brevemente \textbf{la neuroplasticidad}, es lo que nos permite el aprendizaje a largo plazo en el cerebro, es un mecanismo de aprendizaje del cerebro en el cual:
+\begin{figure}[h]
+ \centering
+ \includegraphics[scale=0.28]{../Figuras/canalesIonicos.png}
+ \caption{Representación de la clasificación de los canales iónicos (más representativos).}
+ \label{fig:MembranaP}
+\end{figure}
+
+
+Por ultimo veamos brevemente \textbf{la neuroplasticidad}, es lo que nos permite el aprendizaje a largo plazo en el cerebro, es un mecanismo de aprendizaje del cerebro en el cual:
 
 Cuando las neuronas se activan simultáneamente con frecuencia la conexión entre ellas se fortalece.
 
 Este mecanismo constituye la principal inspiración para el diseño de las redes neuronales artificiales, concretamente en esto se inspiran los algoritmos de entrenamiento. Lo que se hace es calcular, qué conexiones debemos reforzar y cuáles debemos de debilitar para que nuestras redes neuronales calculen las funciones que a nosotros nos interesan.
+
+\begin{figure}[h]
+ \centering
+ \includegraphics[scale=0.5]{../Figuras/MembranaP.png}
+ \caption{representación de la membrana axónica en potencial de reposo en la parte infererior izquierda, y el la parte derecha con un estímulo que genera el cambio de polaridad en la misma, así como el cierre de canales y paso de iones.}
+ \label{fig:MembranaP}
+\end{figure}
+
 
