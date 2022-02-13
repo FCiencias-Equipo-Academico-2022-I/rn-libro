@@ -255,13 +255,16 @@ Considerando los diferentes puntos de equilibrio en los cuales se puede encontra
  \end{itemize}
  \item \textbf{Despolarizada} cuando \(V \geq 0\).
  \begin{itemize}
-  \item Cuando en sus dendritas y en el cuerpo de la neurona se acumula una carga muy grande, se abre la compuerta de sodio y van a empezar a entrar un montón de sodio, esta diferencia de potencial que existía entre lo fuera y lo adentro se va a reducir de hecho se puede llegar a reducir bastante dependiendo de la carga que le estemos aplicando.
+  \item Cuando en sus dendritas y en el cuerpo de la neurona se acumula una carga muy grande (un voltaje electrico, disparo), se abre la compuerta de sodio y van a empezar a entrar el sodio, esta diferencia de potencial que existía entre lo fuera y lo adentro se va a reducir de hecho se puede llegar a reducir bastante dependiendo de la carga que se le aplique.
+  \item Iones positivos entran a la membrana.
   \item Valores positivos en la diferencia de potencial.    
  \end{itemize}
  \item \textbf{Hiperpolarizada} cuando la diferencia de potencial incrementa su magnitud \(V << 0\).
  \begin{itemize}
  \item En cuanto se despolarice van a empiezar unas interacciones  entre los diferentes tipos de canales que lo que van a intentar hacer es regresar a la neurona en su estado normal.
- \item Si antes estaba quieta a los -70mV aquí, ahora va a quedar todavía más abajo alrededor de -90mV. Esto va a permitir un fenómeno que se le conoce como \emph{el periodo de refracción} y ese periodo sirve para que simplemente se lance un disparo y que el comportamiento eléctrico no se rebote otra vez en dirección contraria en la neurona, va a quedar muy quieta la neuronas durante un rato y después regresará otra vez es su equilibrio. 
+ \item Los canales de potasio abren sus compuertas, provocando que salga el potasio que está dentro del axón (en el citoplasma). 
+ \item Iones positivos salen de la membrana.
+ \item Si antes estaba quieta a los -70mV, ahora va a quedar todavía más abajo alrededor de -90mV. Esto va a permitir un fenómeno que se le conoce como \emph{el periodo de refracción} y ese periodo sirve para que simplemente se lance un disparo y que el comportamiento eléctrico no se rebote otra vez en dirección contraria en la neurona, va a quedar muy quieta la neuronas durante un rato y después regresará otra vez a su estado de equilibrio. 
  \end{itemize}
 
 \end{enumerate}
@@ -325,7 +328,7 @@ Las capacitancias y variables del lado izquierdo estan explicadas en la sección
 Ahora notemos los elementos en estás ecuaciones anteriores con \(ion\) pudiendo denotar las compuertas del potasio \(n\) o del sodio, ya sea \(m\) o \(h\):
 \begin{itemize}
  \item \(\dfrac{1}{\gamma(T)}\) Este es el coeficiente de escala temporal, dependiente de la temperatura los por eso está apareciendo aquí una \(t\). Para las simulaciones que nosotros vamos a hacer vamos a pensar que estamos en una temperatura fija. 
- \item \(\alpha_{ion}(V)\) probabilidad de que una compuerta transite de abierta a cerrada.
+ \item \(\alpha_{ion}(V)\) probabilidad de que una compuerta transite de cerrada a abierta.
  \item \(\beta_{ion}(V)\) probabilidad de que una compuerta transite de abierta a cerrada.
  \item \(ion^\infty(V)\) probabilidad de compuerta abierta en el equilibrio cuando \(t \rightarrow \infty\) .
  \item \((ion)\) Probabilidad de que cada compuerta (n,m,h) esté abierta.
@@ -341,45 +344,66 @@ Esta probabilidad se empieza a alterar conforme cambiamos el voltaje pero no va 
 
 
 \section{Dinámica del voltaje durante un disparo} 
-\begin{figure}[H]
+
+Ahora qué pasa cuando tomamos en cuenta que todas las compuertas están reaccionando al mismo tiempo.
+Notemos primeramente como está reaccionando la membrana ante un impulso electrico o voltaje, en la siguiente imagen \ref{fig:voltaje1}.
+
+\begin{figure}[h]
  \centering
  \includegraphics[scale=0.5]{../Figuras/polarizacion1.png}
- \caption{Dinámica del voltaje.}
+ \caption{En la primera parte los canales estan en un estado de reposo y la membrana está polarizada. En la segunda parte los canales han sido afectados por un impulso recibido desde el cono axonico, las compuertas de sodio se abren permitiendo el paso de iones de sodio al interior de la membrana y dejando a la membrana despolarizada. Momentos después la membrana llega a un estado de hiperpolarización donde intentará regresar al estado de equilibrio que tenía previamente, para esto la subpuerta de inactivación de sodio cerrará hasta no permitir el paso de sodio y el canal de potasio abrirá sus compuertas para dar salida a los potasios (iones positivos) que fluyan hacia el exterior de la membrana, así dejando el voltaje de la membrana icluso más negativo de lo que tenia durante su estado polarizado. }
  \label{fig:voltaje1}
 \end{figure}
 
-\begin{figure}[H]
+Ahora lo que vemos en la imagen \ref{fig:voltaje1} se grafica de manera un poco más apegado a lo que pasa en los experimentos de la siguiente forma en la imagen \ref{fig:voltaje2}.
+
+\begin{figure}[h]
  \centering
  \includegraphics[scale=0.5]{../Figuras/polarizacion2.png}
- \caption{Pulso, cuando se rebasa el voltaje umbral, los canales de Na + y K + interactúan para producir
-una rápida despolarización de la membrana, para luego hiperpolarizarla}
- \label{fig:voltaje1}
+ \caption{Gráfica del cambio de voltaje en la membrana dado un impulso atravez del tiempo. Cuando se rebasa el voltaje umbral, los canales de Na + y K + interactúan para producir una rápida despolarización de la membrana provocando una elevanción del voltaje, para luego hiperpolarizarla. Durante el momento de despolarización la membrana puede llegar a valores positivos en esté caso en particular el estimulo no es tan grande y se queda en valores negativos.}
+ \label{fig:voltaje2}
 \end{figure}
 
-\begin{figure}[H]
+Ahora lo anterior está en terminos de lo deseado, veamos entonces que paso en las mediciones de Hodgkin y Huxley con el axón en la siguientes gráficas \ref{fig:voltajeAB}, donde nos está mostando como las subpuertas n y los factores \(\tau\), \(\alpha\) y \(\beta\) del canal de potasio se comportaron antes, durante y después del estimulo del voltaje. Rercodemos que \emph{n} nos indica la probabilidad que las compuertas de potasio esten abiertas, este es un factor adimencional. \(\tau\) es el tiempo que tarda en llegar a un estado de equilibrio. \(\alpha\) y \(\beta\) las probabilidades que las compuertas del canal de potasio pasen de cerrados a abiertos y viceversa. 
+
+Entonces notamos que en el mismo periodo de tiempo, la membrana está en reposo y conforme va recibiendo el voltaje incrementa la probabilidad que las compuestas de potasio esten abiertas, es decir \(n\) va incrementando conforme al estimulo, mientras que el estado de reposo es claramente alterado provocando que el valor \(\tau\) disminuya considerablemente. La probabilidad que las compuertas de potasio pasen de un estado cerrado a uno abierto durante el proceso (\(\alpha\)) aumenta practicamente de forma exponencial, mientras que la probabilidad de que pasen de abierto a cerrado dismunuye poco a poco. Con esto cumpliendo lo esperado en la dinamica del voltaje, al notar como está reaccionando el canal de potasio durante la polarización y despolarización (pulso). 
+
+
+\begin{figure}[h]
  \centering
  \includegraphics[scale=0.5]{../Figuras/medidasExperimentales.png}
- \caption{Medición experimental de los parámetros y ajuste manual de curvas. Imagen de Nelson
-2004}
+ \caption{Medición experimental de los parámetros y ajuste manual de curvas. Imagen de Nelson 2004}
  \label{fig:voltajeAB}
 \end{figure}
 
-\begin{figure}[H]
+Con estas medidas esperimentales ellos dan con curvas parametricas ajustadas a los factores \(\alpha\) y \(\beta\) expresadas de la siguiente forma:
+
+\begin{align*}
+\alpha_{n}&=\dfrac{0.01(10-V)}{e^{\left(\dfrac{10-V}{10}\right)}-1}           &  \beta_{n}&=0.125e^{-\dfrac{V}{80}}\\
+\alpha_{m}&=\dfrac{0.01(25-V)}{e^{\left(\dfrac{25-V}{10}\right)}-1}                    &  \beta_{m}&=4e^{-\dfrac{V}{18}}\\
+\alpha_{h}&=0.07 e^{-\left(\dfrac{V}{20}\right)}              &  \beta_{h}&=\dfrac{1}{e^{\left(\dfrac{30-V}{10}\right)}+1}
+\end{align*}
+
+Ahora veamos las gráficas de la dinamica del disparo pero ya con los las compuertas del potasio y sodio interactuando al mismo tiempo, en la figuras \ref{fig:voltajeActInac} y \ref{fig:voltajeActInac1}
+
+\begin{figure}[h]
  \centering
- \includegraphics[scale=0.5]{../Figuras/actinac.png}
- \caption{Las compuertas de Na + se abren primero, luego las de K + y esto provoca que se inactiven las de Na + .}
+ \includegraphics[scale=0.6]{../Figuras/actinac.png}
+ \caption{Activación e inactivación de los canales. Del lado izquierdo vemos que alrededor de los -50mV aumenta la probabilidad que las compuertas de potasio abran y los potasios salgan, el sodio tarda un poco más en reaccionar para dejar entrar a los sodios, y la probabilidad que quede no bloqueado disminuye, hasta bloquear por completo a los iones de sodio alrededor de los 50mV. Del lado derecho vemos como \(\tau\), va interactuando conforme al voltaje, el Na+ reacciona rapidamente ante el impuso pues regresa rápidamente a su estado de equilibrio, esto indica porque aúnque el sodio abre sus compuertas, la compuerta de bloqueo se cierra rapidamente, dejando inactivado el canal,, luego el K+ reacciona más lentamente para regresar a su estado de equilibrio dejando más tiempo activado el canal y salgan los potasios.}
  \label{fig:voltajeActInac}
 \end{figure}
 
+
 \begin{figure}[H]
- \centering
- \includegraphics[scale=0.5]{../Figuras/disparo.png}
- \caption{Medidas experimentales de los estimulos y la reacción de los canales}
- \label{fig:voltajeActInac}
+ \includegraphics[scale=0.6]{../Figuras/disparo.png}
+ \caption{Medidas experimentales del estimulo y la reacción de todos los componentes de la membrana. El origen en estás gráficas realmente esta representando el punto de equilibrio que es alrededor de los -70mV. Del lado superior izquierdo mostrando como cambia el voltaje de la membrana respecto al tiempo, del lado superior derecho el comportamiento de la conductancia de los canales mostrando que aunque la conductancia del sodio reacciona más, es más breve, mientras que el potasio reacciona en menor medida pero durante más tiempo. En la parte inferior derecha la taza de transición de las compuertas n,m y h, mostrando que en cuando llega el impulso el primero en reaccionar es el sodio permitiendo que entre muy brevemente el sodio e inactivandose casi inmediatemente después, mientras que en ese momento los potasios se estan liberando hacia la parte exterior de la meurona. Finalmente del lado inferior izquierdo mostrando como se comporta las constantes temporales, mostrando que las compuertas de activación de sodio no son tan afectadas comparado a la compuerta de bloqueo, notando algunos cambio bruscos en esta, mientras que el potasio si se nota más afectado y durante más tiempo pero recuperandose sin cambios bruscos. }
+ \label{fig:voltajeActInac1}
 \end{figure}
+
 
 
 \section{Simulación usando el método de Euler}
+
 debemos alistarse rápidamente como estamos resolviendo esas ecuaciones diferenciales ya para tener una simulación numérica y se trata del algoritmo de integración de hoy no vamos a tener una solución explícita en nuestro sistema de ecuaciones sino que vamos a utilizar esta técnica en la que comenzamos con un valor inicial y a partir de ahí utilizamos las ecuaciones para calcular las tangentes aproximamos a la curva con su tangente y vamos avanzando paso a pasito entonces para ver cómo se comportan entonces estas gráficas que vamos a ver en la parte de arriba se obtuvieran precisamente con el método de boiler y ahorita le vamos a llamar la función integra disparo necesitamos cuatro valores que van a ir este que van a provocar diferentes comportamientos el primero es durante cuánto tiempo queremos correr la simulación el segundo que tan finos queremos que sean los pasos recordemos que vamos a aproximar la función con segmentos de recta siguiendo la tangente entonces si estos pasos son demasiado grandes y la curva ya se separó mucho del superagente entonces nuestra simulación va a ser mala y la función que obtengamos no se va a parece mucho la solución si hacemos pasos demasiado pequeños nos vamos a tardar demasiado en hacer el cómputo entonces hay que encontrar aquí un buen equilibrio entre ambos casos lo siguiente que vamos a necesitar es el voltaje inicial en donde empieza nuestra simulación donde estaba en nuestra neurona cuando empezamos a trabajar y el siguiente dato que necesitamos es la corriente externa de qué magnitud fue el toque que le estamos dando en este momento al action con estos datos entonces ya podemos ir calculando todos los demás elementos aquí ya no quise mencionar las constantes como las que me dieron joaquín y huxley precisamente porque son constantes entonces les pueden definir en cualquier lugar como parámetros fijos el siguiente paso bueno vamos a querer guardar lo que está ocurriendo para todos los tiempos desde cero hasta t en cada delta te lo estoy mencionando aquí como una serie de arreglos donde en la posición 0 viene nuestra primera medición en la posición 1 nuestra siguiente aproximación etcétera etcétera vamos a tener toda una serie de puntos donde estamos guardando estos pasos para inicializar oyler sabemos que necesitamos es un primer valor a partir del cual vamos a calcular la tangente y vamos a ir aproximando lo demás entonces para eso queríamos el voltaje inicial como nosotros sabemos donde estaba en reposo nuestra célula originalmente vamos a poder guardar ese voltaje como el primer valor para nuestra simulación ahora todos los demás elementos las alfa las betas etcétera etcétera se pueden calcular si ya conocíamos ese voltaje inicial entonces a partir de este momento podemos repetir el mismo ciclo tantas veces como sea necesario para cubrir el intervalo desde el tiempo inicial hasta el tiempo t brincando del rate en del tati entonces dado un voltaje vamos a calcular las diferentes alfaz que son las que se medían experimentalmente originalmente utilizando las ecuaciones que encontraron joaquín y jujuy a partir de estas el fasi estas vetas entonces ahora si podemos calcular las nm h todas las dos que son las que estamos usando acá ya teniendo estas entonces podemos calcular las probabilidades para las compuertas nm h utilizando las ecuaciones en diferencias en forma matricial ahora aquí esta parte fue importante sobre todo por el asunto de las pérdidas numéricas es recordemos que la computadora tiene una representación en punto flotante lo cual quiere decir que un número real no se puede representar en la computadora voy a pasar a la siguiente cuando lleguemos al cálculo de las generadas las secas y lleguemos finalmente a calcular el voltaje b nos va a importar exactamente como escribimos los términos por el problema del truncamiento a qué me refiero supongamos que tenemos un número real este número no lo podemos representar en la computadora en algún momento se nos acaba el espacio y vamos a tener que volar nos todos los dígitos que hubieran seguido acá concretamente se va a notar eso mucho aquí en la simulación del modelo de hodgkin y hawkes y entonces cada vez que nosotros tocamos estos dígitos estamos perdiendo precisión si nosotros por ejemplo en vez de dividir 3.14 16 entre 2.25 hacemos esto 35 en una computadora vamos a obtener este resultados diferentes por eso que les dimos si les estamos diciendo cuando separar cuando no separar para que todos podamos obtener los mismos resultados desde más ojo con esa parte porque a veces puede ser que no les salgan los disparos pero porque primero dicen ha de sumar lo que será la división o primero la división y luego era de suma y estaba había que calculando en el orden diferente y es por eso les estamos poniendo aquí paso por paso cómo le tenemos que hacer en qué orden para hacer los cálculos es bueno una vez que ya terminamos de calcular estos términos que se van a necesitar en la ecuación más grande que es la del voltaje de la membrana podemos ir almacenando en los resultados temporales dentro de nuestros arreglos en la casilla que les corresponda para ese paso y aquí es donde ya vamos a utilizar la corriente externa para meterla en la ecuación diferencial para el voltaje una vez que tengamos esto tenemos que repetirlo para cada paso los observen que esto es como que para el tiempo t se calcula entonces estas y esa onda va a dar el siguiente valor del voltaje ya teniendo el siguiente valor del voltaje lo voy a poder utilizar para el siguiente paso y así nos vamos a seguir todo el tiempo si devolvemos estos bueno después ya nos vamos a poder permitir graficar qué fue lo que sucedió con cada uno de ellos y eso es precisamente de dónde sale esta imagen que tenemos aquí y todo lo referente a la simulación numérica.
 
 \section{Información condificada en las dendritas}
