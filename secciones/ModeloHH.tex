@@ -100,7 +100,7 @@ Aquí vemos que el sodio estaría su equilibrio en un valor positivo,
 el calcio que es el que va a jugar un rol de que se activen los neurotransmisores y se transmita el disparo, observamos que el voltaje tendría que ser bastante positivo. El potasio que es el que usualmente está trabajando intercambiándose casi todo el tiempo en la neurona, veremos que el punto de equilibrio usual de la neurona anda por los -76mV y el del cloro, cada uno de estos canales pues está tratando de jalar la dinámica hacia su potencial de equilibrio y no hay precisamente un acuerdo entre ellos y eso es precisamente lo que hace que las neuronas cobren "vida".
 
 \section{Modelo de la membrana como bicapa de lípidos}
-La membrana de una neurona es modelada como un elemento de un circuito con capacitancia \emph{C\textsubscript{m}} y potencial \emph{V} ,las corriente que fluye a través de la bicapa lipída están regidos por las siguientes ecuaciones:
+\hypertarget{LaEq}{La membrana} de una neurona es modelada como un elemento de un circuito con capacitancia \emph{C\textsubscript{m}} y potencial \emph{V} ,las corriente que fluye a través de la bicapa lipída están regidos por las siguientes ecuaciones:
 
 \begin{equation}
   I_{m} = C_{m} \dfrac{dV_{m}}{dt}
@@ -116,7 +116,7 @@ Está sería la ecuación principal (\ref{eq:corrientesEnLaMembrana}) donde \(\d
 
 Cada una de las partes del lado izquierdo de la ecuación \ref{eq:corrientesEnLaMembrana2} corresponde a las compuertas de los canales y la corriente de un estimulo externo que pueda influir a la membrana (este estimulo siempre será desde al exterior hacia el interior).
 
-Retomando lo escrito anteriormente el canal de sodio es una compuerta compuesta de \textbf{tres} subpuertas y una subpuerta que actua como tapón y el canal de potasio es una compuerta compuesta de \textbf{cuatro} subpuertas iguales, con esto podemos notar claramente que las conductancias sean representadas como:
+Retomando lo escrito anteriormente el canal de sodio es una compuerta compuesta de \textbf{tres} subpuertas y una subpuerta que actua como tapón y el canal de potasio es una compuerta compuesta de \textbf{cuatro} subpuertas iguales, \hypertarget{secc} {con esto podemos notar claramente que las conductancias sean representadas como}:
 
 \begin{itemize}
  \item \(\dfrac{1}{R_{Na}} = g_{Na} * m ^3 * h \) donde \(g_{Na}\) es una constante que representa el valor de la conductancia maxima, \textbf{m} es la proporción de los canales de sodio abiertos (representa la concentración de sodio) y nos indica la activación (subpuertas abiertas) del canal, \textbf{h} es el “tapón” de la compuerta que puede impedir el paso de iones independientemente de las otras tres subpuertas, es decir la inactivación (compuerta bloqueda).
@@ -236,12 +236,151 @@ Donde si estamos aplicando una corriente externa lo que sucede es lo que estamos
 Simulando lo que hicieron Hodgkin y Huxley que fue al axón de repente darle un toque, siendo en el origen de la gráfica (que visualizamos en la figura \ref{fig:graficaX1}) la parte en la que le están dando el toque al axón, momentos antes estaba quieta la neurona de repente le aplican una cierta cantidad de electricidad y va a empezar a cambiar el comportamiento de los canales la porosidad de la membrana, vamos a ver que empieza a incrementarse la diferencia de potencial hasta que llegan a un nuevo equilibrio (alrededor de t = 3) y si siguieran dándole el toque en esa cantidad pues ya se quedaría ahí la neurona ya no veríamos más cambios lo que va a suceder entonces es que, retiramos las pinzas (se le deja de dar el toque) y los canales otra vez van a empezar a regresar a la normalidad y vamos a ver un descenso en adelante.
 
 Entonces hasta aquí ya tenemos la idea de cómo va a reaccionar la neurona ante cierto estimulo, sin embargo esto que acabamos de ver en las gráficas sería como si tuviéramos un solo tipo de canal, ahora qué pasa si consideramos que tenemos diferentes tipos de canales pasando iones, en condiciones distintas. 
-Aquí es donde va a importarnos el hecho de que existen diferentes tipos de canales y que queda que en él tiene un voltaje de equilibrio diferente entonces estos elementos que estamos viendo aquí y este punto hacia él vuelva a tender la neurona va a cambiar dependiendo de cuál de los iones es el que estamos considerando por curiosidad y como cultura general podemos ver aquí ya en un punto mucho más microscópico 
+Aquí es donde va a importarnos el hecho de que existen diferentes tipos de canales con voltajes de equilibrio diferente. 
+Retomando a los potenciales de Nerst \(E_{Na},E_{K},E_{L}\) notemos que están dados por:
 
+\begin{equation}
+    E = \dfrac{k_{B}T}{zq}\ln\dfrac{[adentro]}{[afuera]}
+ \label{eq:diferenciaP}
+\end{equation}
 
+Estos potenciales están relacionados con las características termodinámicas, en la ecuación anterior \ref{eq:diferenciaP} \(k_{B}\) la constante de Boltzman, \(q\) es la carga del ion, y \(z\) es el número de iones. El logaritmo natural representando el promedio de cuántos elementos tenemos en la parte de adentro con respecto a cuántos elementos tenemos en la parte de afuera.
 
+Considerando los diferentes puntos de equilibrio en los cuales se puede encontrar la diferencia de potencial en la membrana, vamos a distinguir entre tres estados de esta (también se puede ver en \ref{fig:graficaP}):
+
+\begin{enumerate}
+ \item \textbf{Polarizada} en su estado de reposo con \(V < 0 ( V \approx -70mV )\).
+ \begin{itemize}
+  \item Su estado de reposo,cuando la neurona no está haciendo nada simplemente están corriendo los sodios y entran los potasios.
+ \end{itemize}
+ \item \textbf{Despolarizada} cuando \(V \geq 0\).
+ \begin{itemize}
+  \item Cuando en sus dendritas y en el cuerpo de la neurona se acumula una carga muy grande, se abre la compuerta de sodio y van a empezar a entrar un montón de sodio, esta diferencia de potencial que existía entre lo fuera y lo adentro se va a reducir de hecho se puede llegar a reducir bastante dependiendo de la carga que le estemos aplicando.
+  \item Valores positivos en la diferencia de potencial.    
+ \end{itemize}
+ \item \textbf{Hiperpolarizada} cuando la diferencia de potencial incrementa su magnitud \(V << 0\).
+ \begin{itemize}
+ \item En cuanto se despolarice van a empiezar unas interacciones  entre los diferentes tipos de canales que lo que van a intentar hacer es regresar a la neurona en su estado normal.
+ \item Si antes estaba quieta a los -70mV aquí, ahora va a quedar todavía más abajo alrededor de -90mV. Esto va a permitir un fenómeno que se le conoce como \emph{el periodo de refracción} y ese periodo sirve para que simplemente se lance un disparo y que el comportamiento eléctrico no se rebote otra vez en dirección contraria en la neurona, va a quedar muy quieta la neuronas durante un rato y después regresará otra vez es su equilibrio. 
+ \end{itemize}
+
+\end{enumerate}
+ 
 \section{Modelo de las compuertas iónicas controladas por voltaje}
+
+Retomando el modelo del circuito electrico modelando la membrana, junto con los canales y los iones, volvamos a verlo ahora en la \ref{fig:circuito1}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[scale=0.5]{../Figuras/circuito.png}
+ \caption{Modelo de la membrana axónica modelada como circuito eléctrico, con los distintos canales presentes y su voltaje de reposo.}
+ \label{fig:circuito1}
+\end{figure}
+
+Recordemos brevemente las definiciones de los dos tipos de canales protagonistas en el modelo:
+
+\begin{definition}
+ \emph{Canal persistente} Tiene un sólo tipo de compuerta y dos estados posibles:
+ \begin{enumerate}
+  \item \textbf{Activado}
+  \item \textbf{Desactivado}
+ \end{enumerate}
+
+\end{definition}
+
+\begin{definition}
+ \emph{Canal transitorio} Tiene compuertas de activación e inactivación, y tres estados:
+ \begin{enumerate}
+  \item \textbf{Activado} Ambas compuertas abiertas.
+  \item \textbf{Desactivado} Compuerta de activación cerrada, inactivación abierta.
+  \item \textbf{Inactivada} Compuerta de inactivación cerrada.
+ \end{enumerate}
+
+\end{definition}
+
+
+Y retomando \hyperlink{LaEq}{la primera ecuación diferencial} donde tenemos por un lado la corriente que está pasando a través del capacitor y por otro lado vamos a tener las corrientes que están circulando a través de los diferentes canales, 
+
+\begin{equation}
+  C_{m} \dfrac{dV_{m}}{dt} =  - g_{Na} m^3 h(V_{m} - E_{Na} ) - g_{K} n 4 (V_{m} - E_{K} ) - g_{L} (V_{m} - E_{L} ) + I_ext
+  \label{eq:corrientesRepaso}
+\end{equation}
+
+Las capacitancias y variables del lado izquierdo estan explicadas en la sección \hyperlink{secc}{\emph{Modelo de la membrana como bicapa de lípidos}}, aqui vamos a retomar las ecuaciones \ref{eq:corrientesEnLaMembrana3},\ref{eq:corrientesEnLaMembrana4},\ref{eq:corrientesEnLaMembrana5} de esa misma sección, (recordemos que estás ecuaciones describen la probabilidad de que los canales ionicos esten abiertos) que son las siguientes:
+\begin{equation}
+  \dfrac{1}{\gamma(T)}\dfrac{dn}{dt} =  \alpha_{n^\infty} (V)(1 - n) - \beta_{n} (V) n = \dfrac{n(V)-n(t)}{\tau_{n}(V)}
+  \label{eq:probabilidades1}
+\end{equation}
+
+\begin{equation}
+  \dfrac{1}{\gamma(T)}\dfrac{dm}{dt} =  \alpha_{m} (V)(1 - m) - \beta_{m} (V) m = \dfrac{m^\infty(V)-m(t)}{\tau_{m}(V)}
+  \label{eq:probabilidades2}
+\end{equation}
+
+\begin{equation}
+  \dfrac{1}{\gamma(T)}\dfrac{dh}{dt} =  \alpha_{h} (V)(1 - h) - \beta_{h} (V) h = \dfrac{h^\infty(V)-h(t)}{\tau_{h}(V)}
+  \label{eq:probabilidades3}
+\end{equation}
+
+Ahora notemos los elementos en estás ecuaciones anteriores con \(ion\) pudiendo denotar las compuertas del potasio \(n\) o del sodio, ya sea \(m\) o \(h\):
+\begin{itemize}
+ \item \(\dfrac{1}{\gamma(T)}\) Este es el coeficiente de escala temporal, dependiente de la temperatura los por eso está apareciendo aquí una \(t\). Para las simulaciones que nosotros vamos a hacer vamos a pensar que estamos en una temperatura fija. 
+ \item \(\alpha_{ion}(V)\) probabilidad de que una compuerta transite de abierta a cerrada.
+ \item \(\beta_{ion}(V)\) probabilidad de que una compuerta transite de abierta a cerrada.
+ \item \(ion^\infty(V)\) probabilidad de compuerta abierta en el equilibrio cuando \(t \rightarrow \infty\) .
+ \item \((ion)\) Probabilidad de que cada compuerta (n,m,h) esté abierta.
+ \item \((1-ion)\) Probabilidad de que cada compuerta (n,m,h) esté cerrada.
+ 
+ \item \(\tau_{ion}(V)\) Tiempo que toma llegar al equilibrio.
+\end{itemize}
+
+
+Lo que vamos a ver es que forma de escribir la ecuación depende precisamente del número de compuertas que tenían para poder abrirse y cerrarse. Reescribir la ecuación de esta manera lo que nos permite es medirlo en términos de estas probabilidades de que se abran y cierren las compuertas que serían 
+
+Esta probabilidad se empieza a alterar conforme cambiamos el voltaje pero no va a llegar a su valor de equilibrio sino hasta después de pasado un cierto periodo.
+
+
 \section{Dinámica del voltaje durante un disparo} 
+\begin{figure}[H]
+ \centering
+ \includegraphics[scale=0.5]{../Figuras/polarizacion1.png}
+ \caption{Dinámica del voltaje.}
+ \label{fig:voltaje1}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[scale=0.5]{../Figuras/polarizacion2.png}
+ \caption{Pulso, cuando se rebasa el voltaje umbral, los canales de Na + y K + interactúan para producir
+una rápida despolarización de la membrana, para luego hiperpolarizarla}
+ \label{fig:voltaje1}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[scale=0.5]{../Figuras/medidasExperimentales.png}
+ \caption{Medición experimental de los parámetros y ajuste manual de curvas. Imagen de Nelson
+2004}
+ \label{fig:voltajeAB}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[scale=0.5]{../Figuras/actinac.png}
+ \caption{Las compuertas de Na + se abren primero, luego las de K + y esto provoca que se inactiven las de Na + .}
+ \label{fig:voltajeActInac}
+\end{figure}
+
+\begin{figure}[H]
+ \centering
+ \includegraphics[scale=0.5]{../Figuras/disparo.png}
+ \caption{Medidas experimentales de los estimulos y la reacción de los canales}
+ \label{fig:voltajeActInac}
+\end{figure}
+
+
 \section{Simulación usando el método de Euler}
+debemos alistarse rápidamente como estamos resolviendo esas ecuaciones diferenciales ya para tener una simulación numérica y se trata del algoritmo de integración de hoy no vamos a tener una solución explícita en nuestro sistema de ecuaciones sino que vamos a utilizar esta técnica en la que comenzamos con un valor inicial y a partir de ahí utilizamos las ecuaciones para calcular las tangentes aproximamos a la curva con su tangente y vamos avanzando paso a pasito entonces para ver cómo se comportan entonces estas gráficas que vamos a ver en la parte de arriba se obtuvieran precisamente con el método de boiler y ahorita le vamos a llamar la función integra disparo necesitamos cuatro valores que van a ir este que van a provocar diferentes comportamientos el primero es durante cuánto tiempo queremos correr la simulación el segundo que tan finos queremos que sean los pasos recordemos que vamos a aproximar la función con segmentos de recta siguiendo la tangente entonces si estos pasos son demasiado grandes y la curva ya se separó mucho del superagente entonces nuestra simulación va a ser mala y la función que obtengamos no se va a parece mucho la solución si hacemos pasos demasiado pequeños nos vamos a tardar demasiado en hacer el cómputo entonces hay que encontrar aquí un buen equilibrio entre ambos casos lo siguiente que vamos a necesitar es el voltaje inicial en donde empieza nuestra simulación donde estaba en nuestra neurona cuando empezamos a trabajar y el siguiente dato que necesitamos es la corriente externa de qué magnitud fue el toque que le estamos dando en este momento al action con estos datos entonces ya podemos ir calculando todos los demás elementos aquí ya no quise mencionar las constantes como las que me dieron joaquín y huxley precisamente porque son constantes entonces les pueden definir en cualquier lugar como parámetros fijos el siguiente paso bueno vamos a querer guardar lo que está ocurriendo para todos los tiempos desde cero hasta t en cada delta te lo estoy mencionando aquí como una serie de arreglos donde en la posición 0 viene nuestra primera medición en la posición 1 nuestra siguiente aproximación etcétera etcétera vamos a tener toda una serie de puntos donde estamos guardando estos pasos para inicializar oyler sabemos que necesitamos es un primer valor a partir del cual vamos a calcular la tangente y vamos a ir aproximando lo demás entonces para eso queríamos el voltaje inicial como nosotros sabemos donde estaba en reposo nuestra célula originalmente vamos a poder guardar ese voltaje como el primer valor para nuestra simulación ahora todos los demás elementos las alfa las betas etcétera etcétera se pueden calcular si ya conocíamos ese voltaje inicial entonces a partir de este momento podemos repetir el mismo ciclo tantas veces como sea necesario para cubrir el intervalo desde el tiempo inicial hasta el tiempo t brincando del rate en del tati entonces dado un voltaje vamos a calcular las diferentes alfaz que son las que se medían experimentalmente originalmente utilizando las ecuaciones que encontraron joaquín y jujuy a partir de estas el fasi estas vetas entonces ahora si podemos calcular las nm h todas las dos que son las que estamos usando acá ya teniendo estas entonces podemos calcular las probabilidades para las compuertas nm h utilizando las ecuaciones en diferencias en forma matricial ahora aquí esta parte fue importante sobre todo por el asunto de las pérdidas numéricas es recordemos que la computadora tiene una representación en punto flotante lo cual quiere decir que un número real no se puede representar en la computadora voy a pasar a la siguiente cuando lleguemos al cálculo de las generadas las secas y lleguemos finalmente a calcular el voltaje b nos va a importar exactamente como escribimos los términos por el problema del truncamiento a qué me refiero supongamos que tenemos un número real este número no lo podemos representar en la computadora en algún momento se nos acaba el espacio y vamos a tener que volar nos todos los dígitos que hubieran seguido acá concretamente se va a notar eso mucho aquí en la simulación del modelo de hodgkin y hawkes y entonces cada vez que nosotros tocamos estos dígitos estamos perdiendo precisión si nosotros por ejemplo en vez de dividir 3.14 16 entre 2.25 hacemos esto 35 en una computadora vamos a obtener este resultados diferentes por eso que les dimos si les estamos diciendo cuando separar cuando no separar para que todos podamos obtener los mismos resultados desde más ojo con esa parte porque a veces puede ser que no les salgan los disparos pero porque primero dicen ha de sumar lo que será la división o primero la división y luego era de suma y estaba había que calculando en el orden diferente y es por eso les estamos poniendo aquí paso por paso cómo le tenemos que hacer en qué orden para hacer los cálculos es bueno una vez que ya terminamos de calcular estos términos que se van a necesitar en la ecuación más grande que es la del voltaje de la membrana podemos ir almacenando en los resultados temporales dentro de nuestros arreglos en la casilla que les corresponda para ese paso y aquí es donde ya vamos a utilizar la corriente externa para meterla en la ecuación diferencial para el voltaje una vez que tengamos esto tenemos que repetirlo para cada paso los observen que esto es como que para el tiempo t se calcula entonces estas y esa onda va a dar el siguiente valor del voltaje ya teniendo el siguiente valor del voltaje lo voy a poder utilizar para el siguiente paso y así nos vamos a seguir todo el tiempo si devolvemos estos bueno después ya nos vamos a poder permitir graficar qué fue lo que sucedió con cada uno de ellos y eso es precisamente de dónde sale esta imagen que tenemos aquí y todo lo referente a la simulación numérica.
+
 \section{Información condificada en las dendritas}
 
