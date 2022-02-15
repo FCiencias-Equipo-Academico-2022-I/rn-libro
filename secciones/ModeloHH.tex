@@ -465,18 +465,9 @@ Terminando el tiempo asignado a la simulación, tenemos ya los arreglos llenos d
 
 \section{Información condificada en las dendritas}
 
-En esta ultima sección de este capitulo, se va a tratar una parte muy importante del cómputo en las neuronas, que vamos a simplificar para poder modelar las neuronas artificiales.
+En esta ultima sección de este capitulo, se va a tratar el cómputo en las neuronas, que vamos a simplificar para poder modelar las neuronas artificiales. Ya vimos detalladamente que pasa a lo largo del axón de la neurona y se ha mencionado que papel juegan las dendritas, quienes conforman la región que recibe la información (disparos / pulsos) que mandan los botones de las terminales de las neuronas presinápticas, enviar estas señales hasta el soma de la neurona y hacer que estas señales químicas se transformen o no en impulsos eléctricos. Ahora la siguiente cuestión es ¿Podemos hacer que se dispare más de una vez (con el mismo estimulo)?.
 
-Ya vimos detalladamente que pasa a lo largo del axón de la neurona y se ha mencionado
-que papel juegan las dendritas, quienes son la región que recibe la información que
-mandan los botones de las terminales de las neuronas presinápticas, pero ahora veamos rápidamente que es lo está sucediendo en la región de las dendritas de una neurona.
-
-En las secciones anteriores se detallo todo el sistema para modelar el disparo que ocurre a
-lo largo del axón, ahora la siguiente cuestión es ¿Podemos hacer que se dispare más de
-una vez (con el mismo estimulo)? Bueno vamos a ver que pasa en nuestra simulación,
-
-Entonces los disparos que produzca una neurona depende fuertemente de la interacción con sus neuronas vecinas. Recordemos que durante el período refractario lo que sucede es que, cuando se acumula información en las periferias del cuerpo de la neurona a través de las dendritas y de su cuerpo es porque está recibiendo información de neuronas vecinas
-y eso va a hacer que dispare.
+Los disparos que produzca una neurona depende fuertemente de la interacción con sus neuronas vecinas. Recordemos que durante el período refractario lo que sucede, es que cuando se acumula información en las periferias del cuerpo de la neurona a través de las dendritas y de su cuerpo es porque; está recibiendo información de neuronas vecinas y eso va a hacer que dispare.
 
 Algunas neuronas tienen el periodo de refractario muy pequeño y disparan frecuentemente, por las conexiones que tienen con sus vecinas, son neuronas que mandan frecuentemente información y a veces pueden lanzar una serie de pulsos muy seguidos, en
 otras ocasiones puede haber interrupciones entre estas series de pulsos (ver imagen \ref{fig:neuronStaining}, en caso de los seres humanos podemos referirnos a las neuronas motoras que están en constante recepción y transmisión de información).
@@ -484,12 +475,11 @@ otras ocasiones puede haber interrupciones entre estas series de pulsos (ver ima
 \begin{figure}[h]
  \centering
  \includegraphics[scale=0.7]{../Figuras/neuron_staining_and_recording.png}
- \caption{Disparos de una neurona. Tinción fluorescente de una neurona de cangrejo. También se muestran las oscilaciones
-rítmicas del potencial en la membrana}
+ \caption{Disparos de una neurona, Wstein, 14 September 2013, Wikimedia Commons. Esta foto muestra la neurona de cangrejo que se tiñó mediante la inyección intracelular de un colorante fluorescente. El recuadro muestra una grabación de las oscilaciones rítmicas del potencial de membrana. Las grabaciones fueron realizadas por Christopher Goldsmith en el laboratorio de Wolfgang Stein en la Universidad Estatal de Illinois, \url{https://upload.wikimedia.org/wikipedia/commons/c/ca/PD_neuron_staining_and_recording.png} , CC BY-SA 3.0.}
  \label{fig:neuronStaining}
 \end{figure}
 
-Por otro lado hay otras neuronas que son muchísimo más pasivas y disparan muy rara vez (neuronas que están a niveles más altos, como reconocimiento de olores, colores, imágenes). Y también nos encontramos con casos donde aparentemente una neurona no reacciona ante ningún estímulo, hasta que pasa un estimulo muy especifico \footnote{Neuronas individuales que forman conceptos abstractos, responden por ejemplo, al nombre de un ser humano. Es así como se descubrió la neurona ‘Jennifer Aniston’, que disparaba cada vez que el retrato de la actriz se mostraba a los sujetos. Tales neuronas, que responden ante la presentación de algunas imágenes recibieron la denominación de“células abuelas”.} y está dispara (neuronas conceptuales o aisladas). La comunidad científica aún no se atreve a afirmar si este tipo de neurona solo dispara ante ese estímulo especifico, o simplemente se trata de un evento que cumple con todas las condiciones para esta neurona reaccione y mande un pulso. Cabe mencionar que estas neuronas se encuentran en las capas más altas de abstracción de procesamiento del cerebro \footnote{En la siguiente liga se puede encontrar información más detallada acerca de la investigación con estas neuronas: \url{https://www.nature.com/articles/s41598-020-64466-7}}. Este tipo de diferencias entre neuronas te será más fácil recordar si regresas a la última sección del primer capitulo donde se encuentra un diagrama de los procesos de información en los que puede invertir una neurona, este diagrama es \ref{??}
+Por otro lado hay otras neuronas que son muchísimo más pasivas y disparan muy rara vez (neuronas que están a niveles más altos, como reconocimiento de olores, colores, imágenes). Y también nos encontramos con casos donde aparentemente una neurona no reacciona ante ningún estímulo, hasta que pasa un estimulo muy especifico \footnote{Neuronas individuales que forman conceptos abstractos, responden por ejemplo, al nombre de un ser humano. Es así como se descubrió la neurona ‘Jennifer Aniston’, que disparaba cada vez que el retrato de la actriz se mostraba a los sujetos. Estas neuronas, que responden ante la presentación de algunas imágenes recibieron la denominación de“células abuelas”.} y está dispara (neuronas conceptuales o aisladas). La comunidad científica aún no se atreve a afirmar si este tipo de neurona solo dispara ante ese estímulo especifico, o simplemente se trata de un evento que cumple con todas las condiciones para que esta neurona reaccione y mande un pulso. Cabe mencionar que estas neuronas se encuentran en las capas más altas de abstracción de procesamiento del cerebro \footnote{En la siguiente liga se puede encontrar información más detallada acerca de la investigación con estas neuronas: \url{https://www.nature.com/articles/s41598-020-64466-7}}. Este tipo de diferencias entre neuronas te será más fácil recordar si regresas a la última sección del primer capitulo donde se encuentra un diagrama de los procesos de información en los que puede invertir una neurona, este diagrama es \ref{fig:zonasFun}.
 
 En este momento notamos la gran importancia de la codificación de la información en las redes neuronales de un cerebro, donde la frecuencia de potenciales de acción nos muestran ciertos patrones que nos indican el nivel de abstracción al que está respondiendo la neurona y el tipo de información que ayuda codificar o decodificar. 
 
@@ -499,7 +489,7 @@ Si bien han habido algunas propuestas donde se tratan de hacer neuronas artifici
 \begin{figure}[h]
  \centering
  \includegraphics[scale=0.5]{../Figuras/Simple_Model_of_Spiking_Neurons.png}
- \caption{Diferentes patrones de disparo (simulados)}
+ \caption{Diferentes patrones de disparo (simulados), Eugene M. Izhikevich, 2003, The Neurosciences Institute, \url{http://www.izhikevich.org/publications/spikes.html}}
  \label{fig:simpleModel}
 \end{figure}
 
@@ -508,8 +498,7 @@ Por último mostremos la situación del sistema auditivo con la siguiente imagen
 \begin{figure}[H]
  \centering
  \includegraphics[scale=0.4]{../Figuras/Localización_del_sonido_por_disparidad.png}
- \caption{Localización del sonido por disparidad. El sistema auditivo registra y analiza pequeñas diferencias en el tiempo de llegada de
-los sonidos a los dos oídos para estimar la dirección desde la cual el sonido es emitido.}
+ \caption{Localización del sonido por disparidad, Ian Stevenson, 7 Enero 2008 , El sistema auditivo registra y analiza pequeñas diferencias en el tiempo de llegada de los sonidos a los dos oídos para estimar la dirección desde la cual el sonido es emitido, \url{http://www.scholarpedia.org/w/images/4/4d/JeffressFig1.png}}
  \label{fig:sonidoDisp}
 \end{figure}
 
