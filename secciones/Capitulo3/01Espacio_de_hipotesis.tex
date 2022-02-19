@@ -1,0 +1,57 @@
+\section{Espacio de Hipotesis}
+
+El aprendizaje automático, es utilizar datos disponibles para, aprender una tarea mediante una función que mejor mapee entradas a ciertas salidas. A esto se le llama  aproximación de función, en el que aproximamos una función de destino desconocida (que suponemos que existe) que puede asignar mejor las entradas a las salidas en todas las observaciones posibles del dominio del problema.
+
+Una función de un modelo que se aproxima a la función objetivo y realiza asignaciones de entradas a salidas se denomina hipótesis.
+
+Ahora estas funciones pueden tener formas muy generales en el aprendizaje de máquina pueden tener forma, por ejemplo, de estructuras de datos, como los árboles de decisión, donde cada nodo pregunta si o no, pertenece una clasificación.
+pueden ser también funciones matemáticas como el caso de las redes neuronales, entonces la forma que tomen estas hipótesis en general puede abarcar muchos métodos y estructuras. 
+
+Entonces el aprendizaje consiste en, explorar un espacio de posibles hipostesis para encontrar la hipotesis (una función) que mejor encaje, deacuerdo a lo se tuvo en los ejemplos de entrenamiento, y predecir alguna característica de salida deseada.
+
+\emph{El conjunto de datos de entrenamiento se usa para aprender una hipótesis y el conjunto de datos de prueba para evaluarla.}
+
+\begin{itemize}
+ \item \emph{h} (hipótesis): una sola hipótesis, por ejemplo una instancia o modelo candidato específico que asigna entradas a salidas, se puede evaluar y se usa para hacer predicciones.
+
+ \item \emph{H} ( conjunto de hipótesis ): Un espacio de posibles hipótesis para mapear entradas.
+ \end{itemize}
+
+Las redes neuronales actuales pueden comenzar desde recibir como entrada una imagen o dar como salida el comportamiento esperado de un robot en la presencia de ciertos objetos. 
+Entonces estas funciones pueden llegar a ser sumamente complejas y tener que mapear datos de entrada con muchas formas.
+
+En el caso de las redes neuronales, el espacio de hipótesis está determinado por la arquitectura de la red.
+Vamos a definir el espacio de hipótesis, cuando decidamos qué neuronas vamos a poner en nuestro sistema, como las conectamos entre sí y cómo van a transferirse información de una a la otra y cuántas neuronas van a ser. Lo que veremos a lo largo del curso son diferentes arquitecturas y el impacto que tiene hacer diferentes modificaciones así como las matemáticas que existen detrás de estas. 
+
+\section{Clasificación de los conjuntos de datos}
+
+La experiencia \(E\) para aprender la vamos a obtener mediante un conjunto datos, llamados datos de entrenamiento, estos se separan en tres bloques:
+
+\begin{itemize}
+ \item \textbf{Entrenamiento:} Datos con los cuales se ajustan los parámetros de la hipótesis (del \(50\%\) al \(80\%\) de los datos). En este bloque se escoje que función del espacio fue mejor para el aprendizaje.
+ 
+ \item \textbf{Validación:} Datos utilizados para ajustar los parámetros (hiperpametros) del algoritmo de entrenamiento, que puedan afectar qué hipótesis es seleccionada (del \(25\%\) al \(10\%\) de los datos y no deben ser usado durante el entrenamiento). Un ejemplo de un hiperparámetro para redes neuronales son el número de nodos ocultos en cada capa.
+
+ \item \textbf{Prueba:} Datos utilizados para evaluar la posibilidad de que la hipótesis aprendida generalice \footnote{Se desea que nuestro modelo de aprendizaje, una vez entrenado con datos que ya hemos visto, se pueda usar con datos nuevos. Para ello debemos asegurarnos que el modelo no ha simplemente memorizado las muestras de entrenamiento, sino que ha aprendido propiedades del conjunto.} a datos no vistos anteriormente. Esta porción que se mantiene aparte. Con estos se evalua el modelo, se reporta la eficacia del modelo según los resultados en este conjunto (del \(25\%\) al \(10\%\) de los datos).
+
+\end{itemize}
+
+\subsection{Tipos de aprendizaje}
+
+\begin{description}
+ \item [Aprendizaje Supervisado], el modelo usa datos etiquetados a una respuesta especifica(labaled data), durante el entrenamiento se intenta encontrar una función que aprenda a asignar los datos de entrada (input data) con los datos en el etiquetado. Para depues predecir una relación, dado un dado totalmente nuevo para el modelo. Los modelos pueden ser:
+    \begin{itemize}
+    \item Regresión: Un modelo de regresión busca predecir valores de salida continuos. Por ejemplo, en predicciones meteorológicas, de expectativa de vida, de crecimiento de población.
+    \item Clasificación: En un problema de clasificación se desea predecir una salida discreta. Por ejemplo, identificación de dígitos, diagnósticos.
+    \end{itemize}
+
+ \item [Aprendizaje no supervisado], es usado cuando no se tienen datos “etiquetados” para el entrenamiento. Solo sabemos los datos de entrada. Por tanto, únicamente podemos describir la estructura de los datos, para intentar encontrar algún tipo de organización que simplifique un análisis. Por ello, no se tienen valores correctos o incorrectos (es utilizado para aprender de una manera autoorganizada).
+ 
+ \item [Aprendizaje por refuerzo], inspirado en la psicología conductista; donde el modelo aprende por sí solo el comportamiento a seguir basándonos en \emph{recompensas y penalizaciones}. Este tipo aprendizaje se basa en mejorar la respuesta del modelo usando un proceso de retroalimentación (\emph{feedback}). Su información de entrada es el feedback que obtiene del mundo exterior como respuesta a sus acciones. A aprende a base de ensayo-error.
+ 
+\end{description}
+
+
+Mientras que el aprendizaje supervisado y el no supervisado aprenden a partir de datos obtenidos en el pasado, el aprendizaje por refuerzo aprende desde cero, es decir, que sus datos iniciales son su ambiente y va aprendiendo a futuro, mediante posibles penalizaciones o recompensas.  El aprendizaje por refuerzo ha sido utilizado en videojuegos porque en videojuegos cada vez que se realizan las acciones correctas se ganan puntos y entonces se entrena a la gente para que pueda conseguir la mayor cantidad de puntos.
+ 
+
