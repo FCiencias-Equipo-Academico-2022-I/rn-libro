@@ -4,6 +4,14 @@ Las medidas de rendimiento de una red nos sirven para ver de manera croncreta co
 
 \begin{description}
  \item [Matriz de confusión]: Cuenta los errores, aciertos. Facilita a ver cuando un clasificador está condundiendo clases. Las columnas representan los valores esperados, mientras que las filas los valores de salida. Así que si los valores que no estan en la diagonal de la matriz son cero podemos decir que nuestro modelo aprendio la tarea dada.
+ 
+ \begin{figure}[H]
+ \centering
+ \includegraphics[scale=0.7]{../Figuras/Matriz_confusion_binaria.jpg}
+ \caption{Matriz de confunsión para elementos booleanos, Errachete, 17 Diciembre 2019, Wikimedia Commons, \url{https://upload.wikimedia.org/wikipedia/commons/b/b3/Matriz_confusion_binaria.jpg}, CC BY-SA 4.0}
+ \label{fig:matrix} 
+\end{figure}
+
  \item [Precisión y recupecación (recall)]: Para saber que tan presisa fue nuestro modelo se usa la equación P, y para saber que tanto se equivoco la ecuación R. Descritas acontinuación, donde \emph{FN} es falso negativo, dio negativo cuando se esperaba positivo, \emph{FP} es falso positivo, dio positivo cuando se esperaba negativo, \emph{VP} es verdadero positivo, dio positivo y se esperaba positivo, y \emph{VN} es verdadero negativo, dio negativo y se esperaba negativo:
     \begin{equation}
         P = \dfrac{VP}{VP+FN} 
@@ -26,7 +34,7 @@ Las medidas de rendimiento de una red nos sirven para ver de manera croncreta co
     \end{equation}
 
     \begin{equation}
-     F = \dfrac{2}{\dfrac{1}{P} +\dfrac{1}{R} }
+     F = \dfrac{2}{\dfrac{1}{P} +\dfrac{1}{R} }= 2 \dfrac{P * R}{P + R}
     \end{equation}
 
 \end{description}
