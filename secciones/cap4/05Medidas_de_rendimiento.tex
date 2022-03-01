@@ -22,10 +22,10 @@ Las medidas de rendimiento de una red nos sirven para ver de manera croncreta co
    
 
    \begin{itemize}
-    \item \emph{VP}, sería predecir que una mujer está embarazada y que en efecto esté embarazada. \texbf{(Correcto)}
-    \item \emph{VN}, sería con un hombre que no está embarazado y pues en efecto no está embarazado.\texbf{(Correcto)}  
-    \item \emph{FP}, sería predecir que un hombre está embarazado y \texbf{no} este embarazado. \texbf{(Error, tipo 1)} 
-    \item \emph{FN}, sería predecir que una mujer \texbf{no} está embarazada y esta embarazada. \texbf{(Error, tipo 2)}
+    \item \emph{VP}, sería predecir que una mujer está embarazada y que en efecto esté embarazada. \textbf{(Correcto)}
+    \item \emph{VN}, sería con un hombre que no está embarazado y pues en efecto no está embarazado.\textbf{(Correcto)}  
+    \item \emph{FP}, sería predecir que un hombre está embarazado y \textbf{no} este embarazado. \textbf{(Error, tipo 1)} 
+    \item \emph{FN}, sería predecir que una mujer \textbf{no} está embarazada y esta embarazada. \textbf{(Error, tipo 2)}
    \end{itemize}
 
 
@@ -148,7 +148,7 @@ Dados los datos anteriores tenemos, la siguiente matriz de confusión:
 \label{Table2}
 \end{table}
 
-\label{ej:binario}
+\label{ej:muticlase}
 \end{example}
  
 
@@ -217,7 +217,7 @@ Dados los datos anteriores tenemos, la siguiente matriz de confusión:
      \end{itemize}
 
 
-     En ocasiones le daremos más importancia al recall y en otras a la precisión. Retomando el ejemplo previo \ref{ej:binario}, no nos importa tanto los casos de error tipo 1, donde el modelo se equivoco con los ejemplares negativos, nos importa los errores de tipo 2, los Falsos Negativos, en este caso le tomaremos especial atención al Recall y que este sea alto. Pero si bien nuestra tarea es detectar cuando un correo es spam, no impacta tanto que aunque en ocasiones un correo sea spam, no lo clasifique como tal (error tipo 1 FP), nos es crucial que un correo que no sea spam nos lo clasifique como tal. Así deseando que los falsos positivos se acerquen a cero, dándonos como resultado una precisión alta aunque el recall sea bajo. 
+     En ocasiones le daremos más importancia al recall y en otras a la precisión. Retomando el ejemplo previo \ref{ej:binario}, no nos importa tanto los casos de error tipo 1, donde el modelo se equivoco con los ejemplares negativos, nos importa los errores de tipo 2, los Falsos Negativos, en este caso le tomaremos especial atención al Recall y que este sea alto. Pero si bien nuestra tarea es detectar cuando un correo es spam, no impacta tanto que aunque en ocasiones un correo sea spam, no lo clasifique como tal (error tipo 2 FN), nos es crucial que un correo que no sea spam nos lo clasifique como tal (error tipo 1 FP). Así deseando que los falsos positivos se acerquen a cero, dándonos como resultado una precisión alta aunque el recall sea bajo. 
 
      
  \item [Exactitud y medida f ]: La exactitud (\emph{accurrancy}) es una medida de cuántas predicciones correctas en total hizo el modelo para el conjunto de datos completo (no se recomienda usar si tienes clases desbalanceadas, es decir, muchos elementos de una clase y poco de otra pues nos puede fallar totalmente con las clases pequeñas y aun así su valor sería alto). La medida f (\emph{(f score)}) se utiliza para combinar las medidas de precisión y recall en un solo valor. Es práctico porque hace más fácil el poder comparar el rendimiento combinado de la precisión y la recall. Se dan las ecuaciones a continuación:
