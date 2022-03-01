@@ -105,7 +105,6 @@ Tenemos un clasificador encargado de identificar las cinco vocales del español,
 
 \end{tabular}
 \end{center}
-\end{example}
 
  Ahora para hacer la matriz de confusión $MC$ notamos que tenemos una matriz de $5 x 5$, donde $MC[i]= Predicho$ y $MC[][j] = EtiquetasReales$. Entonces necesitamos contabilizar las predicciones y asignarlas a sus respectivas celdas, donde con la tabla anterior notamos que en el ejemplar $e3$ con $y_{true}(e3)= 2$, se predijo que $y(e3)=3$, entonces $MC[2][3] +=1$, pues la etiqueta nos posiciona en la fila $2$ y lo predicho en la columna $3$. Ahora en el ejemplar $e4$ con $y_{true}(e4)= 3$ se predijo que $y(e4)= 3$, entonces  $MC[2][2] +=1$. Así con cada ejemplar vamos a ir sumando su clasificación. Para construirla tendríamos un pseudocódigo siguiente:
  \begin{verbatim}
