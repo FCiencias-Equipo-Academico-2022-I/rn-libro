@@ -1,59 +1,66 @@
 \section{Neurociencias computacionales}
 
 Las redes neuronales surgieron completamente inspiradas en los sistemas biológicos. 
-Lo que estamos haciendo los computólogos es tomar una idea a la naturaleza, una idea que ha probado ser sumamente efectiva para procesar información y que logra resolver problemas que nosotros aún no sabemos hacer con modelos diseñados explícitamente.
-Los más notorios: 
+Lo que estamos haciendo los computólogos es tomar una idea de la naturaleza, una idea que ha probado ser sumamente efectiva para procesar información y que logra resolver problemas que nosotros aún no sabemos solucionar con modelos diseñados explícitamente.
+Los más notorios son: 
 \begin{itemize}
-\item Problemas de visión por computadora 
-\item Procesamiento del lenguaje natural 
+\item Problemas de visión por computadora.
+\item Procesamiento del lenguaje natural.
 \end{itemize}
 
-A lo largo del texto tendremos una somera idea de que hace el sistema nervioso de un ser humano, tomaremos también ejemplos de animales como, el calamar gigante, cangrejos. Ejemplos que han permitido estudiar biológicamente, cómo funcionan las neuronas y cómo funciona su sistema nervioso. 
+A lo largo del texto obtendremos una somera idea de qué hace el sistema nervioso de un ser humano, tomaremos también ejemplos de animales como el calamar gigante y cangrejos; ejemplos que han permitido estudiar biológicamente cómo funcionan las neuronas y cómo funciona su sistema nervioso. 
 
-Entonces por un momento pensemos en el sistema nervioso como un todo, lo que realmente está pasando al computar, no es el calculo del proceso  de una sola neurona sino de la colección de todas ellas. Lo que sucede con los sistemas biológicos es que son muchísimo más complicados que lo que vamos a ver nosotros como modelos computacionales, sin embargo muchísimas empresas están utilizando estas técnicas. 
+Entonces por un momento pensemos en el sistema nervioso como un todo, lo que realmente está pasando al computar no es el cálculo del proceso  de una sola neurona sino de la colección de todas ellas. Lo que sucede con los sistemas biológicos es que son muchísimo más complicados que lo que vamos a ver nosotros como modelos computacionales, sin embargo muchísimas empresas están utilizando estas técnicas. 
 El sistema nervioso como un todo es bastante más complejo, pero conforme han ido evolucionando las redes neuronales computacionales, ya con sus arquitecturas y organizaciones, se están volviendo también más complejas. Varias de las estructuras más exitosas tienen un análogo muy fuerte con un sistema nervioso natural. 
 
-Veamos un campo conocido como \textbf{neurociencias computacionales} el cual se dedica explícitamente al estudio/modelo de los sistemas biológicos pero ya conjuntando varios campos. Se interesan notablemente en:  descripciones y modelos funcionales biológicamente realistas de neuronas y sistemas neuronales. Lo que veremos en redes neuronales computacionales no necesariamente tienen que ser realistas, lo que nos interesa es que resuelvan los problemas, si se desvían un poco de cómo funcionan los sistemas naturales en un principio no es problema. 
+Veamos un campo conocido como \textbf{neurociencias computacionales} el cual se dedica explícitamente al estudio/modelado de los sistemas biológicos pero ya conjuntando varios campos. Se interesan notablemente en:  descripciones y modelos funcionales biológicamente realistas de neuronas y sistemas neuronales. En contraposición, los modelos que veremos en redes neuronales computacionales no necesariamente tienen que ser realistas, lo que nos interesa es que resuelvan los problemas, si se desvían un poco de cómo funcionan los sistemas naturales en un principio no es problema. 
 
-Ahora, ¿Qué les interesa modelar? Se fijan en la fisiología y en la dinámica de estos sistemas, combinan varias ciencias tales como: 
+Ahora, ¿qué le interesa modelar a las neurociencias computacionales? Se fijan en la fisiología y en la dinámica de estos sistemas, combinando varias ciencias tales como: 
 \begin{itemize}
- \item  \textbf{Biofísica} 
+ \item  \textbf{Biofísica} por el estudio de las propiedades físicas detrás de los sistemas biológicos.
  \item  \textbf{Neurociencias tradicionales} con modelos matemáticos. 
  \item  \textbf{Ciencias de la computación} tanto en la parte del modelado como en la parte de la implementación de estos modelos y la generación de simulaciones computacionales.
- \item  \textbf{Ingeniería eléctrica} se está diseñando hardware especializado para ejecutar modelos de manera eficiente, algunos de los modelos matemáticos están basados en circuitos eléctricos. 
- \item  \textbf{Ciencias cognitivas} tratan de ver que se está codificando dentro de un sistema nervioso y cómo podemos interpretar esa información que está ahí guardada.
+ \item  \textbf{Ingeniería eléctrica} donde se está diseñando hardware especializado para ejecutar modelos de manera eficiente, algunos de los modelos matemáticos están basados en circuitos eléctricos. 
+ \item  \textbf{Ciencias cognitivas} que tratan de ver qué se está codificando dentro de un sistema nervioso y cómo podemos interpretar esa información que está ahí guardada.
 
 \end{itemize}
 
-De entre todo esto vamos a ver cómo está influyendo todo esto, en lo que va a hacer las ciencias de la computación pero con su propio modelo de redes neuronales (Existe una conexión muy fuerte entre estos dos campos).
+Vamos a ver cómo están influyendo todos estos antecedentes en lo que van a hacer las ciencias de la computación pero con su propio modelo de redes neuronales, pues existe una conexión muy fuerte entre estos dos campos.
 
 
-Las neurociencias computacionales como se mencionó anteriormente estudia modelos del sistema nervioso y clasifica estos modelos en tres tipos: 
+Las neurociencias computacionales, como se mencionó anteriormente, estudian modelos del sistema nervioso y clasifican estos modelos en tres tipos: 
+
 \begin{enumerate}
- \item \textbf{Modelos descriptivos}, nos limitamos a decir que está haciendo un sistema y en particular aquí son muy famosos los experimentos con ratones se está tratando de ver qué puede hacer, que no puede hacer, que puede aprender, que no, pero no se puede explicar “¿Cómo?”, simplemente se dice que es lo que está sucediendo. 
- \item \textbf{Modelos mexicanistas}, donde ahora sí nos interesa saber, ¿Cómo es que están haciendo las cosas? Aquí vamos a ver como los modelos matemáticos, precisamente nos están tratando de describir cómo puede ser que se están conectando estas neuronas, cómo pueden estar funcionando las redes de neuronas, cómo podría estarse almacenando la información y transfiriendo de un lado a otro. 
+ \item \textbf{Modelos descriptivos}, nos limitamos a decir qué está haciendo un sistema; en particular aquí son muy famosos los experimentos con ratones, se está tratando de ver qué puede hacer, que no puede hacer, que puede aprender, que no, pero no se puede explicar ``¿cómo?'', simplemente se dice qué es lo que está sucediendo.
+ 
+ \item \textbf{Modelos mecanistas}, donde ahora sí nos interesa saber, ¿cómo es que están haciendo las cosas? Aquí vamos a ver cómo los modelos matemáticos precisamente nos están tratando de describir cómo puede ser que se están conectando estas neuronas, cómo pueden estar funcionando las redes de neuronas, cómo podría estarse almacenando la información y transfiriendo de un lado a otro.
+ 
  \item \textbf{Modelos interpretativos}, nos dan una idea del por qué o para qué lo hacen. Se tiene que buscar intencionalidad, razonamiento de más alto nivel.
 \end{enumerate}
 
-Cuando trabajemos con en redes de computadoras vamos a notar que sí necesitamos trabajar un poco con los tipos 2 y 3. Para romper ese mito de nuestras redes neuronales, donde sabemos que aprendieron y no estamos ni siquiera seguros de que aprendieron o porque lo aprendieron así. Vamos a tener que utilizar herramientas matemáticas para tratar de descubrir qué es lo que realmente está haciendo la red entrenada. 
+Cuando trabajemos con redes neuronales computacionales vamos a notar que sí necesitamos adentrarnos un poco en los tipos 2 y 3. Para romper esa traba con nuestras redes neuronales, donde sabemos que aprendieron, pero no estamos ni siquiera seguros de qué aprendieron o porqué lo aprendieron así, vamos a tener que utilizar herramientas matemáticas para tratar de descubrir qué es lo que realmente está haciendo la red entrenada. 
 
 
-Ahora los \textbf{objetivos del modelado}:
+Ahora revisemos los \textbf{objetivos del modelado} en neurociencias:
 
 \textcolor{gray}{(Empezando desde lo más granular que es cada una de las neuronas)}
 
 \begin{itemize}
- \item Las \textbf{corrientes}, que están pasando a través de las membranas de las neuronas, la influencia que tiene en el paso de la información. 
- \item Las \textbf{proteínas buenas} van a jugar un papel importante en la conducción de elementos iónicos no transmisores (acoplamientos químicos).
+ \item Las \textbf{corrientes} que están pasando a través de las membranas de las neuronas, la influencia que tienen en el paso de la información. 
+ 
+ \item Las \textbf{proteínas} van a jugar un papel importante en la conducción de elementos iónicos no transmisores (acoplamientos químicos).
 \end{itemize}
 
-\textcolor{gray}{(El siguiente nivel ya no solamente de una neurona)}
+\textcolor{gray}{(El siguiente nivel con combinaciones de varias neuronas)}
 
 \begin{itemize}
- \item Las \textbf{oscilaciones de las redes} completas, que pasa con estas señales, pulsos eléctricos, que se están transfiriendo de unas regiones a otras y que empiezan a producir oscilaciones con ciertos períodos,  regiones de actividad, que se apagan.
- \item \textbf{Arquitectura topográfica y de columnas} cómo están organizadas estas neuronas, quienes están conectadas con quiénes, cómo reaccionan dentro de ciertas regiones identificadas, cómo interactúan con otras regiones. Se puede identificar una arquitectura desde el punto de vista fisiológico como de vista funcional. Un caso particular de estas estructuras es la formación de columnas de neuronas que están altamente conectadas y trabajan como una unidad.
- \item El \textbf{aprendizaje} es decir estamos procesando información, estamos guardando información, recuperando y eso permite que los seres que cuentan con un sistema nervioso tengan características especiales cuyo comportamiento se puede modificar conforme aprenden. 
- \item La \textbf{memoria} que significa que necesitamos almacenar información, recuperarla procesarla. 
+ \item Las \textbf{oscilaciones de las redes} completas, qué pasa con estas señales, pulsos eléctricos que se están transfiriendo de unas regiones a otras y que empiezan a producir oscilaciones con ciertos períodos,  regiones de actividad o regiones que se apagan.
+ 
+ \item \textbf{Arquitectura topográfica y de columnas} cómo están organizadas estas neuronas, quiénes están conectadas con quiénes, cómo reaccionan dentro de ciertas regiones identificadas, cómo interactúan con otras regiones. Se puede identificar una arquitectura tanto desde el punto de vista fisiológico como del punto de vista funcional. Un caso particular de estas estructuras es la formación de columnas de neuronas que están altamente conectadas y trabajan como una unidad.
+ 
+ \item El \textbf{aprendizaje}, es decir estamos procesando información, guardando información, recuperándola y eso permite que los seres que cuentan con un sistema nervioso tengan características especiales cuyo comportamiento se puede modificar conforme aprenden. 
+ 
+ \item La \textbf{memoria}, necesitamos almacenar información y recuperarla para procesarla. 
 \end{itemize}
 
 
