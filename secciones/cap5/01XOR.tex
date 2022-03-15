@@ -3,8 +3,20 @@
 
 Anteriormente, habíamos logrado separar clases de ejemplares siempre y cuando estos se pudieran modelar en un plano linealmente separable. Hasta ahora había sido un reto importante (no logrado) hacer clasificaciones de ejemplares distribuidos en un plano no separable linealmente, como lo es \emph{la función XOR} donde, tenemos que las respuestas positivas se encuentran en una diagonal opuesta a las respuestas negativas y no hay manera de separar a los blancos de los negros con una sola frontera lineal, lo que hace imposible separar con un solo perceptrón. Entonces notamos que necesitamos de dos líneas que nos permitan separar el plano. Así llegamos a la idea que necesitamos más de una capa, que nos permita hacer la siguiente separación del plano.
 
+\begin{figure}[H]
+ \centering
+ \includegraphics[scale=0.5]{../Figuras/TablaXor.png}
+ \caption{Tabla de verdad para la función XOR.}
+ \label{fig:tablaXOR}
+\end{figure}
 
-(Insertar imágenes de la función XOR y su plano).
+\begin{figure}[H]
+ \centering
+ \includegraphics[scale=0.3]{../Figuras/XOr.png}
+ \caption{Perceptrón para la función XOR, con una capa oculta.}
+ \label{fig:pXor}
+\end{figure}
+
 
 
 En la tabla de verdad notamos que para la función XOR, cuando la suma de las entradas es:
@@ -27,6 +39,12 @@ Ahora para la función tenemos dos entradas, una capa oculta (con dos neuronas) 
  \end{split}
 \end{equation}
 
+\begin{figure}[H]
+ \centering
+ \includegraphics[scale=0.3]{../Figuras/xor.png}
+ \caption{Solución para perceptrón de la función XOR.}
+ \label{fig:pXorSol}
+\end{figure}
 
 
 
