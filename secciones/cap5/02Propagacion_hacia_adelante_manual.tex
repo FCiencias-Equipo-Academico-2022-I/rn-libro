@@ -2,7 +2,47 @@
 
 En está parte vamos a ver como podemos evaluar la red para la solución que se dio en la sección anterior. (Recordemos que tambíen se pueden dar otras soluciones para el XOR).
 
-Entonces entonces el procedimiento matemático general para poder evaluar una red cuando tenemos más de un perceptron. Veamos primero lo que está pasando con el \textbf{or}, y el \textbf{nand}, por el momento no tomaremos en cuenta las neuronas de entrada $a$ puesto que solo son usadas para almacenar las entradas. Ahora si
-los perceptrones son los dos que conforman la capa oculta, pensemos en cada uno de estos como una unidad, cada perceptron está compuesto por los elementos de entrada y su sesgo  
+Entonces el procedimiento matemático general para poder evaluar una red cuando tenemos más de un perceptron. Veamos primero que pasa con el \textbf{xor}, y el \textbf{nand}, por el momento no tomaremos en cuenta las neuronas de entrada $a$ puesto que solo son usadas para almacenar las entradas. La capa oculta está formada realmente por dos percetrones, que dan su salida a una neurona más que es la capa de salida de nuestra red. Para calcular sus salidas debemos aplicar la suma ponderada de las entradas a una función activación, así podemos ver que la salida de una neurona oculta es la siguiente:
+ 
+\begin{equation}
+ z_{j} = g (\sum_{i} w_{ij}a_i)
+\end{equation}
 
-tenemos una vez más la fórmula para un percepción cualquiera valores de activación x sus pesos calculamos la suma y aplicamos la función de activación ahorita en forma general esta señal la de aquí la función sigmoide pero recordemos que podríamos tener aquí una función escalón o cualquier otra función de activación entonces qué va a pasar con todos los perceptores de la capa oculta bueno nuestro primer percepción de ejemplo era este sustituimos a 0 a1 y a2 por ejemplo nuestro 0 y 1 a 0 que es el beat de sesgo que es idénticamente 1 porque recordemos que para un org pues necesitamos una recta que no necesariamente pasa por el origen entonces ya que tenemos estos elementos quedaría evaluado este valor que sucede con el segundo perceptor bueno tiene la misma forma serían estos elementos en este la zona porque existen los tres de entrada sus pesos correspondientes alimentando a h 2 ahora observen que lo que tienen en común h1 h2 es que realmente están alimentados por los mismos datos de entrada aunque cada uno de ellos tiene su propio conjunto de pesos y realmente son evaluados independientemente entonces hasta aquí ya nos quedaría los valores de alimentación para la capa oculta si nosotros completamos estas operaciones una vez que ya tenemos este conjunto de valores podemos empezar a trabajar con el tercer perceptor que sería este sus valores de entrada van a estar dados por los valores de activación de h1 de h2 y por nuestro nuevo sesgo este recordemos que en realidad es un land entonces también vamos a necesitar algo que esté saliendo no necesariamente pase por el cero entonces habiendo agregado estos elementos otra vez tenemos la forma típica de un percepción con sus entradas acompañadas de sus respectivos pesos y eso es lo que vamos a tener aquí la fórmula se ve igual lo único que está sucediendo es que ahora los valores de entrada fueron los valores que obtuvimos en el cálculo de la cab anterior como estamos trabajando precisamente capa por capa primero entran en los valores con los que van a trabajar todos los percepciones después calculamos todos los que están aquí son independientes entre sí aunque tengan en común las mismas entradas y una vez que terminemos este cálculo podemos proceder a la siguiente capa por eso estamos hablando de un algoritmo llamado de alimentación hacia adelante hay que recorrerlo de izquierda hacia derecha para ir obteniendo los diferentes valores de activación en cada una de las capas observen que una característica de este tipo de arquitectura es que siempre me estoy conectando de las neuronas en la capa anterior hacia las neuronas en la capa siguiente no puedo tener en este momento de dzitás de regreso entonces ya que tenemos estos elementos ya obtuvimos al final la evaluación de un short por medio de tres percepciones más los sesgos correspondientes bien podemos resolverlo así uno por uno pero también podemos simplificar un poco esta fase así es que lo que vamos a hacer en él en la siguiente etapa es tratar de hacer todo esto en paralelo cambiando anotación de matriz de matrices.
+A estos perceptrones a su vez se le estan aplicando la función de activación sigmoide:
+
+\begin{equation}
+ h_{j} = \dfrac{1}{ 1 + e^{-z}}
+\end{equation}
+
+Así la neurona de salida recibe a los perceptrones ya evaluados y listos para aplicar pesos a estos y una función de activación, que en este caso son dados de la siguiente forma:
+
+\begin{equation}
+ z_{o} = g (\sum_{j} w_{jo}h_j)
+\end{equation}
+
+\begin{equation}
+ o = \dfrac{1}{1 + e ^{z_o}}
+\end{equation}
+
+Así tomando de ejemplo la función XOR, los valores de la capa oculta son evaluados de la siguiente forma, donde $x_{1}$ y $x_{2}$ son evaluados por 0 o 1 según sea necesario:
+
+\begin{equation}
+ \begin{split}
+ h_{0} &= 1 \\ 
+ h_{1} &= g(1w_{01} + x_{1}w_{11} + x_{2}w_{21}) \\
+ h_{2} &= g(1w_{02} + x_{1}w_{12} + x_{2}w_{22}) 
+ \end{split}
+\end{equation}
+
+
+Entonces hasta aquí ya tenemos los valores de la capa oculta, una vez que ya tenemos este conjunto de valores podemos empezar a trabajar con el tercer perceptor, sus valores de entrada van a estar dados por los valores de activación de $h1$ y $h2$ y por un  sesgo, pues recordemos que es la función $Nand$, por tanto necesitamos movernos ligeramente del origen. Lo que vamos a tener aquí la fórmula se ve similar, lo único  es que ahora los valores de entrada fueron los valores que obtuvimos en el cálculo de la capa anterior:
+
+\begin{equation}
+  o = g( h_{0}w{0o} + h_{1}w_{1o} + h_{2}w_{2o})
+\end{equation}
+
+Como estamos trabajando capa por capa, primero entran los valores con los que van a trabajar todos los perceptrones, después calculamos todos los de la capa oculta que son independientes entre sí, aunque tengan en común las mismas entradas y finalmente hacemos el caluculo de la siguiente capa, que en ese caso es la se salida, pero bien podría ser otra oculta. 
+
+Por esto estamos hablando de un algoritmo llamado de \emph{alimentación hacia adelante}, este hay que recorrerlo de izquierda hacia derecha, para ir obteniendo los diferentes valores de activación en cada una de las capas. Una característica de este tipo de arquitectura es que, al estar las neuronas conectadas, siempre se esta conectando de las neuronas en la capa anterior hacia las neuronas en la capa siguiente. Cuando tenemos la evalucación de las capas ocultas, podemos obtener finalmente la salida final, con una evaluación final.
+
+Si bien está forma de evalución nos lleva al resultado correcto, este metodo se puede simplificar sobretodo en el caso que estemos manejando más entradas y más perceptrones en las capas ocultas. Así nos daremos cuenta que es posible usar matrices, esta forma de evaluación la veremos en la siguiente sección.
