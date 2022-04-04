@@ -1,6 +1,6 @@
 \section{Introducción}
 
-En este capitulo se desarrolla el procesos que pasa una maquina para que "aprenda", para esto notemos el concepto de aprender. En lo seres humanos se denota como el hecho de adquirir el conocimento de algo mediante el estudio o la experiencia a partir de ejemplos específicos en nuestro medio, entonces aquellos problemas que inicialmente no pueden resolverse, puedan ser resueltos después de obtener más información acerca del problema. Desde pequeños empezamos por aprender por palabras (conceptos) que asociamos con algo especifico, para después relacionar que varios objetos pertenecen a un tipo de conjunto y otros no. Como que un muñeco, una pelota y unos bloques de construcción de plastico, pertecen a un conjunto denotado como "juguetes", y que plato, taza, y tazón no pertecen a este conjunto sino al conjunto "vajilla". Entonces para organizar los conceptos que vamos aprediendo hacemos uso de una función booleana, donde la entrada es el concepto, la pregunta es, ¿Este objeto pertence a un cierto conjunto de objetos con características similares? y la salida es falso o verdadero. A este proceso, se le conoce como \emph{aprendizaje de conceptos} y en este curso lo simplificamos como \emph{función boleana de aproximación mediante ejemplos}.
+En este capitulo se desarrolla el procesos que pasa una maquina para que \emph{aprenda}, para esto notemos el concepto de aprender. En lo seres humanos se denota como el hecho de adquirir el conocimento de algo mediante el estudio o la experiencia a partir de ejemplos específicos en nuestro medio, entonces aquellos problemas que inicialmente no pueden resolverse, puedan ser resueltos después de obtener más información acerca del problema. Desde pequeños empezamos por aprender por palabras (conceptos) que asociamos con algo especifico, para después relacionar que varios objetos pertenecen a un tipo de conjunto y otros no. Como que un muñeco, una pelota y unos bloques de construcción de plastico, pertecen a un conjunto denotado como "juguetes", y que plato, taza, y tazón no pertecen a este conjunto sino al conjunto "vajilla". Entonces para organizar los conceptos que vamos aprediendo hacemos uso de una función booleana, donde la entrada es el concepto, la pregunta es, ¿Este objeto pertence a un cierto conjunto de objetos con características similares? y la salida es falso o verdadero. A este proceso, se le conoce como \emph{aprendizaje de conceptos} y en este curso lo simplificamos como \emph{función boleana de aproximación mediante ejemplos}.
 
 Ahora lo que denotamos como el hecho que una maquina aprenda, lo vemos como cualquier programa que mejore su desempeño en alguna tarea mediante la experiencia. Con más formalidad se denota como:
 
@@ -8,30 +8,37 @@ Ahora lo que denotamos como el hecho que una maquina aprenda, lo vemos como cual
  \textbf{Apredizaje maquina:} Se dice que un programa de computadora aprende, si su desempeño en T, medido por P , mejora con la experiencia E. Tal que: 
 
  \begin{itemize}
-  \item \emph{T} es un tipo de tarea, como:
+  \item \emph{T} es un tipo de tarea.
+  \item \emph{P} es una medida de desempeño.
+  \item \emph{E} la experiencia con ejemplos (entrenamiento).  
+ \end{itemize}
+
+ , \footnote{Machine Learning, Mitchell 1997, pag. 14.}.
+\end{definition}
+
+Algunos ejemplos para definición anterior pueden ser los siguientes:
+\begin{itemize}
+  \item \emph{T}, como:
    \begin{itemize}
     \item Jugar un juego de mesa.
     \item Clasificar varios tipo de hojas.
     \item Reconocer una voz en particular.
    \end{itemize}
-  \item \emph{P} es una medida de desempeño, como:
+  \item \emph{P}, como:
     \begin{itemize}
      \item Porcentaje de juegos ganados en las partidas.
      \item Porcentaje de hojas correctamente clasificadas.
      \item Porcentaje de reconocimiento de timbre de la voz.
     \end{itemize}
-  \item \emph{E} la experiencia con ejemplos (entrenamiento), como:
+  \item \emph{E}, como:
     \begin{itemize}
         \item Jugar juegos de práctica.
         \item Una secuencia de imagenes etiquetadas.
         \item Una secuencia de audios etiquetados.
     \end{itemize}
-    
 
- \end{itemize}
+\end{itemize}
 
- , \footnote{Machine Learning, Mitchell 1997, pag. 14.}.
-\end{definition}
 
 A partir de ahora nos dedicaremos a definir correctamente tareas que nos interese que un programa aprenda, para entender la forma más abstracta del problema y así proponer los algoritmos que nos ayuden a resolverlo.
 
