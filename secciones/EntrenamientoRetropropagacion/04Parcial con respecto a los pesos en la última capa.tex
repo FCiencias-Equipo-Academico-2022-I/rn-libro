@@ -5,12 +5,55 @@ Una vez más para ser más legible los cálculos vamos a comenzar a calcular el 
 
 \begin{figure}[H]
  \centering
- \includegraphics[scale=0.5]{../Figuras/AredNa.png}
- \caption{Penúltima capa.}
+ \includegraphics[scale=0.7]{../Figuras/AredNa.png}
+ \caption{Red neuronal(entrenamiento última capa.)}
  \label{fig:graficaLog}
 \end{figure}
 
-Considerando que ahorita solamente estamos evaluando a la red en un ejemplo y vamos a tener que resolverlo por etapas lo que estamos pensando es lo siguiente: nuestra función de la red neuronal, como aquí las entradas produjo, las etiquetas correspondientes y ahora lo que nuestra función de errores están viviendo es la distancia entre lo que obtuvimos en esta capa y una colección de etiquetas que era lo que nosotros queríamos que saliera. 
+Considerando que ahora solamente estamos evaluando a la red en un ejemplo y vamos a tener que resolverlo por etapas lo que estamos pensando es lo siguiente: nuestra función de la red neuronal, como aquí las entradas produjo, las etiquetas correspondientes y ahora lo que nuestra función de errores están viviendo es la distancia entre lo que obtuvimos en esta capa y una colección de etiquetas que era lo que nosotros queríamos que saliera. 
+
+%$ \color{yellow} A = \textcolor{blue}{B} \mathbin{\textcolor{red}{-}} \textcolor{green}{C} $
+
+Retomando la entropía cruzada \ref{entropiaCruzada} y enfocandonos en las entradas para la neurona de salida:
+ \begin{equation}
+  J (\Theta) = -\left[\sum_{k=1}^{s_{L}}y_{k}^{(i)} log(\textcolor{blue}{a_{k}^{(L)}}) + (1-y_{k}^{(i)}) log(1 - \textcolor{blue} {a_{k}^{(L)}})  \right] 
+  \label{eq:EntropiaCruz}
+ \end{equation}
+ 
+ Entonces la capa de salida al derivar obtendriamos lo siguiente:
+ \begin{equation}
+  \dfrac{\partial J}{\partial \theta_{jk}^{L-1}} = - \left[ \dfrac{y_{k}}{a_{k}^{L}} \dfrac{\partial}{\partial\theta_{jk}^{(L-1)}} g(\textcolor{red}{s_{k}}) - \left(\dfrac{1 - y_{k}}{1 - a_{k}^{L}} \right) \dfrac{\partial}{\partial \theta_{jk}^{(L-1)}}g(z_{k})\right]
+ \end{equation}
+ 
+Con:
+\begin{equation}
+ \textcolor{red}{s_{k}} = \sum_{j'=0}^{S_{L-1}} \theta_{j'k}a_{j'}^{L-1}
+\end{equation}
+
+De la derivada de la suma sólo queda $a_{j'} $ con $j' = j$ .
+\begin{equation}
+ =-\left[ \dfrac{y_{k}}{a_{k}^{L}} g'(z_{k}) -\left( \dfrac{1-y_{k}}{1-a_{k}^{(L)}} \right) g'(z_{k})\right]a_{j}^{(L)}
+\end{equation}
+
+Recordando que $g' = g (1 - g)$ ahora tenemos que:
+\begin{equation}
+ =-\left[ \dfrac{y_{k}(1-a_{k}^{L})-a_{k}^{L}(1-y_{k})} {a_{k}^{L}(1-a_{k}^{L})} \right]\textcolor{blue}{g'(z_{k})} a_{j}^{(L)}
+\end{equation}
+
+Con:
+\begin{equation}
+ \textcolor{blue}{g'(z_{k})} = a_{k}^{(L)}(1-a_{k}^{L})
+\end{equation}
+
+Así nos queda como: 
+\begin{equation}
+ =-a_{j}^{(L-1)})(y_{k}-a_{k}^{(L)})
+\end{equation}
+
+Representando a $(y_{k}-a_{k}^{(L)})$ como $\delta_{k}$ nos queda.
+\begin{equation}
+ =-a_{j}^{(L-1)})\delta_{k}
+\end{equation}
 
 Entonces nuestra función de error está actuando directamente sobre esta capa nada más,  utilizando los pesos en esta capa, evaluado lo que había ocurrido en la capa anterior involucrando también a los pesos de esta otra capa. Entonces podemos pensar que los valores que obtuvimos aquí a la salida dependen de los pesos en cada una de las capas, sin embargo la dependencia es ligeramente distinta. En el sentido de que tenemos que irnos dos niveles más hacia atras, recordando que este influyó en el cálculo de ese número de salida.
 
