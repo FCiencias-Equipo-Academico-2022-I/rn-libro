@@ -31,7 +31,7 @@ hasta la salida indicarán una contribución elevada al gradiente del error. En 
 \end{figure}
 
 Lo más habitual es que las capas más alejadas de la salida de la red aprendan más lentamente que las capas más cercanas a la salida. Dado que los niveles de activación de las neuronas están acotados y los resultantados a menudo son menores que 1. En casos extremos, el gradiente será prácticamente nulo, por lo que la red será incapaz de aprender. Dandonos el 
- problema conocido como gradiente desvaneciente en íngles \emph{vanishing gradient}.
+ problema conocido como gradiente desvaneciente en inglés \emph{vanishing gradient}.
 
  También puede darse el caso opuesto. Si los pesos de la red aumentan en exceso durante el entrenamiento de la red (p.ej. si utilizamos una tasa de aprendizaje demasiado elevada que hace que el gradiente descendente sea inestable y diverja), los factores involucrados en el cálculo del gradiente tomarán valores mucho mayores que 1. En este caso, el problema es el contrario al gradiente devanescente y tendríamos la explosión del gradiente \emph{exploding gradient}.
 
