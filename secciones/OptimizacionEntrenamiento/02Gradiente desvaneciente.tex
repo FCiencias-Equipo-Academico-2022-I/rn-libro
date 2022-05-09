@@ -9,9 +9,9 @@ Una vez realizada la propagación hacia atrás de los errores, actualizamos los 
 
 (insertar ecuaciones :P).
 
-En el ajuste de un peso asociado a la entrada x i de una neurona, intervienen tres factores: 
+En el ajuste de un peso asociado a la entrada $x_i$ de una neurona, intervienen tres factores: 
 \begin{itemize}
- \item el valor de la entrada x i
+ \item el valor de la entrada $x_i$
  \item la derivada de su función de activación dada su entrada neta
  \item una señal de error que depende de la capa en la que nos encontremos y que proviene de las
 siguientes capas de la red.
@@ -35,9 +35,28 @@ Lo más habitual es que las capas más alejadas de la salida de la red aprendan 
 
  También puede darse el caso opuesto. Si los pesos de la red aumentan en exceso durante el entrenamiento de la red (p.ej. si utilizamos una tasa de aprendizaje demasiado elevada que hace que el gradiente descendente sea inestable y diverja), los factores involucrados en el cálculo del gradiente tomarán valores mucho mayores que 1. En este caso, el problema es el contrario al gradiente devanescente y tendríamos la explosión del gradiente \emph{exploding gradient}.
 
+ \begin{center}
+ \begin{tikzpicture}
+\begin{axis}[
+axis lines=middle,
+tick style={very thick},
+]
+%
+%line of best fit
+\addplot[thick,samples=151,domain=0:10] {0.3*(x-5)^(2) + 1}
+foreach \x in {1,...,12} {coordinate[pos={0.5-1.5/pow(1+\x,2)}] (p\x)
+\ifnum\x>1
+(p\the\numexpr\x-1) edge[bend left=80] (p\x)
+\fi};
+\end{axis}
+\newline
+%\caption{Buena taza de aprendizaje. Desenso por el gradiente deseado.}
+\end{tikzpicture}
+\end{center}
+
 \begin{figure}[H]
  \centering
- \includegraphics[scale=0.8]{../Figuras/vanish.png}
+ \includegraphics[scale=0.5]{../Figuras/vanish.png}
  \caption{La magnitud del gradiente varía de una capa a otra durante el entrenamiento de una red neuronal multicapa}
  \label{fig:vanish}
 \end{figure}
