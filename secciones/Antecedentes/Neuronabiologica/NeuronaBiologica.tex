@@ -57,7 +57,7 @@ La neurona típica tiene unas células de mielina, que forman nodos que van cubr
 
 \begin{figure}[h]
  \centering
- \includegraphics[scale=0.1]{../Figuras/Saltos.png}
+ \includegraphics[scale=0.15]{../Figuras/Saltos.png}
  \caption{Corriente iónica por el axón (efecto de corto plazo), Helixitta, 1 octubre 2015, Wikimedia Commons, \url{https://commons.wikimedia.org/wiki/File:Propagation_of_action_potential_along_myelinated_nerve_fiber_en.svg}, Creative Commons Attribution-ShareAlike 4.0 International}
  \label{fig:conduccionSaltos}
 \end{figure}
@@ -106,7 +106,7 @@ Clasificación de tipos de neuronas:
 \end{itemize}
 
 
-Cuando modelamos redes neuronales lo típico es modelar una neurona con dendritas, su disparo y su axón, que se conecta con las siguientes dendritas, pero aquí ya estamos viendo que la naturaleza nos dice que hay que pensar más y plantear cómo hacer las representaciones de estas conexiones que nos presenta la naturaleza, un poco diferente pero tal vez con resultados más satisfactorios.
+Cuando modelamos redes neuronales lo típico es modelar una neurona con dendritas, su disparo y su axón, que se conecta con las dendritas de las siguientes neuronas; pero aquí ya estamos viendo que la naturaleza nos dice que hay más opciones, por lo que podríamos plantearnos cómo hacer representaciones para estos otros tipos de conexiones que nos presenta la naturaleza, un poco diferentes pero que tal vez puedieran ofrecer resultados más satisfactorios en ciertos escenarios.
 
 
 
@@ -117,7 +117,7 @@ Cuando modelamos redes neuronales lo típico es modelar una neurona con dendrita
 Aquí veremos más a detalle cómo una neurona recibe o transmite información a otras neuronas, donde para un solo disparo están participando un montón de elementos que veremos más adelante.
 
 
- El momento en que dos neuronas transmiten información se llama \textbf{sinapsis} y es mediante conexiones que se dan en las terminales del axón (vesículas sinápticas) de la neurona presináptica hacia la postsináptica. Es importante notar que estas neuronas no tienen contacto anatómico, sino que están separadas por un espacio muy pequeño, \textbf{la brecha sináptica}. Lo que sucede en estas conexiones es un intercambio electroquímico que produce cambios de polaridad a lo largo la membrana. 
+ El punto en que dos neuronas transmiten información se llama \textbf{sinapsis} y es mediante conexiones que se dan en las terminales del axón (vesículas sinápticas) de la neurona presináptica hacia la postsináptica. Es importante notar que estas neuronas no tienen contacto anatómico, sino que están separadas por un espacio muy pequeño, \textbf{la brecha sináptica}. Lo que sucede en estas conexiones es un intercambio electroquímico que produce cambios de polaridad a lo largo la membrana. 
 
 
 
@@ -130,18 +130,20 @@ Aquí veremos más a detalle cómo una neurona recibe o transmite información a
 \end{figure}
 
 
-Clasificación de sinapsis, las terminales del axón de la neurona presináptica puede hacer contacto con la neurona postsináptica en:
+\subsubsection{Clasificación de sinapsis}
+
+Las terminales del axón de la neurona presináptica puede hacer contacto con la neurona postsináptica en:
 \begin{enumerate}
- \item su dendritas, axodendrítica.
- \item su cuerpo (soma), axosomática. 
- \item su axón, axoaxónica.
+ \item su dendritas (conexión axodendrítica),
+ \item su cuerpo (soma), (conexión axosomática) o
+ \item su axón, (conexión axoaxónica).
 \end{enumerate}
 
 
-Distingamos entre dos tipos de sinapsis:
+También podemos distinguir entre dos tipos de sinapsis:
 
-
- \textbf{Sinapsis eléctrica:} las membranas de las células pre y posinápticas se unen en la brecha sináptica por una unión tipo gap, o unión comunicante, que son pequeños canales que permiten el paso de iones.
+\begin{description}
+ \item [Sinapsis eléctrica:] las membranas de las células pre y posinápticas se unen en la brecha sináptica por una unión tipo brecha (\textit{gap}), o unión comunicante, que son pequeños canales que permiten el paso de iones (\fref{fig:sinapsisN}).
 
 
 	\begin{enumerate}
@@ -158,11 +160,11 @@ Distingamos entre dos tipos de sinapsis:
  \label{fig:sinapsisN}
 \end{figure}
  
- \textbf{Sinapsis química:} la neurona libera moléculas neurotransmisoras a otra neurona adyacente en un pequeño espacio (la brecha sináptica) ver \ref{fig:sinapsisQ}. Se puede resumir en cuatro etapas principales:
+ \item [Sinapsis química:] la neurona libera moléculas neurotransmisoras a otra neurona adyacente en un pequeño espacio, la brecha sináptica (\fref{fig:sinapsisQ}). Su funcionamiento se puede resumir en cuatro etapas principales:
 
 
 \begin{enumerate}
- \item Un potencial de acción llega al botón terminal proveniente desde cono axónico.
+ \item Un potencial de acción llega al botón terminal proveniente desde el cono axónico.
  \item Los neurotransmisores contenidos en las vesículas que están él los botones terminales, son liberados en la brecha sináptica y se dispersan.
  \item Cada neurotransmisor se une a su receptor ubicado en la membrana de la neurona postsináptica.
  \item El exceso de neurotransmisores que queda en el espacio sináptico es degradado o recaptado.
@@ -175,6 +177,8 @@ Distingamos entre dos tipos de sinapsis:
  \caption{Synaptical transmission (chemical). Neurona A transmisora, Neurona B receptora, 1. Mitocondria, 2. Vesícula sináptica llena de neurotransmisor, 3. Autorreceptor, 4. Brecha sináptica, 5. Receptor de neurotransmisores, 6. Canal de calcio, 7. Neurotransmisor liberador de vesículas fusionadas, 8. Bomba de recaptación de neurotransmisores, Utilisateur:Dake, 23 September 2005, Wikimedia Commons, \url{https://commons.wikimedia.org/wiki/File:Synapse_diag1.png}, Inkscape 0.42, CC-BY-SA 3.0}
  \label{fig:sinapsisQ}
 \end{figure}
+
+\end{description}
 
 
 
