@@ -41,8 +41,8 @@ Entonces hasta aquí ya tenemos los valores de la capa oculta, una vez que ya te
   o = g( h_{0}w{0o} + h_{1}w_{1o} + h_{2}w_{2o})
 \end{equation}
 
-Como estamos trabajando capa por capa, primero entran los valores con los que van a trabajar todos los perceptrones, después calculamos todos los de la capa oculta que son independientes entre sí, aunque tengan en común las mismas entradas y finalmente hacemos el caluculo de la siguiente capa, que en ese caso es la se salida, pero bien podría ser otra oculta. 
+Como estamos trabajando capa por capa, primero entran los valores con los que van a trabajar todos los perceptrones, después calculamos todos los de la capa oculta que son independientes entre sí, aunque tengan en común las mismas entradas y finalmente hacemos el cálculo de la siguiente capa, que en ese caso es la se salida, pero bien podría ser otra oculta. 
 
-Por esto estamos hablando de un algoritmo llamado de \emph{alimentación hacia adelante}, este hay que recorrerlo de izquierda hacia derecha, para ir obteniendo los diferentes valores de activación en cada una de las capas. Una característica de este tipo de arquitectura es que, al estar las neuronas conectadas, siempre se esta conectando de las neuronas en la capa anterior hacia las neuronas en la capa siguiente. Cuando tenemos la evalucación de las capas ocultas, podemos obtener finalmente la salida final, con una evaluación final.
+Por la forma de recorrer la red (de izquierda a derecha) esté algortimo obtiene su nombre de \emph{propagación hacia adelante}, pues lo calculado en la neurona de la capa anterior se propaga directamente a la siguiente capa, en íngles se conoce como \textit{feedfordward}. Cuando tenemos la evaluación de las capas ocultas, podemos obtener finalmente la salida final, con una evaluación final.
 
 Si bien está forma de evalución nos lleva al resultado correcto, este metodo se puede simplificar sobretodo en el caso que estemos manejando más entradas y más perceptrones en las capas ocultas. Así nos daremos cuenta que es posible usar matrices, esta forma de evaluación la veremos en la siguiente sección.
