@@ -1,63 +1,86 @@
-\section{Parcial con respecto a los pesos en la penúltima capa}
+\section{Entrenamiento en la última capa}
 
-
-Una vez más para ser más legible los cálculos vamos a comenzar a calcular el gradiente.
+En esta sección nos vamos a enfocar en la última capa de red, consideremos la siguiente red de la figura \ref{fig:REDuc}. 
 
 \begin{figure}[H]
  \centering
  \includegraphics[scale=0.7]{../Figuras/AredNa.png}
  \caption{Red neuronal(entrenamiento última capa.)}
- \label{fig:graficaLog}
+ \label{fig:REDuc}
 \end{figure}
 
-Considerando que ahora solamente estamos evaluando a la red en un ejemplo y vamos a tener que resolverlo por etapas lo que estamos pensando es lo siguiente: nuestra función de la red neuronal, como aquí las entradas produjo, las etiquetas correspondientes y ahora lo que nuestra función de errores están viviendo es la distancia entre lo que obtuvimos en esta capa y una colección de etiquetas que era lo que nosotros queríamos que saliera. 
+Vamos a calcular el gradiente considerando que estamos evaluando a la red para un ejemplar. Una vez que la red tomó los valores de entrada (neuronas en verde) y los evaluó pasando por la capa oculta (neuronas en azul) hasta asignar el ejemplar a una neurona de salida (neuronas en rojo). Lo que la función de error está midiendo es la \textit{distancia} entre lo que obtuvimos en la capa de salida y una colección de etiquetas objetivo, es decir, la clasificación real del ejemplar. 
 
-%$ \color{yellow} A = \textcolor{blue}{B} \mathbin{\textcolor{red}{-}} \textcolor{green}{C} $
 
-Retomando la entropía cruzada \ref{entropiaCruzada} y enfocandonos en las entradas para la neurona de salida:
+Entonces por ahora nuestra función de error está actuando solo sobre la capa de salida, pero recordemos que para llegar a la evaluación de cualquiera de las neuronas en la capa de salida, se calculó la activación de la capa oculta y de la capa de entrada. Con los respectivos pesos de cada capa. Entonces podemos decir que los valores obtenidos en la evaluación final dependen directamente de los pesos en cada capa. 
+
+
+Tomando en cuenta lo anterior, el gradiente lo vamos a calcular capa por capa. Desde la capa de salida hasta la capa de entrada.
+Lo primero que tenemos que calcular es como dependió la función de error de los pesos de la capa oculta (azul) que la antecede.
+
+
+La notación que vamos a usar más adelante va a considerar las neuronas de entrada con el índice $i$, las neuronas de la capa oculta con el índice $j$, y las neuronas de salida con el índice $k$. Así, los pesos que conectan a la neurona $j$ con la neurona $k$, se representan como $\theta_{jk}$. 
+
+
+Para denotar la capa que estamos haciendo referencia vamos a emplear el superíndice $(L)$ con referencia a last, último en inglés, dado que estamos haciendo los cálculos desde la última capa, hacia atrás, la penúltima capa se va a indicar con $(L-1)$, la anterior de esta como $(L-2)$ y así sucesivamente. Entonces, para referirnos a un peso para la última capa, que conecta a la penúltima capa con la de salida, se escribe como $theta_{jk}^{L-1}$ que es el peso marcado en rojo en la figura \ref{fig:REDuc}.
+
+Usemos la entropía cruzada como función de error, para un ejemplar \ref{entropiaCruzada}:
  \begin{equation}
   J (\Theta) = -\left[\sum_{k=1}^{s_{L}}y_{k}^{(i)} log(\textcolor{blue}{a_{k}^{(L)}}) + (1-y_{k}^{(i)}) log(1 - \textcolor{blue} {a_{k}^{(L)}})  \right] 
   \label{eq:EntropiaCruz}
  \end{equation}
  
- Entonces la capa de salida al derivar obtendriamos lo siguiente:
+
+ La suma está tomando en cuenta que el ejemplar puede ser clasificado a una de las varias clases a poder asignar $S_{L}$, es decir, el número de neuronas en la capa $L$. Los valores obtenidos de la activación las neuronas están definidos por $a_{k}^{(L)}$, y los deseados por $y_{k}$.
+ 
+ Lo siguiente a hacer es calcular la derivada con respecto a los pesos que conectan la última capa con la penúltima capa, es decir, $\theta_{jk}^{(L-1)}$.
+ 
+ Entonces vamos a calcular la parcial de error con respecto a uno de los pesos de la capa anterior. Así la suma se "va" dado que el peso solo va a afectar a la $k$-esima neurona, quedando solo con la operación que se efectúa en esta, usando la regla de cadena obtenemos lo siguiente:
+ 
  \begin{equation}
-  \dfrac{\partial J}{\partial \theta_{jk}^{L-1}} = - \left[ \dfrac{y_{k}}{a_{k}^{L}} \dfrac{\partial}{\partial\theta_{jk}^{(L-1)}} g(\textcolor{red}{s_{k}}) - \left(\dfrac{1 - y_{k}}{1 - a_{k}^{L}} \right) \dfrac{\partial}{\partial \theta_{jk}^{(L-1)}}g(z_{k})\right]
+  \dfrac{\partial J}{\partial \theta_{jk}^{L-1}} = - \left[ \dfrac{y_{k}}{a_{k}^{L}} \dfrac{\partial}{\partial\theta_{jk}^{(L-1)}} g(\textcolor{red}{z_{k}}) - \left(\dfrac{1 - y_{k}}{1 - a_{k}^{L}} \right) \dfrac{\partial}{\partial \theta_{jk}^{(L-1)}}g(\textcolor{red}{z_{k}})\right]
  \end{equation}
  
 Con:
 \begin{equation}
- \textcolor{red}{s_{k}} = \sum_{j'=0}^{S_{L-1}} \theta_{j'k}a_{j'}^{L-1}
+ \textcolor{red}{z_{k}} = \sum_{j'=0}^{S_{L-1}} \theta_{j'k}a_{j'}^{L-1}
 \end{equation}
 
-De la derivada de la suma sólo queda $a_{j'} $ con $j' = j$ .
+Recodemos que $a_{k}^{(L)}$ está calculado por una función de activación $g(z_{k})$. Donde $z_{k}$ es la suma de las combinaciones lineales de las neuronas conectadas hacia la neurona $k_{n}$. Estos valores son calculados en el algoritmo de propagación hacia adelante. Los escribimos aquí para recodar como está siendo calculada la parcial.
+
+De la derivada de la suma sólo queda $a_{j'} $ con $j' = j$. Siguiendo la regla de la cadena para los términos que nos faltaba nos queda lo siguiente:
+
 \begin{equation}
- =-\left[ \dfrac{y_{k}}{a_{k}^{L}} g'(z_{k}) -\left( \dfrac{1-y_{k}}{1-a_{k}^{(L)}} \right) g'(z_{k})\right]a_{j}^{(L)}
+ \dfrac{\partial J}{\partial \theta_{jk}^{L-1}} =-\left[ \dfrac{y_{k}}{a_{k}^{(L)}} \textcolor{blue}{g'(z_{k})} -\left( \dfrac{1-y_{k}}{1-a_{k}^{(L)}} \right) \textcolor{blue}{g'(z_{k})}\right]a_{j}^{(L)}
 \end{equation}
 
-Recordando que $g' = g (1 - g)$ ahora tenemos que:
+Simplificando, nos queda lo siguiente:
+
 \begin{equation}
- =-\left[ \dfrac{y_{k}(1-a_{k}^{L})-a_{k}^{L}(1-y_{k})} {a_{k}^{L}(1-a_{k}^{L})} \right]\textcolor{blue}{g'(z_{k})} a_{j}^{(L)}
+ \dfrac{\partial J}{\partial \theta_{jk}^{L-1}} =-\left[ \dfrac{y_{k}(1-a_{k}^{(L)})-a_{k}^{(L)}(1-y_{k})} {a_{k}^{(L)}(1-a_{k}^{(L)})} \right]\textcolor{blue}{g'(z_{k})} a_{j}^{(L)}
 \end{equation}
 
-Con:
+Recordando que la derivada de la sigmoide queda como $g' = g (1 - g)$ tenemos que:
 \begin{equation}
- \textcolor{blue}{g'(z_{k})} = a_{k}^{(L)}(1-a_{k}^{L})
+ \textcolor{blue}{g'(z_{k})} = a_{k}^{(L)}(1-a_{k}^{(L)})
 \end{equation}
 
 Así nos queda como: 
 \begin{equation}
- =-a_{j}^{(L-1)})(y_{k}-a_{k}^{(L)})
+ \dfrac{\partial J}{\partial \theta_{jk}^{L-1}} = -\left[ \dfrac{y_{k}- y_{k}a_{k}^{(L)} - a_{k}^{(L)} + a_{k}^{(L)}y_{k} } {a_{k}^{(L)}(1-a_{k}^{(L)})} \right] a_{k}^{(L)}(1-a_{k}^{L}) a_{j}^{(L)}
 \end{equation}
 
-Representando a $(y_{k}-a_{k}^{(L)})$ como $\delta_{k}$ nos queda.
+Y haciendo un poco de álgebra nos queda como:
 \begin{equation}
- =-a_{j}^{(L-1)})\delta_{k}
+ \dfrac{\partial J}{\partial \theta_{jk}^{L-1}} =  -a_{j}^{(L-1)})(y_{k}-a_{k}^{(L)})
 \end{equation}
 
-Entonces nuestra función de error está actuando directamente sobre esta capa nada más,  utilizando los pesos en esta capa, evaluado lo que había ocurrido en la capa anterior involucrando también a los pesos de esta otra capa. Entonces podemos pensar que los valores que obtuvimos aquí a la salida dependen de los pesos en cada una de las capas, sin embargo la dependencia es ligeramente distinta. En el sentido de que tenemos que irnos dos niveles más hacia atras, recordando que este influyó en el cálculo de ese número de salida.
+Representando a $(y_{k}-a_{k}^{(L)})$ como $\delta_{k}$ nos queda:
 
-Entonces el gradiente lo vamos a ir calculando capa a capa, porque de ahí viene precisamente el nombre de \emph{back propagation} entonces lo primero y lo más sencillo va a ser calcular como dependió la función de error de los pesos que se encuentran inmediatamente detrás de las neuronas de salida. En este momento es considerar que en el algoritmo \emph{feedforward} la primera capa la vamos a tomar con los índices y la siguiente capa índices j la tercera capa índices k por eso estamos pensando que los pesos de la última capa conectan a la neurona j con la neurona k pero para considerar que vamos a ir haciendo esto en reversa. 
-Entonces a través un poco de notación s l es el número de neuronas que tenemos en la capa l s l menos 1 sería el número de neuronas en la capa l menos suelo y así sucesivamente y aquí viene la misma definición que ya teníamos antes el valor que queremos llegar y el valor que realmente obtuvimos de hecho podemos quitar ahorita este 6 porque solamente hay un ejemplar de entrenamiento entonces ya tenemos aquí un solo ejemplo y ahora lo que queremos hacer es calcular la derivada con respecto a los pesos justamente antes de haber evaluado el valor de la última capa la notación que estamos utilizando aquí en vez de la h de hipótesis es el hecho de que tal cual el valor de la hipótesis es el valor de activación de la neurona entonces estamos hablando del valor de activación de cada una de estas y esas son las áreas si se fijan cuando evaluamos el algoritmo feedforward ya obtuvimos los valores de activación de hecho de todas las neuronas entonces los podemos utilizar aquí y precisamente lo que vamos a hacer para poder calcular la derivada es recordar hecho eso de nuestro valor de activación fue calculado con las reglas de activación de un perceptor entonces comenzamos a calcular la derivada de la entropía cruzada en primer lugar vamos a observar que estoy calculando la parcial del error con respecto a uno de los pesos bueno aquí tenemos la suma sobre todo de las neuronas de salida no pero observemos qué ocurre con este peso solamente está contribuyendo a la salida de esta neurona a esta neurona no le afecta en lo más mínimo lo que haya ocurrido aquí y esta neurona tampoco le afecta luego entonces la parcial de estos dos elementos con respecto a este peso vale cero porque no hay una dependencia son constantes en este caso si para la neurona que está conectada con este peso es decir la neurona acá sí importa lo que ocurrió con este peso por ello de los tres elementos que teníamos aquí aparece en el dibujo es el en general solamente va a sobrevivir uno de los términos y es aquel donde estamos trabajando exactamente con la neurona carísima entonces si de momento ya no tenemos esta suma podemos trabajar solamente con lo que hay aquí adentro tenemos nuestro signo menos acá afuera después llegué acá 1 - que realmente son constantes.
-Pues que es la función logística por 1 - ella misma es esa primera parte la vamos a dejar aquí indicada por otro lado tenemos que continuar con la regla de la cadena calculando la derivada de esta suma que tenemos aquí adentro pero lo que acabamos de ver es que solamente va a sobrevivir pues el elemento donde jota prima es jota y los otros se van a morir son constantes con respecto a este peso entonces la derivada de este elemento con respecto a éste es uno y el término que queda sobreviviendo es esta y es precisamente entonces le estoy poniendo aquí afuera de una vez porque nos va a salir otro idéntico del lado derecho recuerdan de la x que teníamos cuando calculamos la deriva de la signo y bueno aquí está precisamente el término que está sobreviviendo muy bien entonces repitiendo la misma idea de este lado tenemos el mismo factor tenemos que prima y también aquí al aplicar la regla de la cadena va a salir una idénticamente entonces por eso le estaba factor izando de una vez lo siguiente que vamos a hacer es bueno factorizar este también lo estamos poniendo aquí afuera y otra vez lo que vamos a hacer es trabajar con estos dos para tratar de escribirlos de una manera más amigable ponemos entonces como un denominador estos dos se multiplican este que está aquí lo multiplicó por el denominador de acá estoy acá lo multiplicó por el de acá tenemos el signo menos los voy a llegar por 1 menos acá menos acá por un número chica una vez que hacemos esto las cosas se vuelven hermosas esto de aquí es rica esto de acá es un término cruzado allí - una al menos por menos más un término cruzado allí éste se va con éste. 
-Ahora tenemos que recordar también que propiedad  tenía la derivada prima pues era g por uno menos 100 pero la función g evaluada en la combinación lineal que es pues es exactamente la que calculamos cuando estábamos haciendo el fit for work así salió entonces este es que es que tengo aquí le sustituyó simple y sencillamente por la sas que fue lo que calculamos en el instante en el que recuerdo esto o miren esteban y fue los que nos quedó entonces pues únicamente la diferencia entre lo que quería y lo que salió multiplicado por el valor de activación de la neurona en la capa anterior y ya tenemos entonces la manera de calcular todas las parciales del error con respecto a los pesos y en esta capa vamos a ver entonces en el próximo capítulo cómo calcular las derivadas con respecto a los pesos que están en la capacidad.
+\begin{equation}
+ \dfrac{\partial J}{\partial \theta_{jk}^{L-1}} =-a_{j}^{(L-1)})\delta_{k}
+\end{equation}
+
+Esta última notación con delta se usa pues con esto estamos representando el error que se cometió en la última capa, pues es la diferencia entre lo desado y lo que se obtuvo realmente.
+
+Con esto ya sabemos calcular todas las parciales del error con respecto a los pesos hacia la última capa. En la siguiente sección seguimos con el cálculo para las siguientes capas.
