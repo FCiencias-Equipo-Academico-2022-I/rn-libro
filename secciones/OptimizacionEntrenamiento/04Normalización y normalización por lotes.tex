@@ -1,2 +1,39 @@
 \section{Normalización y normalización por lotes}
-Vacio.
+
+La normalización y normalización por lotes se usa en redes neuronales para centrar los datos aproximadamente en el intervalo $[-1.0, 1.0]$.El procedimiento de normalización consiste en transformar los datos de tal forma que tengan una media de 0 y una varianza de 1.  Existen varias fórmulas para realizar la normalización, se sugiere:
+\begin{itemize}
+ \item Calcular la media $\mu_i$ y varianza $\sigma_{i}^2$ para cada característica $i$ en los datos del conjunto de entrenamiento $X$.
+\end{itemize}
+
+Sea $X_i$ la columna con la i-ésima característica en los datos de entrenamiento $X$ .
+
+\begin{equation}
+ \mu_{i} = \dfrac{1}{m}\sum_{i=1}^{m}x_{i} 
+\end{equation}
+
+\begin{equation}
+ \sigma_{i}^{2} = \dfrac{1}{m}\sum_{i=1}^{m}(x_{i}-\mu)^2 
+\end{equation}
+
+\begin{equation}
+ X_{i} = \dfrac{X_{i}-\mu}{\sigma^{2}}
+\end{equation}
+
+\begin{itemize}
+ \item Cuando una red ha sido entrenada con datos normalizados, es necesario almacenar las medias y varianzas utilizadas durante el entrenamiento con el conjunto de entrenamiento $X$ .
+ \item Estos valores serán utilizados para normalizar otros datos que vayan a ser evaluados en la red, inclusive si se recibe un solo ejemplar.
+ \item La normalización permite reducir la excentricidad en la función de error provocada por la disparidad entre los datos de entrada.
+ \item Sin embargo, al calcular los valores para las capas intermedias, los valores pueden cambiar sus rangos para las neuronas intermedias.
+\end{itemize}
+
+La normalización por lotes aplica los beneficios de la normalización también a las capas intermedias.
+Los algoritmos de optimización podrán utilizar tazas de aprendizaje más altas, porque los brincos discretos del algoritmo no cambiarán drásticamente el comportamiento de la función de error durante un intervalo más largo.
+También cada capa aprenderá a calcular características un tanto independientes de algos sesgos en los datos con los cuales fue entrenada.
+
+La normalización por lotes conciste en normalizar la salida de la capa de activación anterior restando su media y dividiendo entre la desviación estándar.
+
+El descenso por el gradiente estocástico (el descenso por el gradiente por lotes) modificará los pesos para optimizar $J$ , probablemente contrarrestando el efecto de la normalización.
+
+Para evitarlo, se añaden dos parámetros, también entrenables: γ una desviación estándar y $\beta$ una media para corrimiento, la idea es que el algoritmo tienda a
+modificar estos dos para ese fin, en lugar de los pesos, de modo que los pesos
+produzcan un cómputo más estable.
