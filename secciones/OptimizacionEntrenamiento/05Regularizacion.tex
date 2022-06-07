@@ -53,4 +53,63 @@ Estos dos problemas puden suceder por dos razones distintas:
 
 Cuando nos sobran nueronas lo podemos detectar, porque al reducir neuronas, el desempeño de la red entrenada en el conjunto de entrenamineto, no empeora significativamente, y el desempeño con los datos de validación mejora.
 
-En este caso lo que vamos a hacer es modificar la función de pérdida la nueva función va a estar integrada por dos componentes por un lado la función de error que ya teníamos aquí debo aclarar que yo estoy utilizando libremente función de pérdida función de error y ustedes van a encontrar en la literatura que se intercambian estos dos nombres tranquilamente yo prefiero ahorita enfatizar de momento que la función de error es la que mide tal cual la distancia entre los valores obtenidos y los valores que queríamos y el segundo término ya no tiene nada que ver con esto el segundo término es una penalización sobre las magnitudes de los pesos de la red los a la suma de estos dos es lo que estoy llamando función de pérdida pero insisto esta fue una elección personal no necesariamente la van a encontrar igual en otros lados bueno si consideramos estas dos cosas entonces la función que estamos tratando de minimizar es esta que es la suma de estas dos y el efecto que va a tener si es el siguiente el mínimo de esta función hallará un punto de compromiso tal que reduce el error lo más posible dejando crecer solamente aquellos pesos que contribuyan mejor a reducir el error compensando por la contribución de su magnitud creciente es decir ahora tenemos una red en la cual colocamos desde el inicio muchas neuronas lo cual naturalmente tendería a producir una obra y ting pero lo que vamos a hacer es penalizar los pesos de manera que solita el algoritmo de optimización haga que solamente aquellas conexiones que realmente están contribuyendo a reducir el error tengan magnitudes significativas aquellas conexiones que no contribuyan entenderán entonces a tener magnitudes muy pequeñas y por consiguiente ser casi casi como si no estuvieran ahí es como una manera de hacer que nuestro algoritmo de optimización o de un poco nuestra red neuronal y haga que algunas de las conexiones queden muy muy débiles y básicamente ya no contribuyan entonces la hipótesis que se va a aprender va a ser éste mucho más sencilla y la idea es que esto logre capturar mejor la función que estamos tratando de aproximar en lugar de memoriza estilos ahora igual que en el caso anterior dependiendo de qué tan rigurosos seamos con esta penalización podemos hacer que las únicas conexiones que pueden subir su magnitud en realidad muy poquitas y también podría darse el problema de under fighting entonces también no nos libramos de tener que calibrar un poquito este parámetro extra que va a provocar la penalización entonces vamos a tener una gráfica un poco parecida a la de antes e igualmente cómo se va a ver la edición de este error bueno aquí vemos que del lado izquierdo tenemos nuestra función de error podría ser una entropía cruzada podrían ser diferencias cuadrado o alguna otra que nos llegamos a encontrar nos resulte útil para nuestro problema el segundo término va a ser precisamente esta penalización aquí estoy poniendo la más común que es simplemente sumar los todos los cuadrados de las magnitudes de todos los pesos que tienen la red es un término muy sencillo que va a provocar que esta función suba de valor si estamos utilizando esos con magnitudes grandes entonces la manera de minimizar la es solamente dejando subir los valores y aquellos pesos que ayuden a compensar bajando el nivel de penalización entonces está regido por este parámetro lambda entre más grande sea lambda observen que más se va a incrementar el valor de esta función por culpa de los pesos entonces este término se va a volver mucho más importante el cálculo del error si la lambda es muy pequeña entonces el término dominante va a ser la función original de error y va a haber muy poquita penalización muy poco efecto por el hecho de haberle subido la magnitud de los pesos por consiguiente vamos a obtener una gráfica equivalente a la que teníamos anteriormente pero ahora en términos del parámetro lambda observemos que cuando el lambda es 0 tenemos la función de error original esto equivaldría a tener nuestra red neuronal con el montón de neuronas que le pusimos no hay penalización y podríamos tender precisamente al problema de over fitting entonces vemos la perfil de este lado donde el error en el entrenamiento es muy bajo pero en el conjunto de validación es muy malo es decir nuestra red no sabe predecir después en el otro extremo es cuando estamos penalizando tanto por los pesos que ya nuestro algoritmo de optimización pues lo que hizo fue encoger pesos y casi casi no se ocupó de corregir el error entonces tenemos acá un under fitting realmente nuestra red casi casi no pudo participar y no está modelando bien nuestra función entonces tenemos un error bastante alto y bueno la función de validación también está creciendo el el error no las predicciones tampoco tan bueno y en algún lugar de por en medio vamos a tener un compromiso interesante entre la habilidad para predecir creo que aquí es donde están varias predicciones bueno el error en el conjunto de entrenamiento a lo mejor aquí se podría más o menos por esta zona estaría en nuestro punto óptimo entonces podemos hacer también esta gráfica y tratar de identificar en qué punto estamos obteniendo la mejor red posible básicamente es ley. 
+Para automatizar la búsqueda en un espacio de hipótesis lo suficientemente expresiva vamos a usar la regularización.
+
+Lo que vamos a hacer es modificar la función de pérdida, la nueva función va a estar integrada por dos componentes; la función de error (que ya teníamos), y un  término de penalización sobre las magnitudes de los pesos de la red. Considerando estas dos anteriores,  la función que estamos tratando de minimizar es  la suma de esas dos.
+
+El mínimo de esta función hallará un punto de compromiso tal que:
+\begin{itemize}
+ \item reduce el error lo más posible
+ \item solo crecen aquellos pesos que contribuyen mejor a reducir el error, compensando por la contribución de su magnitud creciente.
+\end{itemize}
+
+Es decir ahora tenemos una red en la cual colocamos desde el inicio muchas neuronas, lo cual tendería a producir un sobre ajuste. Lo que vamos a hacer es, penalizar los pesos de manera que el algoritmo de optimización haga que solamente aquellas conexiones que realmente están contribuyendo a reducir el error, tengan magnitudes significativas. Aquellas conexiones que no contribuyan entenderán a tener magnitudes muy pequeñas, casi como si no estuvieran ahí. El algoritmo de optimización hara que algunas de las conexiones queden muy débiles y básicamente ya no contribuyan. Entonces la hipótesis que se va a aprender va a ser más sencilla.
+
+Dependiendo de qué tan rigurosos seamos con la penalización podemos hacer que, las únicas conexiones que pueden subir su magnitud en realidad sean muy pocas. También podría darse el problema de ajuste pobre, se  tiene que ajustar bien el termino de penalización que lo vamos a denotar como \emph{$\lambda$}.
+
+La función de perdida se va actualizar de la siguiente forma:
+\begin{equation}
+ J(\Theta) = Error(\Theta)+\dfrac{\lambda}{2m}\sum_{\Theta}\theta^2
+ \label{eq:errorR}
+\end{equation}
+
+\begin{equation}
+ \nabla_{\theta}J^{(l)} = \nabla Error_{\Theta}^{(l)}+\dfrac{\lambda}{m}\left[ \right]
+\end{equation}
+%\begin{bmatrix} 0 \\ \Theta_{[:,1:]} \end{bmatrix}
+
+Entonces vamos a tener una gráfica parecida a la siguiente:
+  \begin{figure}[H]
+   \centering
+   \includegraphics[width=\textwidth ]{../Figuras/graficaOO.png}
+   \caption{Sobreajuste.}
+  \label{fig:grafica00}
+  \end{figure}
+
+ En la ecuación \ref{eq:errorR} que del lado izquierdo tenemos nuestra función de error (podría ser una entropía cruzada, diferencias cuadrado), el segundo término es la penalización, la más común es  sumar los todos los cuadrados de las magnitudes, de todos los pesos que tienen la red, este término va a provocar que la función suba de valor, si estamos utilizando pesos con magnitudes grandes. 
+ 
+ La manera de minimizar los valores, es dejar subir solamente los valores de aquellos pesos que ayuden a compensar, bajando la penalización. La penalización está regida por el parámetro lambda, entre más grande sea lambda, se observa en la \fref{fig:grafica00} que se incrementa el valor de esta función, por culpa de los pesos. Entonces, si la lambda es muy pequeña el término dominante va a ser la función original de error y poca penalización por tanto muy poco efecto, por el hecho de haberle subido la magnitud de los pesos, vamos a obtener un sobreajuste. Esto equivaldría a tener nuestra red neuronal con el montón de neuronas que le pusimos, no hay penalización y podríamos tender precisamente al problema del sobreajuste. 
+ 
+ Entonces vaemos el lado derecho de la gráfica \fref{fig:grafica00}. El error en el entrenamiento se esta penalizando tanto por los pesos que el algoritmo de optimización, minimizo los pesos y casi no corregio el error, entonces tenemos un ajuste pobre. En ese caso  nuestra red  no está modelando bien nuestra función, tenemos un error bastante alto y la función de validación también está creciendo. 
+ 
+ En el la parte de en medio de la gráfica \fref{fig:grafica00} es donde de obtiene el equilibrio, entre la cantidad de neuronas adecudas y la cantidad de pesos significativos, que nos va a minimizar o eliminar el problema de un pobre o un sobre ajuste.
+ 
+ \subsection{Dropout}
+ 
+ Otra estrategia para regularizar es la deserción o descarte de algunas neuronas(\emph{dropout} en inglés). 
+ Durante el entrenamiento, una cierta cantidad de salidas de capas ocultas se ignoran \emph{aleatoriamente} (se les da valor final de 0) con probabilidad $1-p$, es decir algunas neuronas de las capas ocultas se activan con un probablidad $p$. 
+
+ En esta técnica no se modifica la función de error, si no se modifica propiamente la red, ver \fref{fig:dropout}. En cada epoca, durante el entrenamiento se puede volver a elegir las neuronas a descartar, o no. 
+ La capa alterará su conectividad y buscará caminos alternativos para transmitir la información en la siguiente capa. Como resultado, cada actualización de una capa durante el entrenamiento se realiza con una configuración diferente de la capa. Así se puede simular el entrenamiento de una gran cantidad de redes neuronales con diferentes arquitecturas en paralelo.
+
+  \begin{figure}[h]
+   \centering
+   \includegraphics[scale=.5]{../Figuras/dropout.png}
+   \caption{Dropout (desarrollado por Geoffrey Hinton y sus estudiantes en la Universidad de Toronto).}
+  \label{fig:dropout}
+  \end{figure}
+
+ Al momento de pasar los datos de prueba, todas las neuronas están activas. Pero se han reducido en p, esto sucede porque después de la eliminación en el entrenamiento, las siguientes capas recibirán valores más bajos. Sin embargo, en la fase de prueba, mantendremos todas las unidades, por lo que los valores serán mucho más altos de lo esperado, es por eso que necesitamos reducirlos, por un facto igual a la tasa de deserción p, para equilibrar el hecho de que hay más unidades activas que en tiempo de entrenamiento. Para información del tema puede leer el capítulo cuatro, sección 4.4.3 Adding dropout, Deep Learning With Python, 2017.  
+ 
+ 
+

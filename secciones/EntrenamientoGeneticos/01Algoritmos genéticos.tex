@@ -1,2 +1,6 @@
 \section{Algoritmos genéticos}
-Vacio.
+
+En un algoritmo genético, se hace "evolucionar" una población de individuos, cada uno de los cuales representa una posible solución. Esa población se somete a la evolución biológica es decir mutaciones y recombinaciones genéticas. De generación en generación, los individuos se seleccionan de acuerdo con una función de adaptación o \emph{fitness}, en función de la cual se decide qué individuos sobreviven los más adaptos y son descartados los menos aptos.
+
+La selección se realiza siempre de forma probabilística. Un individuo es más probable que se seleccione si tiene un mejor valor de fitness, aunque cualquier individuo, por malo que sea, tiene una probabilidad de selección estrictamente mayor que cero. En ocasiones, si no queremos que una muy buena solución encontrada en una generación intermedia
+de la evolución se pierda por el camino, podemos introducir cierto grado de elitismo en la selección. Podemos hacer que el mejor individuo de la población (o los k mejores) siempre sobrevivan, algo que aleja a los algoritmos genéticos del mundo real, donde una generación termina siempre reemplazando por completo a las anteriores.
