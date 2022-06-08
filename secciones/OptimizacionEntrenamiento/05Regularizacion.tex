@@ -94,12 +94,12 @@ Entonces vamos a tener una gráfica parecida a la siguiente:
  
  En el la parte de en medio de la gráfica \fref{fig:grafica00} es donde de obtiene el equilibrio, entre la cantidad de neuronas adecudas y la cantidad de pesos significativos, que nos va a minimizar o eliminar el problema de un pobre o un sobre ajuste.
  
- \subsection{Dropout}
+ \subsection{Descarte}
  
  Otra estrategia para regularizar es la deserción o descarte de algunas neuronas(\emph{dropout} en inglés). 
- Durante el entrenamiento, una cierta cantidad de salidas de capas ocultas se ignoran \emph{aleatoriamente} (se les da valor final de 0) con probabilidad $1-p$, es decir algunas neuronas de las capas ocultas se activan con un probablidad $p$. 
+ Durante el entrenamiento, una cierta cantidad de salidas de capas ocultas se ignoran \emph{aleatoriamente} (se les da valor final de 0) con probabilidad $1-p$, es decir algunas neuronas de las capas ocultas se activan con un probabilidad $p$. 
 
- En esta técnica no se modifica la función de error, si no se modifica propiamente la red, ver \fref{fig:dropout}. En cada epoca, durante el entrenamiento se puede volver a elegir las neuronas a descartar, o no. 
+ En esta técnica no se modifica la función de error, si no se modifica propiamente la red, ver \fref{fig:dropout}. En cada época, durante el entrenamiento se puede volver a elegir las neuronas a descartar, o no. 
  La capa alterará su conectividad y buscará caminos alternativos para transmitir la información en la siguiente capa. Como resultado, cada actualización de una capa durante el entrenamiento se realiza con una configuración diferente de la capa. Así se puede simular el entrenamiento de una gran cantidad de redes neuronales con diferentes arquitecturas en paralelo.
 
   \begin{figure}[h]
