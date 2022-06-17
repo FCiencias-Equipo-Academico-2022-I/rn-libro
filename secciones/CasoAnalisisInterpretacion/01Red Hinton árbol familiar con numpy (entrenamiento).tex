@@ -15,9 +15,6 @@ En el árbol anterior se pueden apreciar que existen las siguientes 12 relacione
  \item (Colin tiene-padre James)
  \item(Colin tiene-madre Victoria)
  \item(James tiene-esposa Victoria)
- \item(Colin tiene-padre James)
- \item(Colin tiene-madre Victoria)
- \item(James tiene-esposa Victoria) 
 \end{itemize}
 La tarea objetivo: \textit{Que la red siguiente indique la segunda persona de la tercia, dados los valores en las dos primeras posiciones.} Si tenemos los valores [nombre entrada] [tiene-relación] [nombre salida], con los dos primeros datos nos debe dar el tercer dato.
 Por ejemplo si nos preguntamos si Victoria tiene esposo, debería  darme como respuesta James. Puede ser que la respuesta no sea única, por ejemplo si pregunto si Charlotte tiene tío  hay dos respuestas posibles Arthur y Charles. No esperamos que la red haga nada lógico cuando no existe la relación. Solamente la probaremos con las relaciones que estén definidas en el árbol y por consiguiente en nuestro conjunto de entrenamiento. 
@@ -74,7 +71,7 @@ Las datos de entrada son: 112 proposiciones, 100 utilizadas para entrenamiento, 
   \label{fig:RH86}
   \end{figure}
 
-   Empezamos con 24 neuronas de entrada pero después vamos a poner una mini capa, que solamente afecta a estas neuronas y va a tener 6 neuronas eso quiere decir que la red neuronal tendrá que descubrir alguna manera de representar a las 24 personas con solamente 6 bits. Esta codificación le ayuda a predecir correctamente la persona que estamos buscando. Lo mismo vamos a hacer con el tipo de relaciones, había 12 en las neuronas de entrada, le vamos a reducir a 6 neuronas. Una vez que la red ha pasado por este cuello de botella, ha codificado así nuestros datos simbólicos, vamos a tener es una capa donde, ahora si conectamos todos contra todos es como si estas dos capas de pronto se fueran a pegar y se volvieran una. Estos van a estar conectados con todos estos esto es realmente lo que correspondería a nuestra capa de siempre nuestra capa oculta. Después vamos a tener que hacer el proceso inverso, en principio esta red de capa nos va a permitir encontrar  qué relación tienen dos personas, pero si queremos poder predecir la otra relación entonces necesitamos partir de lo que encontremos.
+   Empezamos con 24 neuronas de entrada, después vamos a poner una mini capa, que solamente afecta, a estas neuronas y va a tener 6 neuronas eso quiere decir que la red neuronal tendrá que descubrir alguna manera de representar a las 24 personas con solamente 6 bits. Esta codificación le ayuda a predecir correctamente la persona que estamos buscando. Lo mismo vamos a hacer con el tipo de relaciones, había 12 en las neuronas de entrada, le vamos a reducir a 6 neuronas. Una vez que la red ha pasado por este cuello de botella, ha codificado así nuestros datos simbólicos, vamos a tener es una capa donde, ahora si conectamos todos contra todos es como si estas dos capas de pronto se fueran a pegar y se volvieran una. Estos van a estar conectados con todos estos esto es realmente lo que correspondería a nuestra capa de siempre nuestra capa oculta. Después vamos a tener que hacer el proceso inverso, en principio esta red de capa nos va a permitir encontrar  qué relación tienen dos personas, pero si queremos poder predecir la otra relación entonces necesitamos partir de lo que encontremos.
  
  Se va a reconstruir las características de la segunda persona, (se va a ser el proceso inverso) vamos a tener también un codificador pero  trataremos de predecir a la persona correcta con solamente seis neuronas, es decir, la segunda persona de la relación va a estar codificada en términos de los vínculos que tenga con las otras personas que existen en el conjunto. Una vez que ya logramos obtener esa codificación para la segunda persona, lo que tenemos que hacer es decodificarla y representarla nuevamente con 24 neuronas en la capa de salida, una por cada persona y eso querrá decir que nuestro código compacto de la penultima capa  efectivamente se puede descomprimir sin pérdida en la respuesta.
 
@@ -86,7 +83,7 @@ Ya con la estructura de la red definida podemos hacer el entrenamiento, primero 
   \begin{figure}[h]
    \centering
    \includegraphics[scale=.5]{../Figuras/Hinton/r1.png}
-   \caption{Primeras resoluciones.}
+   \caption{Red incializda con todos pesos en un mismo valor. Si todos los pesos de la red son ideinticos no tendremos una actualización de pesos atravez de las capas, provocando que nunca llegue a dar respuestas. Esta red nunca aprendería.}
   \label{fig:r1}
   \end{figure}
 
