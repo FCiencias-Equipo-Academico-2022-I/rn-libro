@@ -104,12 +104,12 @@ Entonces vamos a tener una gráfica parecida a la siguiente:
 
   \begin{figure}[h]
    \centering
-   \includegraphics[scale=.5]{../Figuras/dropout.png}
-   \caption{Dropout (desarrollado por Geoffrey Hinton y sus estudiantes en la Universidad de Toronto).}
+   \includegraphics[scale=.5]{../Figuras/dropout.jpg}
+   \caption{Dropout (desarrollado por Geoffrey Hinton y sus estudiantes en la Universidad de Toronto). Se descartan neuronas con sus conexiones aleatoriamente, dentro de la red.}
   \label{fig:dropout}
   \end{figure}
 
- Al momento de pasar los datos de prueba, todas las neuronas están activas. Pero se han reducido en p, esto sucede porque después de la eliminación en el entrenamiento, las siguientes capas recibirán valores más bajos. Sin embargo, en la fase de prueba, mantendremos todas las unidades, por lo que los valores serán mucho más altos de lo esperado, es por eso que necesitamos reducirlos, por un facto igual a la tasa de deserción p, para equilibrar el hecho de que hay más unidades activas que en tiempo de entrenamiento. Para información del tema puede leer el capítulo cuatro, sección 4.4.3 Adding dropout, Deep Learning With Python, 2017.  
+ Al momento de pasar los datos de prueba, todas las neuronas están activas. Pero se han reducido en p, esto sucede porque después de la eliminación en el entrenamiento, las siguientes capas recibirán valores más bajos. Sin embargo, en la fase de prueba, mantendremos todas las unidades, por lo que los valores serán mucho más altos de lo esperado, es por eso que necesitamos reducirlos, por un factor igual a la tasa de deserción p, para equilibrar el hecho de que hay más unidades activas que en tiempo de entrenamiento. Para información del tema puede leer el capítulo cuatro, sección 4.4.3 Adding dropout, Deep Learning With Python, 2017.  
  
  
 
