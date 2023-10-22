@@ -1,47 +1,49 @@
 \section{Neurociencias computacionales}
 
-Las redes neuronales surgieron completamente inspiradas en los sistemas biológicos. 
-Lo que estamos haciendo los computólogos es tomar una idea de la naturaleza, una idea que ha probado ser sumamente efectiva para procesar información y que logra resolver problemas que nosotros aún no sabemos solucionar con modelos diseñados explícitamente.
-Los más notorios son: 
+Redes neuronales artificiales, inspiradas de las redes neuronales biologicas, tales como las de los animales(1), en un primer momento, hasta llegar al ser humano, con nuestras neuronas (2). 
+
+Nuestro objetivo pricipal en el curso es dar soluciones, tomando la idea de la naturaleza. Si el cerebro humano funciona, la imitación debe darnos algunos resultados, idea que ha funcionado para procesar información y dar solución con modelos diseñados.
+
+Los problemas más notorios a resolver son: 
 \begin{itemize}
 \item Problemas de visión por computadora.
 \item Procesamiento del lenguaje natural.
 \end{itemize}
 
-A lo largo del texto obtendremos una somera idea de qué hace el sistema nervioso de un ser humano, tomaremos también ejemplos de animales como el calamar gigante y cangrejos; ejemplos que han permitido estudiar biológicamente cómo funcionan las neuronas y cómo funciona su sistema nervioso. 
+La solución acordada, es efocarnos en todo el sistema nervioso, son muchas partes que nos conforman y nos dan vida. Si nos enfocamos en el cerebro, una parte es encargada de ver, otra de oir, y de alguna forma lo hacemos al mismo tiempo (3). Tal como una red, al jalar, ¿como atrapó al pesado? ¿una cuerda? muchas cuerdas conectadas. Entonces lo que realmente está pasando al computar una red neuronal artificial(4), es cada neurona tiene una tarea simple, que pasa a otra neurona, hasta que en conjunto se logró una tarea compleja. 
 
-Entonces por un momento pensemos en el sistema nervioso como un todo, lo que realmente está pasando al computar no es el cálculo del proceso  de una sola neurona sino de la colección de todas ellas. Lo que sucede con los sistemas biológicos es que son muchísimo más complicados que lo que vamos a ver nosotros como modelos computacionales, sin embargo muchísimas empresas están utilizando estas técnicas. 
-El sistema nervioso como un todo es bastante más complejo, pero conforme han ido evolucionando las redes neuronales computacionales, ya con sus arquitecturas y organizaciones, se están volviendo también más complejas. Varias de las estructuras más exitosas tienen un análogo muy fuerte con un sistema nervioso natural. 
+Imitar enteramente el sistema nervioso es una tarea ardua pero posible, 
+pero empecemos por la neurona.
 
-Veamos un campo conocido como \textbf{neurociencias computacionales} el cual se dedica explícitamente al estudio/modelado de los sistemas biológicos pero ya conjuntando varios campos. Se interesa notablemente en descripciones y modelos funcionales biológicamente realistas de neuronas y sistemas neuronales. En contraposición, los modelos que veremos en redes neuronales computacionales no necesariamente tienen que ser realistas, lo que nos interesa es que resuelvan los problemas, si se desvían un poco de cómo funcionan los sistemas naturales en un principio no es problema. 
+El campo conocido como \textbf{neurociencias computacionales}(5) es que se dedica explícitamente al estudio/modelado de los sistemas biológicos con ayuda de varios campos de estudio. Se interesa notablemente en descripciones y modelos funcionales biológicamente realistas de neuronas y sistemas neuronales. 
+Los modelos de redes neuronals que tomaremos, son burdos. Distan mucho de los sistemas naturales y aún así dan solución. Lo que nos interesa es que resuelvan los problemas inmediatos y de corto plazo. 
 
-Ahora, ¿qué le interesa modelar a las neurociencias computacionales? Se fijan en la fisiología y en la dinámica de estos sistemas, combinando varias ciencias tales como: 
+Los campos de estudio de los cuales nos ayudamos son:
 \begin{itemize}
- \item  \textbf{Biofísica} por el estudio de las propiedades físicas detrás de los sistemas biológicos.
+ \item  \textbf{Ciencias cognitivas} dedicadas a tratar directamente con los humanos, de estás tomamos los conceptos de aprendizaje.
+ \item  \textbf{Biofísica}  por el estudio de las propiedades físicas en de los sistemas biológicos. 
  \item  \textbf{Neurociencias tradicionales} con modelos matemáticos. 
- \item  \textbf{Ciencias de la computación} tanto en la parte del modelado como en la parte de la implementación de estos modelos y la generación de simulaciones computacionales.
- \item  \textbf{Ingeniería eléctrica} donde se está diseñando hardware especializado para ejecutar modelos de manera eficiente, algunos de los modelos matemáticos están basados en circuitos eléctricos. 
- \item  \textbf{Ciencias cognitivas} que tratan de ver qué se está codificando dentro de un sistema nervioso y cómo podemos interpretar esa información que está ahí guardada.
-
+ 
+ \item  \textbf{Ciencias de la computación} modelar e implementar los modelos dados, por las aréas aquí listadas. Simulaciones computacionales. 
+ 
+ \item  \textbf{Ingeniería eléctrica} diseño de hardware especifico y eficiente para tomar los pulsos y medidas exactas.  
+ 
 \end{itemize}
 
-Vamos a ver cómo están influyendo todos estos antecedentes en lo que van a hacer las ciencias de la computación pero con su propio modelo de redes neuronales, pues existe una conexión muy fuerte entre estos dos campos.
-
-
-Las neurociencias computacionales, como se mencionó anteriormente, estudian modelos del sistema nervioso y clasifican estos modelos en tres tipos: 
+Las neurociencias computacionales, estudian modelos del sistema nervioso y clasifican estos modelos en tres tipos, recordemos claro el método cientifico: 
 
 \begin{enumerate}
- \item \textbf{Modelos descriptivos}, nos limitamos a decir qué está haciendo un sistema; en particular aquí son muy famosos los experimentos con ratones, se está tratando de ver qué puede hacer, qué no puede hacer, qué puede aprender, qué no, pero no se puede explicar ``¿cómo?'', simplemente se dice qué es lo que está sucediendo.
+ \item \textbf{Modelos descriptivos},Descrive. Por ejemplo descrive el comportamiento de los ratones a ciertas sustancias. La comparación, que estaba pasando antes de la sustancia, con la sustancia y despues. 
+  
+ \item \textbf{Modelos mecanistas}(https://rdu.unc.edu.ar/handle/11086/18122), Mecanicamente, este lo ve a partir de  ¿cómo es que están haciendo las cosas? Siguiendo con el ejemplo. El ratón se cayo, y se levanto, como? doblo sus articulaciones, tomo impulso con sus musculos, roto su cuerpo, hasta reicorporarse totalmente.
  
- \item \textbf{Modelos mecanistas}, donde ahora sí nos interesa saber, ¿cómo es que están haciendo las cosas? Aquí vamos a ver cómo los modelos matemáticos precisamente nos están tratando de describir cómo puede ser que se están conectando estas neuronas, cómo pueden estar funcionando las redes de neuronas, cómo podría estarse almacenando la información y transfiriendo de un lado a otro.
- 
- \item \textbf{Modelos interpretativos}, nos dan una idea del por qué o para qué lo hacen. Se tiene que buscar intencionalidad, razonamiento de más alto nivel.
+ \item \textbf{Modelos interpretativos}, Se interpreta. ¿Porque hizo los movimientos mecanicos?, El ratón quiere regresar a su estado anterior antes de la pertuvación por la sustancia. ¿Sera verdad? Es lo que se interpreta, no la verdad absoluta. Se tiene que buscar intencionalidad, razonamiento de más alto nivel.
 \end{enumerate}
 
-Cuando trabajemos con redes neuronales computacionales vamos a notar que sí necesitamos adentrarnos un poco en los tipos 2 y 3. Para romper esa traba con nuestras redes neuronales, donde sabemos que aprendieron, pero no estamos ni siquiera seguros de qué aprendieron o porqué lo aprendieron así, vamos a tener que utilizar herramientas matemáticas para tratar de descubrir qué es lo que realmente está haciendo la red entrenada. 
+Cuando trabajemos con redes neuronales computacionales vamos a notar que sí necesitamos adentrarnos un poco en los tipos 2 y 3. Para romper esa traba con nuestras redes neuronales, donde sabemos que aprendieron, pero no estamos ni siquiera seguros de qué aprendieron o porqué lo aprendieron así, vamos a tener que utilizar; herramientas matemáticas, para tratar de descubrir qué es lo que realmente está haciendo la red entrenada. 
 
 
-Ahora revisemos los \textbf{objetivos del modelado} en neurociencias:
+Ahora los \textbf{objetivos del modelado} en neurociencias:
 
 \textcolor{gray}{(Empezando desde lo más granular que es cada una de las neuronas)}
 
@@ -63,5 +65,15 @@ Ahora revisemos los \textbf{objetivos del modelado} en neurociencias:
  \item La \textbf{memoria}, necesitamos almacenar información y recuperarla para procesarla. 
 \end{itemize}
 
+Bibliografía:
+(1)-(por el anatomista Santiago Ramón y Cajal)
+(2)-López-Muñoz F, Boya J, Alamo C (October 2006). "Neuron theory, the cornerstone of neuroscience, on the centenary of the Nobel Prize award to Santiago Ramón y Cajal". Brain Research Bulletin. 70 (4–6): 391–405. doi:10.1016/j.brainresbull.2006.07.010. PMID 17027775. S2CID 11273256.
+(3) https://myhealth.ucsd.edu/Spanish/RelatedItems/3,82633
 
+(4) https://www.amazon.com.mx/Redes-Neuronales-Deep-Learning-Spanish/dp/1731265387 En algun momento lo use. Tal vez en este capitulo no. pero por ahi.
+
+
+(5) https://www.amazon.com/Machine-Learning-Tom-M-Mitchell/dp/0070428077
+
+(6)https://www.amazon.com.mx/Neural-Networks-Learning-Machines-Haykin/dp/0131471392
 
