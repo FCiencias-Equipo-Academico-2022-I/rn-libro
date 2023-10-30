@@ -1,27 +1,2 @@
 \section{Función de error: Entropía cruzada}
-En está sección veremos una de las funciones de error más utilizadas en el campo de redes neurnales, usada sobre todo en problemas de clasificación, la entropía cruzada (en inglés \emph{cross entropy}) la cual tiene su origen en el área de la teoría de la información, la cual mide: \textbf{la cantidad de bits necesarios para identificar una clase} dada la hipótesis de la red representada como $h\Theta (\vec{x}) $, que trata de asemejar la función objetivo $y(\vec{x})$, la cúal es la que tiene los valores reales asociados a las etiquetas.
-
-Uno de los labores de la red neuronal es codificar con \emph{bits} la información que recibe para hacer asignaciónes de la características encontradas y así clasificarlos. Todo el tiempo se está intentando predecir si la función propuesta se asemeja lo suficiente a la función objetivo, en caso de ser así ser podrá codificar adecuadamente nuestros ejemplares.
-
-La formula de entropía cruzada usada en este texto será la siguiente:
- \begin{equation}
-  J (\Theta) = -\dfrac{1}{m}\left[\sum_{i=1}^{m}\sum_{k=1}^{s_{L}}y_{k}^{i} log( h_{\Theta}(x^i))_{k}+(1-y_{k}^{i})log(1- h_{\Theta}(x^i))_{k}  \right]  
-  \label{entropiaCruzada}
- \end{equation}
-
- donde:
- \begin{itemize}
-  \item \emph{m} es el número de ejemplares del entrenamiento.
-  \item \emph{$s_{L}$} es el número de neuronas en la capa L .
-  \item \emph{$y_{k}$} es el valor para la k-ésima neurona de salida y toma valores en {0,1}.
-
- \end{itemize}
-  
-En la primera parte notamos que tenemos una fracción, está es en esencia la que nos da el promedio de error de la red sobre el número de ejemplares de entrenamiento evaluados en ese momento (m). Seguido de una multiplicación de la suma de los ejemplares que nos da todas las contribuciones de error, que está a su vez contine la suma de las neuronas en la capa de salida de las neurnonas de cada clase. Así en está suma podemos distinguir dos partes, la primera es una multiplicación que compone de la etiqueta real asociada al ejemplar multiplicado por el logaritmo de la etiqueta asignada por la red, y la segunda parte de una multiplicación de uno menos la etiqueta real por el log de uno menos lo dado por la red. Así en está parte se está tomando en cuenta las dos posibilidades que puede tomar cada neurona de salida respecto al ejemplar dado, $0$ no pertenece a la clase y $1$ pertenece a la clase. 
-
-En el primer caso $y_{k}$ toma el valor de cero, entonces la primera parte de está sección se va también a cero, es ahí donde la segunda parte nos permite evaluar que tan lejos estuvimos de la respuesta correcta usando el logaritmo de está. Ahora supongamos que lo deseado era que la neurona predijo $1$ pero lo correcto era $0$, la primera parte se va a cero y en la segunda parte tendrémos un logaritmo de un número cercano a cero dandonos que nos vamos a acercar a menos infinito, es por eso importante el signo negativo en la parte inicial de la función, pues nos va ayudar a que la función nos indique a infinito cuando estamos errados en el resultado.
-
-Ahora en caso de obtener la respuesta deseada, con una salida de $0$ cuando en efecto era este, entonces tendremos el $log(1)$ que es cero, así nuestra función de error valdrá $0$, este caso es poco común pues recodemos que para función de activación $h_{\Theta}$ usando la función logística solo se acerca al $1$. El caso que lo deseado era que nos diera $1$ la neurona esta contemplado en la primera parte donde de nuevo con la ayuda del logaritmo en caso de dar la respuesta incorrecta $0$ este apuntara hacía menos infinito y con ayuda del menos de afuera va hacía infinito, y en caso de estar en lo correcto nos vamos a acercar al cero, dandonos como resultado un error cercano a cero. 
-
-En resumen con esta función si estamos en lo correcto vamos a acercarnos a cero, de lo contrario va a tener hacia infinito.
-
+Vacio pero no vacio.

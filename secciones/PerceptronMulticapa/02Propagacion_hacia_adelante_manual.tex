@@ -1,48 +1,4 @@
 \section{Propagación hacia adelante manual}
 
-En está parte vamos a ver como podemos evaluar la red para la solución que se dio en la sección anterior. (Recordemos que tambíen se pueden dar otras soluciones para el XOR).
+Vacio no vacio.
 
-Entonces el procedimiento matemático general para poder evaluar una red cuando tenemos más de un perceptron. Veamos primero que pasa con el \textbf{xor}, y el \textbf{nand}, por el momento no tomaremos en cuenta las neuronas de entrada $a$ puesto que solo son usadas para almacenar las entradas. La capa oculta está formada realmente por dos percetrones, que dan su salida a una neurona más que es la capa de salida de nuestra red. Para calcular sus salidas debemos aplicar la suma ponderada de las entradas a una función activación, así podemos ver que la salida de una neurona oculta es la siguiente:
- 
-\begin{equation}
- z_{j} = g (\sum_{i} w_{ij}a_i)
-\end{equation}
-
-A estos perceptrones a su vez se le estan aplicando la función de activación sigmoide:
-
-\begin{equation}
- h_{j} = \dfrac{1}{ 1 + e^{-z}}
-\end{equation}
-
-Así la neurona de salida recibe a los perceptrones ya evaluados y listos para aplicar pesos a estos y una función de activación, que en este caso son dados de la siguiente forma:
-
-\begin{equation}
- z_{o} = g (\sum_{j} w_{jo}h_j)
-\end{equation}
-
-\begin{equation}
- o = \dfrac{1}{1 + e ^{z_o}}
-\end{equation}
-
-Así tomando de ejemplo la función XOR, los valores de la capa oculta son evaluados de la siguiente forma, donde $x_{1}$ y $x_{2}$ son evaluados por 0 o 1 según sea necesario:
-
-\begin{equation}
- \begin{split}
- h_{0} &= 1 \\ 
- h_{1} &= g(1w_{01} + x_{1}w_{11} + x_{2}w_{21}) \\
- h_{2} &= g(1w_{02} + x_{1}w_{12} + x_{2}w_{22}) 
- \end{split}
-\end{equation}
-
-
-Entonces hasta aquí ya tenemos los valores de la capa oculta, una vez que ya tenemos este conjunto de valores podemos empezar a trabajar con el tercer perceptor, sus valores de entrada van a estar dados por los valores de activación de $h1$ y $h2$ y por un  sesgo, pues recordemos que es la función $Nand$, por tanto necesitamos movernos ligeramente del origen. Lo que vamos a tener aquí la fórmula se ve similar, lo único  es que ahora los valores de entrada fueron los valores que obtuvimos en el cálculo de la capa anterior:
-
-\begin{equation}
-  o = g( h_{0}w{0o} + h_{1}w_{1o} + h_{2}w_{2o})
-\end{equation}
-
-Como estamos trabajando capa por capa, primero entran los valores con los que van a trabajar todos los perceptrones, después calculamos todos los de la capa oculta que son independientes entre sí, aunque tengan en común las mismas entradas y finalmente hacemos el cálculo de la siguiente capa, que en ese caso es la se salida, pero bien podría ser otra oculta. 
-
-Por la forma de recorrer la red (de izquierda a derecha) esté algortimo obtiene su nombre de \emph{propagación hacia adelante}, pues lo calculado en la neurona de la capa anterior se propaga directamente a la siguiente capa, en íngles se conoce como \textit{feedfordward}. Cuando tenemos la evaluación de las capas ocultas, podemos obtener finalmente la salida final, con una evaluación final.
-
-Si bien está forma de evalución nos lleva al resultado correcto, este metodo se puede simplificar sobretodo en el caso que estemos manejando más entradas y más perceptrones en las capas ocultas. Así nos daremos cuenta que es posible usar matrices, esta forma de evaluación la veremos en la siguiente sección.
