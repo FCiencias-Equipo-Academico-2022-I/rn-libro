@@ -1,34 +1,5 @@
 \section{Sistema Nervioso}
 
-Conocer los pricipales componentes del sistema nervioso es esencial para el desarrollo de una RNA por varias razones:
-\begin{itemize}
- \item Inspiración biológica:
-    \begin{itemize}
-    \item Nuestro sistema nervioso ha evolucionado para procesar información de manera eficiente, comprender sus componentes proporciona ideas valiosas para diseñar algoritmos y arquitectura de redes neuronales. 
-    \end{itemize}
- \item Arquitectura y función:
-    \begin{itemize}
-    \item Comprender someramente la arquitectura y funciones del sistema nervioso en nuestro cuerpo, nos ayuda en la creación de modelos de redes artificiales que pueden realizar tareas específicas, como reconocimiento de patrones, procesamiento de lenguaje natural, y más.
-    \end{itemize} 
- \item Aprendizaje y Adaptación:
-    \begin{itemize}
-    \item El sistema nervioso es capaz de aprender y adaptarse a través de experiencias. Conocer los mecanismos de aprendizaje en el cerebro puede inspirar algoritmos de aprendizaje profundo que permitan a las RNA a mejorar su rendimiento con el tiempo.
-    \end{itemize}
- \item Optimización de Rendimiento:
-    \begin{itemize}
-    \item El sistema nervioso está altamente interconectado, permite la comunicación rápida y eficaz entre las célular nerviosas. Esto nos guia en el diseño de conexiones eficientes en las RNA para optimizar el rendimiento la transmición de información.
-    \end{itemize}
- \item Robustez y tolerancia a fallos:
-    \begin{itemize}
-    \item El sistema nervioso es robusto y capaz de funcionar en condiciones adversas. La observación cuidadosa de esta capacidad, nos sugire estrategias para mejorar la robustez y la tolerancia a fallos en las RNA.
-    \end{itemize}
- \item Ética y Seguridad:
-    \begin{itemize}
-    \item Al notar la gran complejidad de nuestro sistema nervioso, notamos también nuestros limites de imitación y semejanza que realmente se puede lograr. La responsabilidad de crear RNAs conlleva sus posibles riesgos y dilemas/desafíos éticos. 
-    \end{itemize}
-\end{itemize}
-
-
 El sistema nervioso se estudia principalmente en dos partes, sistema nervioso periférico (SNP) y sistema nervioso central (SNC). El SNC es donde nos enfocaremos, este se compone principalmente por la medula espinal y el encéfalo que son los centros principales donde ocurre la correlación e integración de la información nerviosa. Es en el encéfalo donde se encuentra principalmente el cerebro, cerebelo y el tallo encefálico.\parencite{sistNerv}   
 
 Un nervio es una estructura conductora de impulsos nerviosos.
@@ -36,9 +7,9 @@ Esta compuesto por una colección de axones los cuales son prolongaciones largas
 % Los axones, transmiten señales eléctricas y químicas entre las células nerviosas, forman una especie de "cable" a través del cual viajan los impulsos nerviosos. 
  Se origina desde la médula espinal o el encéfalo. %(31 pares de nervios raquídeos) o el encéfalo (12 pares de nervios craneales).
 
-Los nervios en conjunto son la escrutura organizada por tejido conectivo en el sistema nervioso, encargada de transmitir información entre diferentes partes del cuerpo del SNP y del SNC, permitiendo así el control y coordinación eficientes de las actividades corporales. Se extienden desde el cráneo y la médula espinal para abarcar todo el cuerpo humano. \parencite{princNS5}
+Los nervios en conjunto son la estructura organizada por tejido conectivo en el sistema nervioso, encargada de transmitir información entre diferentes partes del cuerpo del SNP y del SNC, permitiendo así el control y coordinación eficientes de las actividades corporales. Se extienden desde el cráneo y la médula espinal para abarcar todo el cuerpo humano. \parencite{princNS5}
 
-Los nervios del SNP se pueden clasificar en tres catergorias:
+Los nervios del SNP se pueden clasificar en tres categorías:
 
 \begin{itemize}
 \item \textbf{Nervios motores:} están asociados con las salidas y la ejecución de acciones, conectándose y ejerciendo su influencia sobre los músculos.
@@ -91,13 +62,42 @@ Su primera conexión es hacia la capa unimodal superior, que vamos a considerar 
 
 Luego están las capas intermedias unimodal inferior, heteromodal, paralímbico, límbico, donde se dará un procesamiento intermedio; se juntarán varias características interpretadas por la primera capa. Conforme avance la señal a las siguientes capas, las neuronas notarán características más complejas. 
 
-Una vez llege la señal con la codificación de todas las capas por las que paso al hipotálamo, este se encarga de coordinar las respuestas de regreso. Ya sea hacia la capa premotora o paralímbica. En el caso del diagrama las flechas en color verde indican que la señal tuvo respuesta antes de llegar al hipotálamo y hubo una respuesta hacia la capa premotora, que tendrá una salida hacia los nervios motores, es decir una reacción motora inmediata de la señal. Las flechas de color azul indican que la señal llego hasta el hipotálamo que pudo coordinar una o varias respuestas. 
+Una vez que llegue la señal con la codificación de todas las capas por las que paso al hipotálamo, este se encarga de coordinar las respuestas de regreso. Ya sea hacia la capa premotora o paralímbica. En el caso del diagrama las flechas en color verde indican que la señal tuvo respuesta antes de llegar al hipotálamo y hubo una respuesta hacia la capa premotora, que tendrá una salida hacia los nervios motores, es decir una reacción motora inmediata de la señal. Las flechas de color azul indican que la señal llego hasta el hipotálamo que pudo coordinar una o varias respuestas. 
 
 En este contexto, las áreas unimodales y heteromodales están más involucradas en la elaboración perceptual y la planificación motora, mientras que las áreas paralímbicas desempeñan un papel crítico en canalizar la emoción y la motivación hacia objetivos intrapsíquicos y extrapersonales relevantes para el comportamiento. Este mapa funcional del córtex cerebral proporciona la plantilla básica para vincular la sensación con la cognición en el cerebro de primates.
 
-Cabe destacar que, si bien no es imprescindible contar con un conocimiento profundo del cerebro para trabajar con Redes Neuronales Artificiales (RNA), poseer una comprensión básica de las zonas funcionales del cerebro resulta fundamental para contextualizar problemas en el campo de las RNA e Inteligencia Artificial.
 
-Esta atención especial a las zonas funcionales del cerebro se justifica por la necesidad de entender los conceptos fundamentales de entradas, capas, salidas y conexiones, los cuales son la base para comprender conceptos más avanzados como memoria y reacciones, tanto inmediatas como a largo plazo. Estos últimos conceptos son especialmente relevantes en modelos específicos, como las RNA de memoria a corto y largo plazo (LSTM, por sus siglas en inglés Long Short Time Memory) y las RNA con Unidad Recurrente con Puertas (GRU, por sus siglas en inglés Gate Recurrent Unit)  que se estudiarán detenidamente en etapas posteriores del curso.
+
+Cabe destacar que, si bien no es imprescindible contar con un conocimiento profundo del cerebro para trabajar con Redes Neuronales Artificiales (RNA), poseer una comprensión básica del sistema nervioso y las zonas funcionales del cerebro es esencial para el desarrollo de una RNA por varias razones:
+\begin{itemize}
+ \item Inspiración biológica:
+    \begin{itemize}
+    \item Nuestro sistema nervioso ha evolucionado para procesar información de manera eficiente, comprender sus componentes proporciona ideas valiosas para diseñar algoritmos y arquitectura de redes neuronales. 
+    \end{itemize}
+ \item Arquitectura y función:
+    \begin{itemize}
+    \item Comprender someramente la arquitectura y funciones del sistema nervioso en nuestro cuerpo, nos ayuda en la creación de modelos de redes artificiales que pueden realizar tareas específicas, como reconocimiento de patrones, procesamiento de lenguaje natural, y más. 
+    \end{itemize} 
+ \item Aprendizaje y Adaptación:
+    \begin{itemize}
+    \item El sistema nervioso es capaz de aprender y adaptarse a través de experiencias. Conocer los mecanismos de aprendizaje en el cerebro puede inspirar algoritmos de aprendizaje profundo que permitan a las RNA a mejorar su rendimiento con el tiempo.
+    \end{itemize}
+ \item Optimización de Rendimiento:
+    \begin{itemize}
+    \item El sistema nervioso está altamente interconectado, permite la comunicación rápida y eficaz entre las células nerviosas. Esto nos guía en el diseño de conexiones eficientes en las RNA para optimizar el rendimiento del paso de información.
+    \end{itemize}
+ \item Robustez y tolerancia a fallos:
+    \begin{itemize}
+    \item El sistema nervioso es robusto y capaz de funcionar en condiciones adversas. La observación cuidadosa de esta capacidad, nos sugiere estrategias para mejorar la robustez y la tolerancia a fallos en las RNA.
+    \end{itemize}
+ \item Ética y Seguridad:
+    \begin{itemize}
+    \item Al notar la gran complejidad de nuestro sistema nervioso, notamos también nuestros limites de imitación y semejanza que realmente se puede lograr. La responsabilidad de crear RNA conlleva sus posibles riesgos y dilemas/desafíos éticos. 
+    \end{itemize}
+\end{itemize}
+
+
+Esta atención especial a las zonas funcionales del cerebro se hace por la necesidad de entender los conceptos fundamentales de entradas, capas, salidas y conexiones, los cuales son la base para comprender conceptos más avanzados como memoria y reacciones, tanto inmediatas como a largo plazo. Estos últimos conceptos son especialmente relevantes en modelos específicos, como las RNA de memoria a corto y largo plazo (LSTM, por sus siglas en inglés Long Short Time Memory) y las RNA con Unidad Recurrente con Puertas (GRU, por sus siglas en inglés Gate Recurrent Unit)  que se estudiarán detenidamente en etapas posteriores del curso.
 
 
 
