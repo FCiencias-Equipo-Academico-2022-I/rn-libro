@@ -26,7 +26,7 @@ La neurona es un tipo de célula perteneciente al sistema nervioso central, que 
 
 \subsection{Elementos de las neuronas en la transmisión de señales}
 
-Los principales elementos que participan durante la transmisión de señales entre neuronas son:
+Los principales elementos que participan durante la transmisión de señales entre neuronas son \parencite{sistemaNervioso}:
 
 
 \begin{itemize}
@@ -73,7 +73,8 @@ A lo anterior también se le conoce como neurotransmición que esta  descrita co
  \label{fig:nTransmision}
 \end{figure}
 
-La neurona (típica) a lo largo de su axón, está cubierta de nodos (y de células de mielina). Estos nodos están para evitar que se distorsionen o se pierda la señal recibida en la dendritas, en ellos se recarga la señal para que llegue hasta el soma de la neurona. Donde se mandará o no una respuesta, un pulso eléctrico.  
+
+La neurona a lo largo de su axón, está cubierta de nodos (y de células de mielina). Estos nodos están para evitar que se distorsione o se pierda la señal recibida en la dendritas, en ellos se recarga la señal para que llegue desde el soma hasta las terminales del axón. Y así pase a la neurona postsináptica, que a su vez la pasará a otra hasta lograr llegar a algun nervio del SNP. 
 
 
 %\begin{figure}[h]
@@ -157,19 +158,19 @@ Los dos tipos de sinapsis (relevantes para el curso) son:
 
 \subsection{Señal eléctrica}
 
-El paso de las señales eléctricas entre neuronas, se dan gracias a los canales de iones, los que destacan son los siguientes:
+El paso de las señales eléctricas entre neuronas, se da gracias a los canales de iones. Los que destacan son los siguientes:
 
 \begin{itemize}
 \item \textbf{Canal por fuga:} Estos se abren y cierran aleatoriamente, todo el tiempo están activos en la neurona. Por ejemplo: sodio y potasio.
 
-\item \textbf{Canal regulado por ligado:} En este un neurotransmisor que es el que provocar o impide que se abran. 
+\item \textbf{Canal regulado por ligado:} En este un neurotransmisor que es el que provoca o impide que se abran. 
 
-\item  \textbf{Canal por estímulo mecánico:} Permiten que pasen más iones o menos iones dependiendo, si se ejerció una presión, por ejemplo, con las neuronas cerca de la piel.
-\item \textbf{Canales regulados por el voltaje:} Un voltaje, es el que abre o cierra el canal. Permite o no el paso del pulso eléctrico. % Existen una variante de este tipo, el cual tiene una pequeña compuerta abajo, que la puede cerrar independientemente.
+\item  \textbf{Canal por estímulo mecánico:} Permiten que pasen más iones o menos iones dependiendo si se ejerció una presión, por ejemplo, con las neuronas cerca de la piel.
+\item \textbf{Canales regulados por el voltaje:} Un voltaje es el que abre o cierra el canal. Permite o no el paso del pulso eléctrico. % Existen una variante de este tipo, el cual tiene una pequeña compuerta abajo, que la puede cerrar independientemente.
 \end{itemize}
 
 
-Existen realmente una buena cantidad de iones presentes en el cerebro, pero los más protagónicos son \textbf{potasio}, el \textbf{sodio} y el \textbf{cloro}. Los que vamos a utilizar para un modelo matemático de las neuronas. 
+Existen realmente una buena cantidad de iones presentes en el cerebro, pero los más protagónicos son \textbf{potasio}, el \textbf{sodio} y el \textbf{cloro}. Los que vamos a utilizar para un modelo matemático de las neuronas. Veremos más detalles en el siguiente capítulo.
 
 
 \begin{figure}[h]
@@ -186,11 +187,8 @@ Existen realmente una buena cantidad de iones presentes en el cerebro, pero los 
 Una característica importante de la conexión entre neuronas es la neuroplasticidad, que es lo que nos permite el aprendizaje a largo plazo en el cerebro, es un mecanismo de aprendizaje del cerebro en el cual cuando las neuronas se activan simultáneamente con frecuencia la conexión entre ellas se fortalece.
 
 
-Este mecanismo constituye la principal inspiración para el diseño de las redes neuronales artificiales, concretamente en esto se inspiran los algoritmos de entrenamiento. Calculamos, qué conexiones debemos reforzar y cuáles debemos de debilitar para que nuestras redes neuronales calculen las funciones que a nosotros nos interesan.
+Este mecanismo constituye la principal inspiración para el diseño de las redes neuronales artificiales, concretamente en esto se inspiran los algoritmos de entrenamiento. Calculamos, qué conexiones debemos reforzar y cuáles debemos de debilitar para que nuestras redes neuronales calculen las funciones que a nosotros nos interesan. 
 
-
-Comentario Importante a preguntar:
-En esta sección estaba también explicado el paso de iones por la membrana, pero no sé si sea relevante en esta sección o mejor directamente en el modelo de HH, que es lo importante para sus prácticas de lab.
 
 \begin{figure}[h]
  \centering
