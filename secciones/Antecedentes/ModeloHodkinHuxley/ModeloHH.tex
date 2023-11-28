@@ -3,9 +3,9 @@
 
 En esta sección se aborda el proceso de transmisión de información y se analizan las operaciones biológicas que hacen posibles los cómputos en el cerebro. Para empezar a modelar una red neuronal se detallará primero la dinámica de los disparos neuronales.
 
-Recordando los conceptos abordados en el  capítulo  anterior, las neuronas son células especializadas del sistema nervioso central que se comunican mediante señales tanto eléctricas como químicas.  Son células con núcleo, axón y dendritas capaces de transferir impulsos eléctricos. La transmisión de un pulso eléctrico se lleva a cabo desde el soma a través de sus membranas, pasando por los nodos de Ranvier a lo largo del axón, hasta la terminal del axón en los botones sinápticos. Las neuronas hacen sinapsis  premitiendo que el pulso llege a las dendritas de la neurona posinanáptica, mediante canales ionicos. \parencite{neurona_A_cerebro}
+Recordando los conceptos abordados en el  capítulo  anterior, las neuronas son células especializadas del sistema nervioso central que se comunican mediante señales tanto eléctricas como químicas.  Son células con núcleo, axón y dendritas capaces de transferir impulsos eléctricos. La transmisión de un pulso eléctrico se lleva a cabo desde el soma a través de sus membranas, pasando por los nodos de Ranvier a lo largo del axón, hasta la terminal del axón en los botones sinápticos. Las neuronas hacen sinapsis  permitiendo que el pulso llegue a las dendritas de la neurona postinanáptica, mediante canales iónicos. \parencite{neurona_A_cerebro}
 
-El pulso electrico que se desplazo desde el cono axónico de la neurona presináptica hasta la neurona postsináptica, se genera por la diferencia de potencial existente entre el interior y el exterior de la neurona, el cual resulta de las varias concentraciones de iones en ambos lados de la membrana plasmática. Los estados potenciales neuronales presentes en la membrana plasmática del axón se distinguen en los siguientes \parencite{HH}:
+El pulso eléctrico que se desplazo desde el cono axónico de la neurona presináptica hasta la neurona postsináptica, se genera por la diferencia de potencial existente entre el interior y el exterior de la neurona, el cual resulta de las varias concentraciones de iones en ambos lados de la membrana plasmática. Los estados potenciales neuronales presentes en la membrana plasmática del axón se distinguen en los siguientes \parencite{HH}:
 
 \begin{itemize}
 \item \textbf{Potencial de reposo:} Se refiere a la diferencia de cargas eléctricas a través de la membrana celular cuando no hay una señal nerviosa en curso. La membrana está polarizada a -70 mV, lo que significa que tiene una carga positiva en el exterior (por la presencia de iones de sodio, Na+) y una carga negativa en el interior debido a iones como el cloruro (Cl-) y proteínas. En este estado, la membrana no transmite señales nerviosas. Ver la figura \fref{fig:MembranaP} lado derecho.
@@ -36,18 +36,15 @@ El axón del calamar gigante es tan grande que les permitió introducir disposit
 
 \section{Membrana y canal}
 
-Para comprender la transferencia de electricidad durante la activación de un impulso nervioso, se modeló como un circuito eléctrico en el que observaron la presencia predominante de dos elementos: el sodio y el potasio. Se identificó que estos iones existen en diferentes concentraciones en el interior y exterior de las neuronas, lo que resulta esencial en el proceso de transmisión de señales eléctricas.
+Durante las observaciones del flujo de corrientes eléctricas el sistema parecía comportarse como un circuito eléctrico, donde la membrana actuaba como un componente poroso que \textit{funciona como un capacitor}, almacenando ligeramente las cargas cuando intentan pasar de un lado a otro. Además esta membrana tiene la cualidad de permitir el paso selectivo de iones en ciertos momentos, es decir es una estructura \textit{semipermeable} que se representa con \textit{resistencias variables}. Ver Figura \ref{fig:ModelHh}.
 
-Hodgkin y Huxley se dedicaron al estudio de las concentraciones de estos iones (sodio y potasio) tanto en el interior como en el exterior de las neuronas, mientras fluían las corrientes eléctricas. Durante sus observaciones, el sistema parecía comportarse como un tipo de circuito eléctrico, donde la membrana actuaba como un componente poroso que \textit{funciona como un capacitor}, almacenando ligeramente las cargas cuando intentan pasar de un lado a otro. Además, esta membrana tenía la cualidad de permitir el paso selectivo de iones en ciertos momentos, es decir, actuaba como una estructura \textit{semipermeable}. Ellos modelaron esto como \textit{resistencias variables}.
+Los canales de iones permiten o bloquean el flujo de iones dependiendo de la diferencia de potencial que exista entre el interior y el exterior de la membrana y de su estado de reposo particular. Por tanto es necesario agregar los potenciales de reposo para cada canal al modelo, en la figura \ref{fig:circuito} se agregan.
 
-Bajo ciertas condiciones de voltaje, determinadas por la diferencia de potencial entre el interior y el exterior de la célula, los canales iónicos permiten o bloquean el flujo de iones como sodio, potasio o calcio (ver Figura \ref{fig:ModelHh}). Sin embargo, para comprender más a fondo la representación de estos canales, se requiere una exploración más detallada. En este sentido, surge la necesidad de expandir el modelo existente, considerando los comportamientos específicos de estas ''resistencias variables'' en relación con un voltaje de reposo.
-
-Tomando en cuenta estos aspectos, se destaca que el comportamiento de estas resistencias está estrechamente ligado a un voltaje de reposo particular. En estos voltajes específicos, en cada tipo de ion, representado por estas resistencias modeladas, alcanza una estabilización, lo que implica que ya no varían sus propiedades de conductancia (ver Figura \ref{fig:circuito}).
 
 \begin{figure}[h]
  \centering
  \includegraphics[scale=0.5]{../Figuras/ModeloHH.2}
- \caption{Un primer modelo de la membrana axónica modelada como circuito eléctrico. La parte amarilla es la membrana.}
+ \caption{Un primer modelo de la membrana axónica modelada como circuito eléctrico.}
  \label{fig:ModelHh}
 \end{figure}
 
@@ -56,28 +53,24 @@ Tomando en cuenta estos aspectos, se destaca que el comportamiento de estas resi
 \begin{figure}[h]
  \centering
  \includegraphics[scale=0.5]{../Figuras/circuito.png}
- \caption{Modelo de la membrana axónica modelada como circuito eléctrico, con los distintos canales presentes y su voltaje de reposo.}
+ \caption{Modelo de la membrana axónica modelada como circuito eléctrico, con los distintos canales presentes y sus voltajes en reposo.}
  \label{fig:circuito}
 \end{figure}
 
-Durante sus observaciones, identificaron que la conductancia del \textbf{ion de sodio (Na+)} varía en función del voltaje aplicado, lo que se conoce como un \textbf{canal transitorio}. Este canal en determinados voltajes, permite el paso del ion; en voltajes demasiado bajos, se bloquea y no permite su paso, mientras que si supera un umbral específico, vuelve a cerrarse, impidiendo nuevamente su paso.
-
-En cuanto al \textbf{ion de potasio (K+)}, su comportamiento es distinto: puede salir de la célula cuando el voltaje alcanza un valor específico. Si el voltaje es inferior a este umbral, los iones de potasio no pueden atravesar la membrana celular. Además, el canal de potasio muestra una particularidad interesante: su capacidad para permitir el paso de iones varía de manera gradual en función del voltaje, lo que se denomina un \textbf{canal persistente}.
-
- De manera didáctica podemos ver el canal de potasio como una puerta hecha de cuatro subpuertas por donde los elementos pasan o no pasan,es decir tiene dos estados; activado o desactivado. El canal de sodio lo podemos ver como una puerta que está hecha de tres subpuertas que se pueden abrir y tiene aparte un tapón extra, que hace que aunque estas tres están abiertas bloquee toda la compuerta, es decir tiene tres estados; desactivado, activado, inactivada (inhibida).
-
- **Poner imagen de los canales de potasio, sodio.**
- 
- 
- Las neuronas están trabajando con muchos más iones aparte de estos dos, uno que destaca bastante es el caso del \textbf{ion de cloro (Cl-)} que tiene carga negativa. Se tienen canales para intercambio aleatorio de otros iones, \textbf{L} un canal aleatorio (leaky).
-
-Entonces con lo que ellos midieron experimentalmente, notaron cómo se estaban comportando estas resistencias dependiendo del voltaje o la diferencia de potencial que había entre ambos lados de la membrana. 
-
+Los elementos necesarios para el modelo de la membrana son los siguientes:
 \begin{itemize}
-\item Potenciales eléctricos \emph{E ó  V}; resultan de la separación de cargas opuestas. Se mide en \emph{mV}.
+\item Potenciales eléctricos \emph{E ó  V}; Se mide en \emph{mV}.
     \begin{itemize}
-     \item \emph{E\textsubscript{(Na,K,L)}} voltaje en reposo para los iones de Na, K y L, o también conocido como  potencial de inversión iónico, es el potencial de membrana en el que no hay flujo neto (total) de ese ion en particular de un lado de la membrana al otro. 
-     \item \emph{V\textsubscript{m}}, el potencial eléctrico de la membrana. 
+     \item \emph{E\textsubscript{(Na,K,L)}} 
+     Potencial de equilibrio o reposo para los iones de sodio (Na), potasio (K) y cloruro y de fuga (L). 
+     \begin{itemize}
+        \item E \textsubscript{Na}  \emph{50mV}
+        \item E \textsubscript{Ca}  \emph{150mV}
+        \item E \textsubscript{K}   \emph{- 80mV}
+        \item E \textsubscript{Cl}  \emph{- 60mV}
+        \end{itemize}
+
+     \item \emph{V\textsubscript{m}} Potencial eléctrico de la membrana. 
      \end{itemize}
 
 \item Corriente \emph{I}; Movimiento de cargas. Se mide en \emph{µA}.
@@ -93,64 +86,27 @@ Entonces con lo que ellos midieron experimentalmente, notaron cómo se estaban c
 
 \item Conductancia \emph{g}; Inverso de la resistencia \( \dfrac{1}{R} \) , es decir, facilidad de transmisión de las partículas cargadas.
     \begin{itemize}
-     \item \emph{g\textsubscript{(Na,K,L}}  la conductancia del canal de sodio, potasio, cloro y la L también refiriendose a otros canales de iones. 
+     \item \emph{g\textsubscript{(Na,K,L)}}  la conductancia del canal de sodio, potasio, cloro y fuga. 
      \end{itemize}
 
 \end{itemize}
 
-Lo que está pasando en los \textbf{potenciales eléctricos} es que hay mucho sodio en la parte externa de la membrana por ej. tres iones de sodio que son cargas positivas por dos iones de potasio que hay en la parte interna, entonces hay muchas más cargas positivas en la parte de afuera que las que hay en la parte de adentro y eso es lo que provoca la diferencia de cargas que es lo que estamos viendo como un potencial eléctrico.
+\section{Modelo de los canales de inoes}
 
+En la figura \fref{fig:MembranaP} se puede ver la representación de membrana y sus lipidos, la carga es almacenada en la membrana por un breve periodo de tiempo, dando como resultado que la bicapa se comporte como un \textbf{capacitor}. Esta membrana también está con cierta resistencia al paso de corriente representado en el diagrama \ref{fig:circuito} \footnote{Otra explicación más detallada la podemos encontrar en \url{https://neurowiki.case.edu/wiki/Action_Potential_IV:_Hodgkin-Huxley_Equations_and_Other_Conductances}} 
 
-La capacidad eléctrica o \textbf{capacitancia} es la que estamos utilizando para modelar la membrana conformada por lípidos, que es una capa de grasa y esa es la cantidad de energía eléctrica almacenada en un capacitor para una diferencia de potencial eléctrico dada. Éste comportamiento bastante interesante porque las cargas quedan almacenadas un momento, pero se van liberando poco a poco y se va descargando ese capacitor. 
-
-
-Durante el experimento con el axón, se le dieron cargas eléctricas directamente al axón y gracias a eso lograban ir midiendo que era lo que estaba pasando con las concentraciones de cargas afuera y adentro en el caso de las neuronas reales, esto en un ambiente no alterado ocurre cuando entran en juego los neurotransmisores y provocan que haya cambios, en estas corrientes. Entonces Hodgkin y Huxley jugaron el rol que tendrían que jugar usualmente los \emph{neurotransmisores} para abrir otras compuertas. Nosotros en la manera en la que lo vamos a simular es precisamente con estas corrientes que son las que se están poniendo en el experimento y vamos a ver cómo reacciona el axón. 
-
-\section{Potenciales de Nerst o de reposo}
-
-Los Potenciales de Nerst o de reposo son los potenciales a los cuales el flujo neto de iones a través de los canales abiertos es cero.
-Aquí vemos precisamente porque estamos utilizando la \emph{E} generalmente la vamos a utilizar para referirnos a la diferencia de potencial entre la parte de afuera de la célula y la parte de adentro, las vamos a utilizar para representar a aquellos voltajes donde cada una de las compuertas encontrarían su equilibrio. Estos voltajes son distintos para cada una de las compuertas, esto va a provocar precisamente la dinámica de la de la neurona, por ejemplo: 
-
-\begin{itemize}
-\item E \textsubscript{Na}  \emph{50mV}
-\item E \textsubscript{Ca}  \emph{150mV}
-\item E \textsubscript{K}   \emph{- 80mV}
-\item E \textsubscript{Cl}  \emph{- 60mV}
-\end{itemize}
-Aquí vemos que el sodio estaría su equilibrio en un valor positivo, 
-el calcio que es el que va a jugar un rol de que se activen los neurotransmisores y se transmita el disparo, observamos que el voltaje tendría que ser bastante positivo. El potasio que es el que usualmente está trabajando intercambiándose casi todo el tiempo en la neurona, veremos que el punto de equilibrio usual de la neurona anda por los $-76 mV$ y el del cloro. Cada uno de estos canales pues está tratando de jalar la dinámica hacia su potencial de equilibrio y no hay precisamente un acuerdo entre ellos y eso es precisamente lo que hace que las neuronas cobren "vida".
-
-
-****
-\section{Modelo de la membrana como bicapa de lípidos}
-
-\hypertarget{LaEq}{La membrana} de una neurona es modelada como un elemento de un circuito con capacitancia \emph{C\textsubscript{m}} y potencial \emph{V}, las corrientes que fluye a través de la bicapa lipídica están regidos por las siguientes ecuaciones:
-
+La membrana de una neurona es modelada como un elemento de un circuito con capacitancia \emph{C\textsubscript{m}} y potencial \emph{V}, las corrientes que fluye a través de la bicapa lipídica están regidos por las siguientes ecuaciones:
 
 \begin{equation}
   I_{m} = C_{m} \dfrac{dV_{m}}{dt}
   \label{eq:corrientesEnLaMembrana}
 \end{equation}
 
-Esta sería la ecuación principal (\ref{eq:corrientesEnLaMembrana}) donde \(\dfrac{dVm}{dt}\) está representando el cambio voltaje en la membrana respecto al tiempo.
 
 \begin{equation}
-  C_{m} \dfrac{dV_{m}}{dt} =  - g_{Na} m^3 h(V - E_{Na} ) - g_{K} n 4 (V - E_{K} ) - g_{L} (V - E_{L} ) + I_ext
+  C_{m} \dfrac{dV_{m}}{dt} =  - g_{Na} m^3 h(V - E_{Na} ) - g_{K} n^4 (V - E_{K} ) - g_{L} (V - E_{L} ) + I_ext
   \label{eq:corrientesEnLaMembrana2}
 \end{equation}
-
-Cada una de las partes del lado izquierdo de la ecuación \ref{eq:corrientesEnLaMembrana2} corresponde a las compuertas de los canales y la corriente de un estímulo externo que pueda influir a la membrana (este estímulo siempre será desde al exterior hacia el interior).
-
-Retomando lo escrito anteriormente el canal de sodio es una compuerta compuesta de \textbf{tres} subpuertas y una subpuerta que actua como tapón y el canal de potasio es una compuerta compuesta de \textbf{cuatro} subpuertas iguales, \hypertarget{secc} {con esto podemos notar claramente que las conductancias sean representadas como}:
-
-\begin{itemize}
- \item \(\dfrac{1}{R_{Na}} = g_{Na} * m ^3 * h \) donde \(g_{Na}\) es una constante que representa el valor de la conductancia máxima, \textbf{m} es la proporción de los canales de sodio abiertos (representa la concentración de sodio) y nos indica la activación (subpuertas abiertas) del canal, \textbf{h} es el “tapón” de la compuerta que puede impedir el paso de iones independientemente de las otras tres subpuertas, es decir la inactivación (compuerta bloqueada).
-Los movimientos combinados de \textbf{m} y \textbf{h} son los que controlan la compuerta de sodio.
- \item \(\dfrac{1}{R_{K}} = g_{K} * n^4\) donde \(g_{K}\) es una constante que representa el valor de la conductancia máxima, \textbf{n} es la proporción de los canales de potasio abiertos (representa la concentración de potasio) y nos indica la activación del canal de potasio.
- \item \(g_{L}\) es una constante, de los canales por fuga, que representa la concentración de los demás iones que pasan por la membrana.
-\end{itemize}
-
-Ahora \emph{m}, \emph{n} y \emph{h}, son variables de activación que describen la probabilidad de que los canales iónicos estén abiertos, se puede describir mediante las siguientes ecuaciones diferenciales ordinarias:
 
 \begin{equation}
   \dfrac{1}{\gamma(T)}\dfrac{dn}{dt} =  \alpha_{n^\infty} (V)(1 - n) - \beta_{n} (V) n = \dfrac{n(V)-n(t)}{\tau_{n}(V)}
@@ -167,7 +123,20 @@ Ahora \emph{m}, \emph{n} y \emph{h}, son variables de activación que describen 
   \label{eq:corrientesEnLaMembrana5}
 \end{equation}
 
-Donde la ecuación \ref{eq:corrientesEnLaMembrana3} representa al canal de potasio y las ecuaciones \ref{eq:corrientesEnLaMembrana4} y \ref{eq:corrientesEnLaMembrana5} representando al canal de sodio tomando en cuenta que tiene dos tipos de subpuertas.
+La ecuación principal es \ref{eq:corrientesEnLaMembrana} que donde la corriente de la membrana está dada por su capacitancia con el cambio voltaje en la membrana respecto al tiempo.
+
+Cada una de las partes del lado izquierdo de la ecuación \ref{eq:corrientesEnLaMembrana2} corresponde a las compuertas de los canales y la corriente de un estímulo escrictamente externo que pueda influir a la membrana.
+
+De manera sencilla podemos notar al canal de potasio como una puerta hecha de cuatro subpuertas por donde los elementos pasan o no pasan, es decir tiene dos estados; activado o desactivado. El canal de sodio lo podemos notar como una puerta que está hecha de tres subpuertas que se pueden abrir y tiene aparte un tapón extra, que hace que aunque estas tres están abiertas bloquee toda la compuerta, es decir tiene tres estados; desactivado, activado, inactivo. Con esto podemos representar a las conductancias \textbf{g} como:
+
+\begin{itemize}
+ \item \(\dfrac{1}{R_{Na}} = g_{Na} * m ^3 * h \) donde \(g_{Na}\) es una constante que representa el valor de la conductancia máxima, \textbf{m} es la proporción de los canales de sodio abiertos (representa la concentración de sodio) y nos indica la activación (subpuertas abiertas) del canal, \textbf{h} es el “tapón” de la compuerta que puede impedir el paso de iones independientemente de las otras tres subpuertas, es decir la inactivación (compuerta bloqueada).
+Los movimientos combinados de \textbf{m} y \textbf{h} son los que controlan la compuerta de sodio.
+ \item \(\dfrac{1}{R_{K}} = g_{K} * n^4\) donde \(g_{K}\) es una constante que representa el valor de la conductancia máxima, \textbf{n} es la proporción de los canales de potasio abiertos (representa la concentración de potasio) y nos indica la activación del canal de potasio.
+ \item \(g_{L}\) es una constante, de los canales por fuga, que representa la concentración de los demás iones que pasan por la membrana.
+\end{itemize}
+
+Las concentraciones de iones están dado por \emph{m}, \emph{n} y \emph{h}, que son variables de activación que describen la probabilidad de que los canales iónicos estén abiertos. Donde la ecuación \ref{eq:corrientesEnLaMembrana3} representa las subcompuertas del canal de potasio y las ecuaciones \ref{eq:corrientesEnLaMembrana4} y \ref{eq:corrientesEnLaMembrana5} representando las subpuertas al canal de sodio tomando en cuenta que tiene dos tipos de subpuertas.
 
 Las expresiones de \(\alpha\) y \(\beta\) están dadas por las siguientes ecuaciones:
 
@@ -177,64 +146,8 @@ Las expresiones de \(\alpha\) y \(\beta\) están dadas por las siguientes ecuaci
 \alpha_{h}&=\dfrac{0.07}{exp-(\dfrac{V}{20})}              &  \beta_{h}&=\dfrac{1}{1+exp\dfrac{30-V}{10}}
 \end{align*}
 
-Los factores \(\alpha\) y \(\beta\) se denominan como constantes de velocidad de transición. \(\alpha\) es el número de veces por segundo que se abre una puerta que está en estado cerrado, mientras que \(\beta\) es el número de veces por segundo que se cierra una puerta que está en estado abierto. Si la membrana tiene un la carga negativa, \(\alpha\) debe aumentar y la \(\beta\) debe disminuir, cuando la membrana esté despolarizada.
+Los factores \(\alpha\) y \(\beta\) se denominan como constantes de velocidad de transición. \(\alpha\) es el número de veces por segundo que se abre una puerta que está en estado cerrado, mientras que \(\beta\) es el número de veces por segundo que se cierra una puerta que está en estado abierto. Si la membrana tiene un la carga negativa, \(\alpha\) debe aumentar y \(\beta\) debe disminuir, cuando la membrana esté despolarizada.
 
-Hasta ahora sabemos que en la bicapa de lípidos, una pequeña carga está pasando entre sus capas de grasa. También sabemos que la carga es almacenada por un breve periodo de tiempo, dando como resultado que la bicapa se comporte como un \textbf{capacitor}. Esta membrana también está con cierta resistencia al paso de corriente. Con esto tenemos el siguiente diagrama \footnote{Otra explicación más profunda de las ecuaciones dadas partir del diagrama \ref{fig:circuitoP}la podemos encontrar en \url{https://neurowiki.case.edu/wiki/Action_Potential_IV:_Hodgkin-Huxley_Equations_and_Other_Conductances}} \ref{fig:circuitoP}
-
-\begin{figure}[h]
- \centering
- \includegraphics[scale=0.5]{../Figuras/bicapaLipidos.png}
- \caption{Modelo de la bicapa de lipidos donde, V son los cambios de voltaje en la membrana que es el potencial eléctrico, \(I_{C}\) es la corriente del capacitor, \(I_{R}\) es la corriente de la resistencia, \(C_{m}\) es la capacitancia de la membrana, R es la resistencia.}
- \label{fig:circuitoP}
-\end{figure}
-
-Tenemos dadas las siguientes ecuaciones:
-\begin{equation}
-    I_{C} + I_{R} - I_{ext} = 0
-  \label{eq:bicapa1}
-\end{equation}
-
-\begin{equation}
-    C\dfrac{dV}{dt} + \dfrac{V}{R} - I_{ext} = 0 \\
-  \label{eq:bicapa2}
-\end{equation}
-
-\begin{equation*}
-    C\dfrac{dV}{dt} = -\dfrac{V}{R} + I_{ext} 
-\end{equation*}
-
-Ahora por la ley de corriente de Kirchhoff \footnote{La ley de la corriente de Kirchhoff dice que la suma de todas las corrientes que fluyen hacia un nodo es igual a la suma de las corrientes que salen del nodo} tenemos que la suma de las corrientes del capacitor y la resistencia debe ser cero
-por la conservación de corriente y si consideramos un factor adicional de una corriente externa aplicada o administrada a la neurona, tenemos la ecuación \ref{eq:bicapa1}.
-
-Después tenemos la relación entre la diferencia de potenciales, que almacena energía y la carga eléctrica que guarda, donde: \emph{C} es la capacidad, medida en faradios, \emph{Q} la carga eléctrica almacenada, medida en culombios, \emph{V} la diferencia de potencial medida en voltios. Entonces \(C = Q/V\), despejando a \emph{Q} tenemos \emph{Q = CV} y derivando de ambos lados respecto al tiempo y considerando que \emph{C} es una constante al ser una propiedad de la membrana \(\dfrac{dQ}{dt} = C\dfrac{dV}{dt}\). Como la definición de corriente es el cambio de carga en el tiempo tenemos que \(I_{C} = C\dfrac{dV}{dt}\). Notemos finalmente la corriente de la resistencia \(I_{R}\), recordando la ley de Ohm \footnote{La ley de Ohm establece que la diferencia de potencial V que aplicamos entre los extremos de un conductor determinado es directamente proporcional a la intensidad de la corriente I que circula por el conductor, es decir \(V = R * I\). Notemos también que \(V = V_{m} - V_{rest}\) } la podemos rescribir como \(\dfrac{V-V_{rest}}{R}\). Sustituyendo de lo anterior en la ecuación \ref{eq:bicapa1} se obtiene la siguiente ecuación:
-
-\begin{equation}
- C\dfrac{dV}{dt} + \dfrac{V-V_{rest}}{R} - I_{ext} = 0
- \label{eq:bicapa3}
-\end{equation}
-
-\begin{equation*}
- C\dfrac{dV}{dt} = -\dfrac{V-V_{rest}}{R} + I_{ext} 
-\end{equation*}
-
-Ahora multiplicando todo por R:
-\begin{equation}
- RC\dfrac{dV}{dt} = -V + (V_{rest} + RI_{ext}) 
- \label{eq:bicapa4}
-\end{equation}
-
-Denotando RC como la constante de tiempo \(\tau\) y tomando en cuenta que en cuanto se aplica la corriente va a empezar a cambiar el voltaje poco a poco hasta establecerse en un voltaje de equilibrio (ahí se va a quedar quieta). Entonces cuando el voltaje ya no está cambiando con el tiempo quiere decir que su derivada con respecto al tiempo es cero. Observemos que \(dV/dt = 0\) significaría que V es igual a infinito y que el voltaje en el estado estacionario cuando, \(dV/dt = 0\) depende del potencial de reposo y del producto entre la resistencia con la corriente externa suministrada, entonces tenemos que:
-
-\begin{equation}
- V_{\infty} = V_{rest} + RI_{ext}
- \label{eq:bicapa5}
-\end{equation}
-
-Sustituyendo con \ref{eq:bicapa5} y la constante, en \ref{eq:bicapa4} tenemos que:
-\begin{equation}
- \tau\dfrac{dV}{dt} = -V + V_{\infty}
- \label{eq:bicapa6}
-\end{equation}
 
 \subsection{Las conductancias iónicas}
 Nuestro objetivo aquí es encontrar ecuaciones que describan las conductancias con precisión razonable y lo suficientemente simples para el cálculo teórico de \emph{el potencial de acción} y \emph{el período refractario}. 
@@ -281,13 +194,13 @@ Considerando los diferentes puntos de equilibrio en los cuales se puede encontra
  \end{itemize}
  \item \textbf{Despolarizada} cuando \(V \geq 0\).
  \begin{itemize}
-  \item Cuando en sus dendritas y en el cuerpo de la neurona se acumula una carga muy grande (un voltaje electrico, disparo), se abre la compuerta de sodio y van a empezar a entrar el sodio, esta diferencia de potencial que existía entre lo fuera y lo adentro se va a reducir de hecho se puede llegar a reducir bastante dependiendo de la carga que se le aplique.
+  \item Cuando en sus dendritas y en el cuerpo de la neurona se acumula una carga muy grande (un voltaje eléctrico, disparo), se abre la compuerta de sodio y van a empezar a entrar el sodio, esta diferencia de potencial que existía entre lo fuera y lo adentro se va a reducir de hecho se puede llegar a reducir bastante dependiendo de la carga que se le aplique.
   \item Iones positivos entran a la membrana.
   \item Valores positivos en la diferencia de potencial.    
  \end{itemize}
  \item \textbf{Hiperpolarizada} cuando la diferencia de potencial incrementa su magnitud \(V << 0\).
  \begin{itemize}
- \item En cuanto se despolarice van a empiezar interacciones entre los diferentes tipos de canales que lo que van a intentar hacer es regresar a la neurona en su estado normal.
+ \item En cuanto se despolarice van a empezar interacciones entre los diferentes tipos de canales que lo que van a intentar hacer es regresar a la neurona en su estado normal.
  \item Los canales de potasio abren sus compuertas, provocando que salga el potasio que está dentro del axón (en el citoplasma). 
  \item Iones positivos salen de la membrana.
  \item Si antes estaba quieta a los - 70mV, ahora va a quedar todavía más abajo alrededor de - 90mV. Esto va a permitir un fenómeno que se le conoce como \emph{el periodo de refracción} y ese periodo sirve para que simplemente se lance un disparo y que el comportamiento eléctrico no se rebote otra vez en dirección contraria en la neurona, va a quedar muy quieta la neurona durante un rato y después regresará otra vez a su estado de equilibrio. 
@@ -324,7 +237,7 @@ Recordemos brevemente las definiciones de los dos tipos de canales protagonistas
  \begin{enumerate}
   \item \textbf{Activado} Ambas compuertas abiertas.
   \item \textbf{Desactivado} Compuerta de activación cerrada, inactivación abierta.
-  \item \textbf{Inactivada} Compuerta de inactivación cerrada.
+  \item \textbf{Inactivado} Compuerta de inactivación cerrada.
  \end{enumerate}
 
 \end{definition}
@@ -337,7 +250,7 @@ Y retomando \hyperlink{LaEq}{la primera ecuación diferencial} donde tenemos, po
   \tag{\ref{eq:corrientesEnLaMembrana2}}
 \end{equation}
 
-Las capacitancias y variables del lado izquierdo están explicadas en la sección \hyperlink{secc}{\emph{Modelo de la membrana como bicapa de lípidos}}, aqui vamos a retomar las ecuaciones \ref{eq:corrientesEnLaMembrana3},\ref{eq:corrientesEnLaMembrana4},\ref{eq:corrientesEnLaMembrana5} de esa misma sección, (recordemos que estás ecuaciones describen la probabilidad de que los canales iónicos estén abiertos) que son las siguientes:
+Las capacitancias y variables del lado izquierdo están explicadas en la sección \hyperlink{secc}{\emph{Modelo de la membrana como bicapa de lípidos}}, aquí vamos a retomar las ecuaciones \ref{eq:corrientesEnLaMembrana3},\ref{eq:corrientesEnLaMembrana4},\ref{eq:corrientesEnLaMembrana5} de esa misma sección, (recordemos que estás ecuaciones describen la probabilidad de que los canales iónicos estén abiertos) que son las siguientes:
 
 \begin{equation}
   \dfrac{1}{\gamma(T)}\dfrac{dn}{dt} =  \alpha_{n^\infty} (V)(1 - n) - \beta_{n} (V) n = \dfrac{n(V)-n(t)}{\tau_{n}(V)}
@@ -377,7 +290,7 @@ Esta probabilidad se empieza a alterar conforme cambiamos el voltaje, pero no va
 \section{Dinámica del voltaje durante un disparo} 
 
 Ahora qué pasa cuando tomamos en cuenta que todas las compuertas están reaccionando al mismo tiempo.
-Notemos primeramente como está reaccionando la membrana ante un impulso electrico o voltaje, en la siguiente imagen \ref{fig:voltaje1}.
+Notemos primeramente como está reaccionando la membrana ante un impulso eléctrico o voltaje, en la siguiente imagen \ref{fig:voltaje1}.
 
 \begin{figure}[h]
  \centering
@@ -386,12 +299,12 @@ Notemos primeramente como está reaccionando la membrana ante un impulso electri
  \label{fig:voltaje1}
 \end{figure}
 
-Ahora lo que vemos en la imagen \ref{fig:voltaje1} se grafica de manera un poco más apegada a lo que pasa en los experimentos de la siguiente forma en la imagen \ref{fig:voltaje2}.
+Ahora lo que vemos en la imagen \ref{fig:voltaje1} se gráfica de manera un poco más apegada a lo que pasa en los experimentos de la siguiente forma en la imagen \ref{fig:voltaje2}.
 
 \begin{figure}[h]
  \centering
  \includegraphics[scale=0.5]{../Figuras/polarizacion2.png}
- \caption{Gráfica del cambio de voltaje en la membrana dado un impulso atrevés del tiempo. Cuando se rebasa el voltaje umbral, los canales de Na + y K + interactúan para producir una rápida despolarización de la membrana provocando una elevación del voltaje, para luego hiperpolarizarla. Durante el momento de despolarización la membrana puede llegar a valores positivos en este caso en particular el estímulo no es tan grande y se queda en valores negativos.}
+ \caption{Gráfica del cambio de voltaje en la membrana dado un impulso atreves del tiempo. Cuando se rebasa el voltaje umbral, los canales de Na + y K + interactúan para producir una rápida despolarización de la membrana provocando una elevación del voltaje, para luego hiperpolarizarla. Durante el momento de despolarización la membrana puede llegar a valores positivos en este caso en particular el estímulo no es tan grande y se queda en valores negativos.}
  \label{fig:voltaje2}
 \end{figure}
 
@@ -433,7 +346,7 @@ Ahora veamos las gráficas de la dinámica del disparo pero ya con los las compu
 
 \begin{figure}[H]
  \includegraphics[scale=0.6]{../Figuras/disparo.png}
- \caption{Medidas experimentales del estímulo y la reacción de todos los componentes de la membrana. El origen en estás gráficas realmente esta representando el punto de equilibrio que es alrededor de los -70mV. Del lado superior izquierdo mostrando como cambia el voltaje de la membrana respecto al tiempo, del lado superior derecho el comportamiento de la conductancia de los canales mostrando que aunque la conductancia del sodio reacciona más, es más breve, mientras que el potasio reacciona en menor medida pero durante más tiempo. En la parte inferior derecha la taza de transición de las compuertas n,m y h, mostrando que en cuando llega el impulso el primero en reaccionar es el sodio permitiendo que entre muy brevemente el sodio e inactivandose casi inmediatemente después, mientras que en ese momento los potasios se están liberando hacia la parte exterior de la meurona. Finalmente del lado inferior izquierdo mostrando como se comporta las constantes temporales, mostrando que las compuertas de activación de sodio no son tan afectadas comparado a la compuerta de bloqueo, notando algunos cambio bruscos en esta, mientras que el potasio si se nota más afectado y durante más tiempo pero recuperandose sin cambios bruscos. }
+ \caption{Medidas experimentales del estímulo y la reacción de todos los componentes de la membrana. El origen en estás gráficas realmente esta representando el punto de equilibrio que es alrededor de los -70mV. Del lado superior izquierdo mostrando como cambia el voltaje de la membrana respecto al tiempo, del lado superior derecho el comportamiento de la conductancia de los canales mostrando que aunque la conductancia del sodio reacciona más, es más breve, mientras que el potasio reacciona en menor medida pero durante más tiempo. En la parte inferior derecha la taza de transición de las compuertas n,m y h, mostrando que en cuando llega el impulso el primero en reaccionar es el sodio permitiendo que entre muy brevemente el sodio e inactivandose casi inmediatamente después, mientras que en ese momento los potasios se están liberando hacia la parte exterior de la neurona. Finalmente del lado inferior izquierdo mostrando como se comporta las constantes temporales, mostrando que las compuertas de activación de sodio no son tan afectadas comparado a la compuerta de bloqueo, notando algunos cambio bruscos en esta, mientras que el potasio si se nota más afectado y durante más tiempo pero recuperándose sin cambios bruscos. }
  \label{fig:voltajeActInac1}
 \end{figure}
 
@@ -448,7 +361,7 @@ En esta sección se listará como estamos resolviendo las ecuaciones diferencial
   \caption{Algoritmo de integración de Euler [Wells pp51].}\label{AIE}
   \begin{algorithmic}[1]
     \Function{INTEGRADISPARO}{$T,\Delta T,V_{0},I_{ext}(t)$}
-    \State Inicializar arreglos de logitud T: $T[],V[],n[],m[],h[],G_{Na}[],G_{K}[],\tau_{n}[],\tau_{m}[],\tau_{h}[] \gets arreglo[numeroDePasos] $
+    \State Inicializar arreglos de longitud T: $T[],V[],n[],m[],h[],G_{Na}[],G_{K}[],\tau_{n}[],\tau_{m}[],\tau_{h}[] \gets arreglo[numeroDePasos] $
     \State  $V[0] \gets V_{0}$
     \For {$ t = 0  a  t = T cada \Delta t $}
         \State Calcular $\alpha_{n}, \beta_{n}, \alpha_{m}, \beta_{m},\alpha_{h}, \beta_{h} $ utilizando $V(t)$.
@@ -499,50 +412,3 @@ Ya teniendo estos datos podemos fácilmente calcular las conductancias, simpleme
 
 Es bueno una vez que ya terminamos de calcular estos términos que se van a necesitar en la ecuación principal  \ref{eq:corrientesEnLaMembrana2} que es la del voltaje de la membrana,  ir almacenando en los \emph{resultados temporales} dentro de nuestros arreglos en la casilla que les corresponda, para ese momento (paso 8). En el paso 9, es donde ya vamos a utilizar \emph{la corriente externa} para meterla en la ecuación diferencial para el voltaje. Una vez que tengamos esto tenemos que repetirlo para cada paso, se está calculando el tiempo t,  entonces conforme avance el tiempo, va a dar el siguiente valor del voltaje, ya teniendo el siguiente valor del voltaje se va a poder usar para el siguiente paso ("como valor inicial nuevo") y así nos vamos a seguir todo el tiempo. 
 Terminando el tiempo asignado a la simulación, tenemos ya los arreglos llenos de los datos que nos van a poder permitir graficar, qué fue lo que sucedió en cada tiempo, con cada canal y es precisamente  así que se puede graficar las mediciones presentadas en la sección anterior.
-
-
-\section{Información condificada en las dendritas}
-
-En esta última sección de este capítulo, se va a tratar el cómputo en las neuronas, que vamos a simplificar para poder modelar las neuronas artificiales. Ya vimos detalladamente que pasa a lo largo del axón de la neurona, se ha mencionado que son quienes conforman la región que recibe la información (disparos / pulsos). Estos mandados desde los botones de las terminales de las neuronas presinápticas y son las dendritas las encargadas de enviar estas señales hasta el soma de la neurona y hacer que estas señales químicas se transformen o no en impulsos eléctricos. Ahora la siguiente cuestión es ¿Podemos hacer que se dispare más de una vez (con el mismo estímulo)?.
-
-Los disparos que produzca una neurona depende fuertemente de la interacción con sus neuronas vecinas. Recordemos que durante el período refractario lo que sucede, es que cuando se acumula información en las periferias del cuerpo de la neurona a través de las dendritas y de su cuerpo es porque; está recibiendo información de neuronas vecinas y eso va a hacer que dispare.
-
-Algunas neuronas tienen el periodo de refractario muy pequeño y disparan frecuentemente, por las conexiones que tienen con sus vecinas, son neuronas que mandan frecuentemente información y a veces pueden lanzar una serie de pulsos muy seguidos, en
-otras ocasiones puede haber interrupciones entre estas series de pulsos (ver imagen \ref{fig:neuronStaining}, en caso de los seres humanos podemos referirnos a las neuronas motoras que están en constante recepción y transmisión de información).
-
-\begin{figure}[h]
- \centering
- \includegraphics[scale=0.7]{../Figuras/neuron_staining_and_recording.png}
- \caption{Disparos de una neurona, Wstein, 14 September 2013, Wikimedia Commons. Esta foto muestra la neurona de cangrejo que se tiñó mediante la inyección intracelular de un colorante fluorescente. El recuadro muestra una grabación de las oscilaciones rítmicas del potencial de membrana. Las grabaciones fueron realizadas por Christopher Goldsmith en el laboratorio de Wolfgang Stein en la Universidad Estatal de Illinois, \url{https://upload.wikimedia.org/wikipedia/commons/c/ca/PD_neuron_staining_and_recording.png} , CC BY-SA 3.0.}
- \label{fig:neuronStaining}
-\end{figure}
-
-Por otro lado, hay otras neuronas que son muchísimo más pasivas y disparan muy rara vez (neuronas que están a niveles más altos, como reconocimiento de olores, colores, imágenes). Y también nos encontramos con casos donde aparentemente una neurona no reacciona ante ningún estímulo, hasta que pasa un estímulo muy especifico \footnote{Neuronas individuales que forman conceptos abstractos, responden por ejemplo, al nombre de un ser humano. Es así como se descubrió la neurona ‘Jennifer Aniston’, que disparaba cada vez que el retrato de la actriz se mostraba a los sujetos. Estas neuronas, que responden ante la presentación de algunas imágenes recibieron la denominación de“células abuelas”.} y está dispara (neuronas conceptuales o aisladas). La comunidad científica aún no se atreve a afirmar si este tipo de neurona solo dispara ante ese estímulo específico, o simplemente se trata de un evento que cumple con todas las condiciones para que esta neurona reaccione y mande un pulso. Cabe mencionar que estas neuronas se encuentran en las capas más altas de abstracción de procesamiento del cerebro \footnote{En la siguiente liga se puede encontrar información más detallada acerca de la investigación con estas neuronas: \url{https://www.nature.com/articles/s41598-020-64466-7}}. Este tipo de diferencias entre neuronas te será más fácil recordar si regresas a la última sección del primer capítulo donde se encuentra un diagrama de los procesos de información en los que puede invertir una neurona, este diagrama es \ref{fig:zonasFun}.
-
-En este momento notamos la gran importancia de la codificación de la información en las redes neuronales de un cerebro. Donde la frecuencia de potenciales de acción nos muestran, ciertos patrones que nos indican el nivel de abstracción al que está respondiendo la neurona y el tipo de información que ayuda codificar o decodificar. 
-
-Teniendo ahora noción del papel que juegan los patrones de la frecuencia de disparos, se han hecho numerosas investigaciones acerca de estos. En un intento de entender mejor como es que un cerebro recibe la información desde el exterior, procesa y finalmente provoca ciertas reacciones ante el estímulo. En la siguiente imagen \ref{fig:simpleModel} que es el resultado de un artículo donde se utilizaron diferentes métodos para simular disparos de neuronas y notamos la clasificación de estos patrones que se dan ante ciertos estímulos. Cada uno de estos patrones, están codificando cosas distintas, donde una misma neurona podría alternar entre diferentes patrones dependiendo de cuál es el estímulo que está recibiendo.
-Si bien ha habido algunas propuestas donde se tratan de hacer neuronas artificiales que tomen en cuenta la frecuencia de disparos aún hay un amplio campo de investigación en este tema.
-
-\begin{figure}[h]
- \centering
- \includegraphics[scale=0.5]{../Figuras/Simple_Model_of_Spiking_Neurons.png}
- \caption{Diferentes patrones de disparo (simulados), Eugene M. Izhikevich, 2003, The Neurosciences Institute, \url{http://www.izhikevich.org/publications/spikes.html}}
- \label{fig:simpleModel}
-\end{figure}
-
-Por último mostremos la situación del sistema auditivo con la siguiente imagen \ref{fig:sonidoDisp}:
-
-\begin{figure}[H]
- \centering
- \includegraphics[scale=0.4]{../Figuras/Localización_del_sonido_por_disparidad.png}
- \caption{Localización del sonido por disparidad, Ian Stevenson, 7 enero 2008, El sistema auditivo registra y analiza pequeñas diferencias en el tiempo de llegada de los sonidos a los dos oídos para estimar la dirección desde la cual el sonido es emitido, \url{http://www.scholarpedia.org/w/images/4/4d/JeffressFig1.png}}
- \label{fig:sonidoDisp}
-\end{figure}
-
-La imagen muestra cómo computan las neuronas, este ejemplo se trata del sistema de audio humano. Cuando nosotros oímos podemos tratar de inferir aproximadamente desde donde está siendo emitido el sonido y eso se logra gracias a que tenemos neuronas conectadas al área auditiva (tanto con el oído derecho como con el oído izquierdo). La señal auditiva va a tardar más en llegar a un oído que al otro, dependiendo de su posición en el espacio, por lo que el cerebro siempre tratar de calcular ese desfase.  
-En el esquema se representa como dentro del espacio de una persona se encuentra una fuente de sonido. Dependiendo de la dirección que provenga (izquierda o derecha), las neuronas receptoras de cada oído harán un cálculo rápido de la distancia a la que se percibió la señal, estás llegaran al cerebro y en algún punto enlazaran con neuronas donde estás cuentan las diferencias de distancias percibidas hasta llegar a dar con el resultado, dándonos a saber cuáles receptores (izquierda o derecha) están más cerca de la señal, y así ubiquemos desde donde proviene el sonido.
-
-
-
-
