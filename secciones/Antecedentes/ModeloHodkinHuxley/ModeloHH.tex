@@ -1,14 +1,14 @@
 
 \section{Introducción}
 
-En esta sección se aborda el proceso de transmisión de información y se analizan las operaciones biológicas que hacen posibles los cómputos en el cerebro. Para empezar a modelar una red neuronal se detallará primero la dinámica de los disparos neuronales.
+En esta sección se aborda el proceso de transmisión de información y se analizan las operaciones biológicas que hacen posibles los cómputos en el cerebro que parten de la posibilidad de transmición de cargas electricas entre neuronas. Para empezar a modelar una red neuronal se detallará primero la dinámica de los disparos neuronales.
 
 Recordando los conceptos abordados en el  capítulo  anterior, las neuronas son células especializadas del sistema nervioso central que se comunican mediante señales tanto eléctricas como químicas.  Son células con núcleo, axón y dendritas capaces de transferir impulsos eléctricos. La transmisión de un pulso eléctrico se lleva a cabo desde el soma a través de sus membranas, pasando por los nodos de Ranvier a lo largo del axón, hasta la terminal del axón en los botones sinápticos. Las neuronas hacen sinapsis  permitiendo que el pulso llegue a las dendritas de la neurona postinanáptica, mediante canales iónicos. \parencite{neurona_A_cerebro}
 
 El pulso eléctrico que se desplazo desde el cono axónico de la neurona presináptica hasta la neurona postsináptica, se genera por la diferencia de potencial existente entre el interior y el exterior de la neurona, el cual resulta de las varias concentraciones de iones en ambos lados de la membrana plasmática. Los estados potenciales neuronales presentes en la membrana plasmática del axón se distinguen en los siguientes \parencite{HH}:
 
 \begin{itemize}
-\item \textbf{Potencial de reposo:} Se refiere a la diferencia de cargas eléctricas a través de la membrana celular cuando no hay una señal nerviosa en curso. La membrana está polarizada a -70 mV, lo que significa que tiene una carga positiva en el exterior (por la presencia de iones de sodio, Na+) y una carga negativa en el interior debido a iones como el cloruro (Cl-) y proteínas. En este estado, la membrana no transmite señales nerviosas. Ver la figura \fref{fig:MembranaP} lado derecho.
+\item \textbf{Potencial de reposo:} Se refiere a la diferencia de cargas eléctricas a través de la membrana celular cuando no hay una señal nerviosa en curso. La membrana está polarizada a -70 mV, lo que significa que tiene una carga positiva en el exterior (por la presencia de iones de sodio) (Na+) y una carga negativa en el interior debido a iones como el cloruro (Cl-) y proteínas. En este estado, la membrana no transmite señales nerviosas. Ver la figura \fref{fig:MembranaP} lado derecho.
 
 \item \textbf{Potencial de acción o membrana:}  Se produce cuando un estímulo alcanza un nivel umbral de 55 mV. Este evento despolariza la membrana, lo que significa que cambia rápidamente su polaridad de negativa a positiva. Esto ocurre porque se abren canales de iones de sodio (Na+) y potasio (K+), permitiendo el flujo de estos iones a través de la membrana, ver la figura \fref{fig:MembranaP} lado izquierdo. Este cambio rápido en la polaridad de la membrana es lo que impulsa el avance de la señal nerviosa. Las etapas del potencial de acción está representado en la figura \fref{fig:graficaP}
 \end{itemize}
@@ -27,6 +27,29 @@ El pulso eléctrico que se desplazo desde el cono axónico de la neurona presin�
  \caption{Representación gráfica de la respuesta de los canales iónicos de sodio (Na+ en verde) y potasio (K+ en azul) ante un estímulo de voltaje, dando como resultado un potencial de acción que viajará a lo largo de todo el axón.}
  \label{fig:graficaP}
 \end{figure}
+
+Los estados de la membrana neuronal están dados por estados electroquímicos que determinan su potencial eléctrico y paso de iones, son los siguientes: 
+
+\begin{enumerate}
+ \item \textbf{Estado Polarizado:} En su estado de reposo tiene \(V < 0 ( V \approx -70 mV )\).
+ \item \textbf{Estado Despolarizado:} Es cuando \(V \geq 0\).
+ \begin{itemize}
+  \item Se pasa a este estado cuando en las dendritas y en el cuerpo de la neurona se acumula una carga muy grande (un voltaje eléctrico, disparo), lo que desencadena la apertura del canal de sodio. 
+  \item Iones positivos de sodio entran a la membrana. 
+ \end{itemize}
+ \item \textbf{Estado Hiperpolarizado:} Es cuando \(V << 0\).
+
+  \begin{itemize}
+    \item Tras la despolarización los distinto tipos de canales iónicos buscan restaurar a la neurona a su estado de reposo.
+    \item Los canales de potasio abren sus compuertas, provocando que salga el potasio que está dentro del axón. 
+    \item Iones de potasio positivos salen de la membrana.
+    \item Se incrementa la polaridad negativa de la membrana disminuyendo aún más el potencial eléctrico.
+    \item Un breve lapso la neurona se inactiva eléctricamente, evitando que se genere un nuevo impulso eléctrico hasta que regrese a su estado de equilibrio, fenomeno conocido como
+    periodo de refracción.
+ \end{itemize}
+
+\end{enumerate}
+
 
 Los pioneros en el estudio del potencial de acción y elaboración de un modelo para la unión sináptica eléctrica fueron Alan Lloyd Hodgkin y Andrew Fielding Huxley alrededor de 1952. Este modelo matemático, intentaba esclarecer los procesos neuronales, surgió a partir de investigaciones experimentales  \footnote{El texto original de este experimento se puede encontrar en la siguiente url: \url{ https://physoc.onlinelibrary.wiley.com/doi/pdf/10.1113/jphysiol.1952.sp004764}}.
 
@@ -53,7 +76,7 @@ Los canales de iones permiten o bloquean el flujo de iones dependiendo de la dif
 \begin{figure}[h]
  \centering
  \includegraphics[scale=0.5]{../Figuras/circuito.png}
- \caption{Modelo de la membrana axónica modelada como circuito eléctrico, con los distintos canales presentes y sus voltajes en reposo.}
+ \caption{Circuito eléctrico de la membrana axónica, incluyendo los diversos canales presentes y sus respectivos voltajes en estado de reposo.}
  \label{fig:circuito}
 \end{figure}
 
@@ -61,21 +84,17 @@ Los elementos necesarios para el modelo de la membrana son los siguientes:
 \begin{itemize}
 \item Potenciales eléctricos \emph{E ó  V}; Se mide en \emph{mV}.
     \begin{itemize}
-     \item \emph{E\textsubscript{(Na,K,L)}} 
-     Potencial de equilibrio o reposo para los iones de sodio (Na), potasio (K) y cloruro y de fuga (L). 
-     \begin{itemize}
-        \item E \textsubscript{Na}  \emph{50mV}
-        \item E \textsubscript{Ca}  \emph{150mV}
-        \item E \textsubscript{K}   \emph{- 80mV}
-        \item E \textsubscript{Cl}  \emph{- 60mV}
-        \end{itemize}
+     \item \emph{E\textsubscript{(ion)}} 
+     Potencial de equilibrio o reposo para los iones: sodio (N), potasio (K) o cloruro y corriente de fuga (L).\footnote{
+        La corriente de fuga(L) o en ingles, ``leakage current'', es una corriente electrica no deseada que fluye a traves de un material aislante o a lo largo de la superficie de un dispositivo. En el caso de este texto, se usa para poder agrupar los iones que están pasando por la membrana que no están pasando por el canal de sodio o potasio. Tales como los canales de calcio(Ca), cloro(Cl), y los canales de sodio especializados en ciertos tipos de funciones celulares particulares, llamados canales de sodio dependientes de voltaje, así como los canales de potasio dependientes de calcio.
+     } 
 
      \item \emph{V\textsubscript{m}} Potencial eléctrico de la membrana. 
      \end{itemize}
 
-\item Corriente \emph{I}; Movimiento de cargas. Se mide en \emph{µA}.
+\item Corriente \emph{I}; El flujo de cargas eléctricas y se mide en \emph{µA} (microamperios).
     \begin{itemize}
-     \item \emph{I\textsubscript{(Na,K,L)}} corriente entrante a los canales de Na, K o L.
+     \item \emph{I\textsubscript{(ion)}}: Corriente que ingresa a los canales iónicos de sodio (Na), potasio (K) o la corriente de fuga (L).
      \end{itemize}
 
 \item Resistencia \emph{R}; Medida de la oposición al movimiento de las partículas cargadas.
@@ -86,44 +105,15 @@ Los elementos necesarios para el modelo de la membrana son los siguientes:
 
 \item Conductancia \emph{g}; Inverso de la resistencia \( \dfrac{1}{R} \) , es decir, facilidad de transmisión de las partículas cargadas.
     \begin{itemize}
-     \item \emph{g\textsubscript{(Na,K,L)}}  la conductancia del canal de sodio, potasio, cloro y fuga. 
+     \item \emph{g\textsubscript{(ion)}}  la conductancia del canal de ion tal que ion es N, K o L. 
      \end{itemize}
 
 \end{itemize}
 
-\section{Modelo de los canales de inoes}
 
-En la figura \fref{fig:MembranaP} se puede ver la representación de membrana y sus lipidos, la carga es almacenada en la membrana por un breve periodo de tiempo, dando como resultado que la bicapa se comporte como un \textbf{capacitor}. Esta membrana también está con cierta resistencia al paso de corriente representado en el diagrama \ref{fig:circuito} \footnote{Otra explicación más detallada la podemos encontrar en \url{https://neurowiki.case.edu/wiki/Action_Potential_IV:_Hodgkin-Huxley_Equations_and_Other_Conductances}} 
+\section{Modelo de los canales de iones}
 
-La membrana de una neurona es modelada como un elemento de un circuito con capacitancia \emph{C\textsubscript{m}} y potencial \emph{V}, las corrientes que fluye a través de la bicapa lipídica están regidos por las siguientes ecuaciones:
-
-\begin{equation}
-  I_{m} = C_{m} \dfrac{dV_{m}}{dt}
-  \label{eq:corrientesEnLaMembrana}
-\end{equation}
-
-
-\begin{equation}
-  C_{m} \dfrac{dV_{m}}{dt} =  - g_{Na} m^3 h(V - E_{Na} ) - g_{K} n^4 (V - E_{K} ) - g_{L} (V - E_{L} ) + I_ext
-  \label{eq:corrientesEnLaMembrana2}
-\end{equation}
-
-\begin{equation}
-  \dfrac{1}{\gamma(T)}\dfrac{dn}{dt} =  \alpha_{n^\infty} (V)(1 - n) - \beta_{n} (V) n = \dfrac{n(V)-n(t)}{\tau_{n}(V)}
-  \label{eq:corrientesEnLaMembrana3}
-\end{equation}
-
-\begin{equation}
-  \dfrac{1}{\gamma(T)}\dfrac{dm}{dt} =  \alpha_{m} (V)(1 - m) - \beta_{m} (V) m = \dfrac{m^\infty(V)-m(t)}{\tau_{m}(V)}
-  \label{eq:corrientesEnLaMembrana4}
-\end{equation}
-
-\begin{equation}
-  \dfrac{1}{\gamma(T)}\dfrac{dh}{dt} =  \alpha_{h} (V)(1 - h) - \beta_{h} (V) h = \dfrac{h^\infty(V)-h(t)}{\tau_{h}(V)}
-  \label{eq:corrientesEnLaMembrana5}
-\end{equation}
-
-La ecuación principal es \ref{eq:corrientesEnLaMembrana} que donde la corriente de la membrana está dada por su capacitancia con el cambio voltaje en la membrana respecto al tiempo.
+Los canales de iones se agrupan en los siguientes tipos:
 
 
 \begin{definition}
@@ -147,21 +137,28 @@ La ecuación principal es \ref{eq:corrientesEnLaMembrana} que donde la corriente
 
 
 
+En la figura \fref{fig:MembranaP} se puede ver la representación de membrana y sus lipídos, la carga es almacenada en la membrana por un breve periodo de tiempo, dando como resultado que la bicapa se comporte como un \textbf{capacitor}. Esta membrana también ofrece cierta resistencia al paso de corriente representado en el diagrama \ref{fig:circuito} \footnote{Otra explicación más detallada la podemos encontrar en \url{https://neurowiki.case.edu/wiki/Action_Potential_IV:_Hodgkin-Huxley_Equations_and_Other_Conductances}} 
 
-Cada una de las partes del lado izquierdo de la ecuación \ref{eq:corrientesEnLaMembrana2} corresponde a las compuertas de los canales y la corriente de un estímulo escrictamente externo que pueda influir a la membrana.
+La membrana de una neurona es modelada como un componente de un circuito con capacitancia \emph{C\textsubscript{m}} y un potencial \emph{V}, lo que refleja las corrientes que atraviesan la bicapa lipídica. 
 
-De manera sencilla podemos notar al canal de potasio como una puerta hecha de cuatro subpuertas por donde los elementos pasan o no pasan, es decir tiene dos estados; activado o desactivado. El canal de sodio lo podemos notar como una puerta que está hecha de tres subpuertas del mismo tipo por donde los elementos pasan o no pasan y tiene aparte un tapón extra, que hace que aunque estas tres están abiertas bloquee toda la compuerta, es decir tiene tres estados; desactivado, activado, inactivo. Con esto podemos representar a las conductancias \textbf{G} como:
+Al observar de manera simplificada el canal de potasio, podemos visualizarlo como una estrucutra compuesta por cuatro subunidades que actúan como compuertas, permitiendo o bloqueando el paso de iones de potasio. En otras palabras, este canal tiene dos estados: activado o desactivado.
+
+Por otra parte el canal de sodio lo podemos visualizar como 
+como una estrucutra compuesta por tres subunidades del mismo tipo
+que actúan como compuertas, permitiendo o bloqueando el paso de iones de sodio. Adicionalmente cuenta con un tapón, aunque las tres subunidades estén abiertas, puede bloquear por completo el paso de iones. En consecuencia, el canal de sodio presenta tres estados distintos: desactivado, activado e inactivo.
+ 
+A partir de estas características, podemos representar las conductancias (\textbf{G}) de la siguiente manera \parencite{HH52}:
+
 
 \begin{itemize}
  \item \({G_{Na}} = g_{Na} * m ^3 * h \) donde \(g_{Na}\) es una constante que representa el valor de la conductancia máxima/\(cm ^2\), \textbf{m} es la proporción de los canales de sodio abiertos (representa la concentración de sodio) y nos indica la activación (subpuertas abiertas) del canal, \textbf{h} es el “tapón” de la compuerta que puede impedir el paso de iones independientemente de las otras tres subpuertas, es decir la inactivación (compuerta bloqueada).
 Los movimientos combinados de \textbf{m} y \textbf{h} son los que controlan la compuerta de sodio.
  \item \({G_{K}} = g_{K} * n^4\) donde \(g_{K}\) es una constante que representa el valor de la conductancia máxima /\(cm^2\), \textbf{n} es la proporción de los canales de potasio abiertos (representa la concentración de potasio) y nos indica la activación del canal de potasio.
- \item \(g_{L}\) es una constante, de los canales por fuga, que representa la concentración de los demás iones que pasan por la membrana.
+ \item \(g_{L}\) considerada una constante, pues representa la concentración de los demás iones que pasan por la membrana.
 \end{itemize}
 
-Las concentraciones de iones están dado por \emph{m}, \emph{n} y \emph{h}, que son variables de activación que describen la probabilidad de que los canales iónicos estén abiertos. Donde la ecuación \ref{eq:corrientesEnLaMembrana3} representa las subpuertas del canal de potasio y las ecuaciones \ref{eq:corrientesEnLaMembrana4} y \ref{eq:corrientesEnLaMembrana5} representando cada una un tipo de subpuerta al canal de sodio.
+Los siguientes elementos a conciderar son:
 
-Cada elemento en las ecuaciones \ref{eq:corrientesEnLaMembrana3}, \ref{eq:corrientesEnLaMembrana4}, \ref{eq:corrientesEnLaMembrana5} con \(ion\) denotando las compuertas del potasio \(n\) o del sodio, ya sea \(m\) o \(h\) se describen se la siguiente forma \parencite{HH52}:
 
 \begin{itemize}
  \item \(\dfrac{1}{\gamma(T)}\) Es el coeficiente de escala temporal, dependiente de la temperatura. Para efectos prácticos se considera constante.
@@ -172,7 +169,7 @@ Cada elemento en las ecuaciones \ref{eq:corrientesEnLaMembrana3}, \ref{eq:corrie
  \item \(\tau_{ion}(V)\) Tiempo que toma llegar al equilibrio.
 \end{itemize}
 
-Las expresiones de \(\alpha\) y \(\beta\) están dadas por las siguientes ecuaciones:
+Los elementos \(\alpha\) y \(\beta\) se denominan como constantes de velocidad de transición. Donde \(\alpha\) es el número de veces por segundo que se abre una puerta que está en estado cerrado, mientras que \(\beta\) es el número de veces por segundo que se cierra una puerta que está en estado abierto. Definidas mediante las siguientes ecuaciones \parencite{HH}:
 
 \begin{align*}
 \alpha_{n}&=\dfrac{0.01(10-V)}{exp(\dfrac{10-V}{10})-1}           &  \beta_{n}&=0.125exp-\dfrac{V}{80}\\
@@ -180,31 +177,40 @@ Las expresiones de \(\alpha\) y \(\beta\) están dadas por las siguientes ecuaci
 \alpha_{h}&=\dfrac{0.07}{exp-(\dfrac{V}{20})}              &  \beta_{h}&=\dfrac{1}{1+exp\dfrac{30-V}{10}}
 \end{align*}
 
-Los factores \(\alpha\) y \(\beta\) se denominan como constantes de velocidad de transición. Donde \(\alpha\) es el número de veces por segundo que se abre una puerta que está en estado cerrado, mientras que \(\beta\) es el número de veces por segundo que se cierra una puerta que está en estado abierto. Si la membrana tiene un la carga negativa, \(\alpha\) debe aumentar y \(\beta\) debe disminuir, cuando la membrana esté despolarizada.
+Con todos los elementos de la membrana antes descritos se denota la corriente de la membrana $I_{m}$ con las siguientes ecuaciones\parencite{HH52}:
 
-\subsection{Estados de la membrana}
+\begin{equation}
+  I_{m} = C_{m} \dfrac{dV_{m}}{dt}
+  \label{eq:corrientesEnLaMembrana}
+\end{equation}
 
-Los estados de la membrana están dados por estados electroquímicos que determinan su potencial eléctrico y paso de iones, son los siguientes: 
 
-\begin{enumerate}
- \item \textbf{Estado Polarizado:} En su estado de reposo tiene \(V < 0 ( V \approx -70 mV )\).
- \item \textbf{Estado Despolarizado:} Es cuando \(V \geq 0\).
- \begin{itemize}
-  \item Se pasa a este estado cuando en las dendritas y en el cuerpo de la neurona se acumula una carga muy grande (un voltaje eléctrico, disparo), lo que desencadena la apertura del canal de sodio. 
-  \item Iones positivos de sodio entran a la membrana. 
- \end{itemize}
- \item \textbf{Estado Hiperpolarizado:} Es cuando \(V << 0\).
+\begin{equation}
+  C_{m} \dfrac{dV_{m}}{dt} =  - g_{Na} m^3 h(V - E_{Na} ) - g_{K} n^4 (V - E_{K} ) - g_{L} (V - E_{L} ) + I_{ext}
+  \label{eq:corrientesEnLaMembrana2}
+\end{equation}
 
-  \begin{itemize}
-    \item Tras la despolarización los distinto tipos de canales iónicos buscan restaurar a la neurona a su estado de reposo.
-    \item Los canales de potasio abren sus compuertas, provocando que salga el potasio que está dentro del axón. 
-    \item Iones de potasio positivos salen de la membrana.
-    \item Se incrementa la polaridad negativa de la membrana disminuyendo aún más el potencial eléctrico.
-    \item Un breve lapso la neurona se inactiva eléctricamente, evitando que se genere un nuevo impulso eléctrico hasta que regrese a su estado de equilibrio, fenomeno conocido como
-    periodo de refracción.
- \end{itemize}
+\begin{equation}
+  \dfrac{1}{\gamma(T)}\dfrac{dn}{dt} =  \alpha_{n^\infty} (V)(1 - n) - \beta_{n} (V) n = \dfrac{n(V)-n(t)}{\tau_{n}(V)}
+  \label{eq:corrientesEnLaMembrana3}
+\end{equation}
 
-\end{enumerate}
+\begin{equation}
+  \dfrac{1}{\gamma(T)}\dfrac{dm}{dt} =  \alpha_{m} (V)(1 - m) - \beta_{m} (V) m = \dfrac{m^\infty(V)-m(t)}{\tau_{m}(V)}
+  \label{eq:corrientesEnLaMembrana4}
+\end{equation}
+
+\begin{equation}
+  \dfrac{1}{\gamma(T)}\dfrac{dh}{dt} =  \alpha_{h} (V)(1 - h) - \beta_{h} (V) h = \dfrac{h^\infty(V)-h(t)}{\tau_{h}(V)}
+  \label{eq:corrientesEnLaMembrana5}
+\end{equation}
+
+La ecuación principal es \ref{eq:corrientesEnLaMembrana}, donde la corriente que atraviesa la membrana está dada por su capacitancia multiplicada por el cambio voltaje en la membrana respecto al tiempo.
+
+La capacitancia multiplicada por el cambio voltaje en la membrana respecto al tiempo se expresa como las conductancias de los canales de iones  más la corriente recibida.
+
+En las mediciones experimentales se considera importante la temperatura que muestra la membrana a lo largo del paso de la señal en el tiempo, es por eso necesario decribirlo en las equiaciones \ref{eq:corrientesEnLaMembrana3},  \ref{eq:corrientesEnLaMembrana4},  \ref{eq:corrientesEnLaMembrana5}, que son eventualemnte descritas con los dos eventos que estan pasando, alpha si paso de cerrado a abierto y beta si paso de abierto a cerrado, alpha multiplicado por los iones que se quedaron? y beta multiplicado por los que pasaron... . Estos es descrito como la diferencia de los iones que pasan con el voltaje V y los iones que pasaron en el tiempo t  multiplicado inversamente por su rotorno al equilibrio con el voltaje V.
+
  
 \section{Simulación del disparo de una neurona usando el método de Euler}
 
